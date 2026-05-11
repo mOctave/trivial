@@ -1,0 +1,238 @@
+/*
+Trivial: Multiplayer trivia online.
+Copyright (C) 2026 mOctave
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
+html {
+	background-color: silver;
+	color: black;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+	font-size: xx-large;
+	text-align: center;
+}
+
+h2 {
+	font-size: larger;
+	text-align: center;
+}
+
+ol {
+	padding-left: 20px;
+}
+
+.texticon {
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+}
+
+/*
+MARK: Page Layout
+*/
+.left-bar {
+	left: 0;
+	width: 20%;
+}
+
+.right-bar {
+	right: 0;
+	width: 20%;
+}
+
+.main-container {
+	left: 20%;
+	width: 60%;
+}
+
+.left-bar, .right-bar, .main-container {
+	position: absolute;
+	top: 60px;
+	margin: 0;
+	padding: 0;
+}
+
+.left-bar>*, .right-bar>*, .main-container>* {
+	margin: 10px;
+}
+
+.content-box {
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: white;
+}
+
+.gold-content-box {
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	background: linear-gradient(rgba(255, 218, 153, 0.9), rgba(221, 153, 34, 0.9)), url("img/metal-bg.jpg");
+}
+
+.content-box h2 {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+/*
+MARK: Navbar
+*/
+
+.navbar, .mobile-navbar {
+	margin: 0;
+	padding: 0;
+	background-color: #8c3;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	border-bottom: 4px double #8dc;
+	z-index: 1;
+}
+
+.navbar {
+	display: block;
+}
+
+.mobile-navbar {
+	display: none;
+}
+
+.navright {
+	float: right;
+	height: 100%;
+}
+
+.navitem {
+	float: left;
+	display: block;
+	color: #000;
+	text-align: center;
+	text-decoration: none;
+	font-weight: 700;
+	height: calc(100% - 20px);
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 10px;
+	align-content: center;
+}
+
+.navitem * {
+	vertical-align: middle;
+	padding-right: 10px;
+}
+
+.navitem img {
+	height: 30px;
+}
+
+.navitem:hover {
+	background-color: #8dc;
+	border-radius: 3px;
+}
+
+.navbar-padding {
+	height: 50px;
+}
+
+#navmenu-toggle {
+	cursor: pointer;
+}
+
+#navmenu {
+	display: none;
+	position: fixed;
+	top: 50px;
+	right: 0;
+	bottom: 0;
+	width: 200px;
+	transition: linear 0.3s;
+	overflow: hidden;
+	background-color: #8c3;
+}
+
+#navmenu .navitem {
+	float: none;
+	text-align: right;
+	height: 30px;
+}
+
+/*
+MARK: Decks
+*/
+
+.deck-container {
+	width: 100%;
+}
+
+.deck {
+	display: inline-block;
+	width: 200px;
+	height: 300px;
+	border: 4px double black;
+	border-radius: 10px;
+	background-color: #eff;
+	padding: 10px;
+}
+
+.deck:hover {
+	background-color: #8dc;
+}
+
+.deck-name {
+	text-align: center;
+	font-weight: bold;
+}
+
+.deck-thumb {
+	width: 200px;
+	height: 240px;
+}
+
+.deck-details {
+	width: 200px;
+	color: #555;
+}
+
+.deck-creator {
+	float: right;
+	font-style: italic;
+}
+
+.deck-id {
+	text-align: center;
+	font-size: x-small;
+	padding: 10px;
+	color: #555;
+}
+
+/*
+MARK: Mobile Support
+*/
+
+@media screen and (max-width: 599px) {
+	.navbar {
+		display: none;
+	}
+	.mobile-navbar {
+		display: block;
+	}
+}
