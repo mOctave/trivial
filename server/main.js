@@ -1,8 +1,7 @@
 const express = require("express");
 const erl = require("express-rate-limit");
 const connectDB = require("./config/db");
-
-const MAIN_PORT = 41850;
+const env = require("./config/env");
 
 const limiter = erl.rateLimit({
 	windowMs: 30 * 1000,
@@ -26,4 +25,4 @@ app.use("/api/cards", require("./routes/card"));
 app.use("/api/decks", require("./routes/deck"));
 app.use("/api/users", require("./routes/user"));
 
-app.listen(MAIN_PORT, () => console.log(`Server listening on port ${MAIN_PORT}`));
+app.listen(env.mainPort, () => console.log(`Server listening on port ${env.mainPort}`));
