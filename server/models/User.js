@@ -6,6 +6,11 @@ const UserSchema = new mongoose.Schema({
 		required: true,
 		unique: true
 	},
+	pfp: {
+		type: String,
+		required: true,
+		default: "img/favicon.svg"
+	},
 	decksCreated: {
 		type: [String],
 		required: true,

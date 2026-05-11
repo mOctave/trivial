@@ -36,7 +36,7 @@ function populateContainer(deckContainer) {
 		<span class="deck-stars"><img class="texticon" src="img/star-unfilled.svg" alt="star"/> ${deck.stars}</span>
 		<span class="deck-creator">by ${deck.creator}</span>
 	</div>
-	<div class="deck-id">${deck._id}</div>
+	<div class="fine-print">${deck._id}</div>
 </div>
 `;
 	}

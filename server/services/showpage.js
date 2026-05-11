@@ -17,7 +17,8 @@ async function chooseData(page) {
 		case "pages/index":
 			return {
 				decks: await getPopularDecks(6, 0),
-				leaderboard: await getLeaderboard(5, 0)
+				leaderboard: await getLeaderboard(5, 0),
+				user: await getUser("mOctave") // TODO: Let each user view themself by default
 			};
 	}
 }
@@ -30,6 +31,11 @@ async function getPopularDecks(n, start) {
 async function getLeaderboard(n, start) {
 	let leaderboard = await User.find().sort({"rating": "descending"}).lean().skip(start).limit(n).then((x) => {return x});
 	return leaderboard;
+}
+
+async function getUser(name) {
+	let user = await User.findOne({"name": name}).then((x) => {return x});
+	return user;
 }
 
 module.exports = showpage;

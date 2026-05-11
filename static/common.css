@@ -42,6 +42,13 @@ ol {
 	vertical-align: middle;
 }
 
+.fine-print {
+	text-align: center;
+	font-size: x-small;
+	padding-top: 10px;
+	color: #555;
+}
+
 /*
 MARK: Page Layout
 */
@@ -215,13 +222,6 @@ MARK: Decks
 .deck-creator {
 	float: right;
 	font-style: italic;
-}
-
-.deck-id {
-	text-align: center;
-	font-size: x-small;
-	padding: 10px;
-	color: #555;
 }
 
 /*
