@@ -36,6 +36,14 @@ ol {
 	padding-left: 20px;
 }
 
+a {
+	color: #3882ba;
+}
+
+a:hover {
+	color: black;
+}
+
 .texticon {
 	width: 16px;
 	height: 16px;
@@ -47,6 +55,10 @@ ol {
 	font-size: x-small;
 	padding-top: 10px;
 	color: #555;
+}
+
+.error-msg {
+	color: #f42 !important;
 }
 
 /*
@@ -67,14 +79,24 @@ MARK: Page Layout
 	width: 60%;
 }
 
-.left-bar, .right-bar, .main-container {
+.left-half {
+	left: 0;
+	width: 50%;
+}
+
+.right-half {
+	right: 0;
+	width: 50%;
+}
+
+.left-bar, .right-bar, .main-container, .left-half, .right-half {
 	position: absolute;
 	top: 60px;
 	margin: 0;
 	padding: 0;
 }
 
-.left-bar>*, .right-bar>*, .main-container>* {
+.left-bar>*, .right-bar>*, .main-container>*, .left-half>*, .right-half>* {
 	margin: 10px;
 }
 
@@ -111,7 +133,7 @@ MARK: Navbar
 	left: 0;
 	right: 0;
 	height: 50px;
-	border-bottom: 4px double #8dc;
+	border-bottom: 2px solid black;
 	z-index: 1;
 }
 
@@ -183,6 +205,61 @@ MARK: Navbar
 }
 
 /*
+MARK: Forms
+*/
+
+form {
+	background-color: white;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.login-line {
+	display: flex;
+	height: 30px;
+	line-height: 30px;
+	margin-bottom: 10px;
+}
+
+.login-line > * {
+	height: 30px;
+	margin: 5px;
+}
+
+label {
+	display: inline-block;
+	width: 100px;
+}
+
+.login-input {
+	display: inline-block;
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.login-button {
+	display: block;
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: #8c3;
+	font-weight: bold;
+}
+
+.login-button:hover {
+	background-color: #8dc;
+}
+
+.form-desc {
+	color: #555;
+	font-size: small;
+	margin: 5px;
+}
+
+
+/*
 MARK: Decks
 */
 
@@ -222,6 +299,57 @@ MARK: Decks
 .deck-creator {
 	float: right;
 	font-style: italic;
+}
+
+/*
+MARK: Ranks
+*/
+.rank-iron {
+	color: #833;
+}
+
+.rank-bronze {
+	color: #d64;
+}
+
+.rank-silver {
+	color: #777;
+}
+
+.rank-gold {
+	color: gold;
+}
+
+.rank-platinum {
+	color: #8c3;
+	font-style: italic;
+}
+
+.rank-diamond {
+	color: #6ba;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.rank-astral {
+	color: #a3b;
+	font-weight: bold;
+	text-decoration: underline wavy #a3b;
+}
+
+.rank-master {
+	color: black;
+	font-family: 'Times New Roman', Times, serif;
+	font-weight: bold;
+}
+
+.rank-gm {
+	border-radius: 5px;
+	padding: 2px;
+	font-family: 'Times New Roman', Times, serif;
+	color: white;
+	background-color: black;
+	font-weight: bold;
 }
 
 /*

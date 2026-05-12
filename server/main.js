@@ -1,5 +1,8 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const erl = require("express-rate-limit");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
 const env = require("./config/env");
 
@@ -19,8 +22,13 @@ app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.static("static"));
 app.use(limiter);
+app.use(session({secret: env.sessionSecret, resave: false, saveUninitialized: false}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use("", require("./routes/pages"));
+app.use("/api/auth", require("./routes/auth"));
 app.use("/api/cards", require("./routes/card"));
 app.use("/api/decks", require("./routes/deck"));
 app.use("/api/users", require("./routes/user"));

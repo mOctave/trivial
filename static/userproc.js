@@ -37,27 +37,27 @@ function populateContainer(userContainer) {
 }
 
 function describeUserRating(raw) {
-	if (raw < 60) return "Iron";
-	if (raw < 120) return "Bronze I";
-	if (raw < 150) return "Bronze II";
-	if (raw < 180) return "Bronze III";
-	if (raw < 220) return "Silver I";
-	if (raw < 260) return "Silver II";
-	if (raw < 300) return "Silver III";
-	if (raw < 350) return "Gold I";
-	if (raw < 400) return "Gold II";
-	if (raw < 450) return "Gold III";
-	if (raw < 500) return "Platinum I";
-	if (raw < 550) return "Platinum II";
-	if (raw < 600) return "Platinum III";
-	if (raw < 700) return "Diamond I";
-	if (raw < 800) return "Diamond II";
-	if (raw < 900) return "Diamond III";
-	if (raw < 1100) return "Astral I";
-	if (raw < 1300) return "Astral II";
-	if (raw < 1500) return "Astral III";
-	if (raw < 2000) return "Master";
-	return "Grandmaster";
+	if (raw < 60) return `<span class="rank-iron">Iron</span>`;
+	if (raw < 120) return `<span class="rank-bronze">Bronze I</span>`;
+	if (raw < 150) return `<span class="rank-bronze">Bronze II</span>`;
+	if (raw < 180) return `<span class="rank-bronze">Bronze III</span>`;
+	if (raw < 220) return `<span class="rank-silver">Silver I</span>`;
+	if (raw < 260) return `<span class="rank-silver">Silver II</span>`;
+	if (raw < 300) return `<span class="rank-silver">Silver III</span>`;
+	if (raw < 350) return `<span class="rank-gold">Gold I</span>`;
+	if (raw < 400) return `<span class="rank-gold">Gold II</span>`;
+	if (raw < 450) return `<span class="rank-gold">Gold III</span>`;
+	if (raw < 500) return `<span class="rank-platinum">Platinum I</span>`;
+	if (raw < 550) return `<span class="rank-platinum">Platinum II</span>`;
+	if (raw < 600) return `<span class="rank-platinum">Platinum III</span>`;
+	if (raw < 700) return `<span class="rank-diamond">Diamond I</span>`;
+	if (raw < 800) return `<span class="rank-diamond">Diamond II</span>`;
+	if (raw < 900) return `<span class="rank-diamond">Diamond III</span>`;
+	if (raw < 1100) return `<span class="rank-astral">Astral I</span>`;
+	if (raw < 1300) return `<span class="rank-astral">Astral II</span>`;
+	if (raw < 1500) return `<span class="rank-astral">Astral III</span>`;
+	if (raw < 2000) return `<span class="rank-master">Master</span>`;
+	return `<span class="rank-gm">Grandmaster</span>`;
 }
 
 

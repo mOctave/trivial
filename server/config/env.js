@@ -12,10 +12,7 @@ const databaseServer = process.env.DATABASE_SERVER ? process.env.DATABASE_SERVER
 const databaseURI = databaseUser ? `mongodb://${databaseUser}:${databasePassword}@${databaseServer}/${databaseName}`
 	: `mongodb://${databaseServer}/${databaseName}`;
 
-const privateKey = process.env.PRIVATE_KEY ? process.env.PRIVATE_KEY : "!!! INSECURE !!!";
+const jwtSecret = process.env.JWT_SECRET ? process.env.JWT_SECRET : "!!! INSECURE !!!";
+const sessionSecret = process.env.SESSION_SECRET ? process.env.SESSION_SECRET : "!!! INSECURE !!!";
 
-module.exports = {
-	mainPort: mainPort,
-	databaseURI: databaseURI,
-	privateKey: privateKey
-}
+module.exports = { mainPort, databaseURI, jwtSecret, sessionSecret }
