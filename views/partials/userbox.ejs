@@ -1,12 +1,12 @@
-<% if (locals.user) { %>
+<% if (locals.targetUser) { %>
 	<div class="content-box">
 		<div class="user-container">
 		</div>
 	</div>
 
 	<script>
-		window.userData = <%- JSON.stringify(user) %>;
+		window.targetUserData = <%- JSON.stringify(targetUser) %>;
 	</script>
-	<script src="userproc.js" defer></script>
+	<script src="/userproc.js" defer></script>
 
 <% } %>

@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const { hash, compare } = require("../services/hash");
 const { generateToken } = require("../services/jwt");
+const registerAction = require("../services/registeraction");
 
 const errorUserAlreadyExists = "The username you selected is already in use. Please choose a different name.";
 const errorBlankUsername = "Please choose a username that isn't just whitespace.";
@@ -76,8 +77,9 @@ async function login(req, res) {
 		}
 
 		const token = generateToken({id: user._id, name: user.name});
-		res.cookie("token", token, {httpOnly: true, sameSite: "strict",});
+		res.cookie("token", token, {httpOnly: true, sameSite: "strict"});
 
+		registerAction(user.name);
 		res.status(200);
 		res.redirect("/");
 	} catch (e) {

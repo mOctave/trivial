@@ -1,30 +1,30 @@
 <div class="navbar">
-	<a href="./" class="navitem"><img src="img/favicon.svg"/>Trivial</a>
+	<a href="/" class="navitem"><img src="/img/favicon.svg"/>Trivial</a>
 	<div class="navright">
-		<a href="./decks" class="navitem">Decks</a>
-		<a href="./play" class="navitem">Play</a>
+		<a href="/decks" class="navitem">Decks</a>
+		<a href="/play" class="navitem">Play</a>
 		<% if (!locals.loggedIn) { %>
-		<a href="./login" class="navitem">Log In</a>
+		<a href="/login" class="navitem">Log In</a>
 		<% } else { %>
-		<a href="./logout" class="navitem">Log Out</a>
+		<a href="/logout" class="navitem">Log Out</a>
 		<% } %>
 	</div>
 </div>
 <div class="mobile-navbar">
-	<a href="./" class="navitem"><img src="img/favicon.svg"/>Trivial</a>
+	<a href="/" class="navitem"><img src="/img/favicon.svg"/>Trivial</a>
 	<div class="navright">
 		<div id="navmenu-toggle" class="navitem">☰</div>
 	</div>
 	<div id="navmenu">
-		<a href="./decks" class="navitem">Decks</a>
-		<a href="./play" class="navitem">Play</a>
+		<a href="/decks" class="navitem">Decks</a>
+		<a href="/play" class="navitem">Play</a>
 		<% if (!locals.loggedIn) { %>
-		<a href="./login" class="navitem">Log In</a>
+		<a href="/login" class="navitem">Log In</a>
 		<% } else { %>
-		<a href="./logout" class="navitem">Log Out</a>
+		<a href="/logout" class="navitem">Log Out</a>
 		<% } %>
 	</div>
 </div>
 <div class="navbar-padding"></div>
 
-<script src="navbar.js" defer></script>
+<script src="/navbar.js" defer></script>

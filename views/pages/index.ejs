@@ -32,7 +32,10 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		<div class="main-container">
 			<h1>Trivial</h1>
 			<p>Show off your trivia knowledge with both custom and curated decks, building up your knowledge and prestige in an effort to become the ultimate annoying know-it-all.</p>
-			<%- include("../partials/deckbox"); %>
+			<div class="gold-content-box">
+				<h2>Popular Decks</h2>
+				<%- include("../partials/deckbox"); %>
+			</div>
 		</div>
 		<div class="right-bar">
 			<%- include("../partials/leaderboard"); %>

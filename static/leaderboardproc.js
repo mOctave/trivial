@@ -27,7 +27,7 @@ function populateContainer(leaderboardContainer) {
 	for (let leader of window.leaderboardData) {
 		leaderboardContainer.innerHTML +=
 `
-<li>${leader.name} <span style="float: right;">${leader.rating}</span></li>
+<li><a href="/user/${encodeURI(leader.name)}">${leader.name} <span style="float: right;">${leader.rating}</span></a></li>
 `;
 	}
 }

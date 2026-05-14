@@ -28,6 +28,10 @@ router.get("/privacy", async (req, res) => {
 	showpage("pages/privacy", req, res);
 });
 
+router.get("/user/:target", async (req, res) => {
+	showpage("pages/user", req, res);
+});
+
 router.get("/*splat", async (req, res) => {
 	showpage("errors/404", req, res);
 });

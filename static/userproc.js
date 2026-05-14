@@ -24,7 +24,7 @@ for (let userContainer of userContainers) {
 
 // MARK: Functions
 function populateContainer(userContainer) {
-	let user = window.userData;
+	let user = window.targetUserData;
 	userContainer.innerHTML +=
 `
 <h2 class="user-name">${user.name}</h2>
