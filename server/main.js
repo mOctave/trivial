@@ -8,7 +8,7 @@ const env = require("./config/env");
 
 const limiter = erl.rateLimit({
 	windowMs: 30 * 1000,
-	limit: 25,
+	limit: 50,
 	standardHeaders: "draft-8",
 	legacyHeaders: false,
 	ipv6Subnet: 60,
