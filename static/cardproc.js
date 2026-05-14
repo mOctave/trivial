@@ -17,27 +17,28 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 // MARK: Execute
-console.log("Processing decks");
-let deckContainers = document.getElementsByClassName("deck-container");
-for (let deckContainer of deckContainers) {
-	populateContainer(deckContainer);
+console.log("Processing cards");
+let cardContainers = document.getElementsByClassName("card-container");
+for (let cardContainers of cardContainers) {
+	populateContainer(cardContainers);
 }
 
 
 // MARK: Functions
-function populateContainer(deckContainer) {
-	for (let deck of window.deckData) {
-		deckContainer.innerHTML +=
+function populateContainer(cardContainers) {
+	for (let card of window.cardData) {
+		let tagText = "";
+		for (let tag of card.tags) {
+			tagText += `<div class="card-tag">${tag}</div>`;
+		}
+		cardContainers.innerHTML +=
 `
-<a id="deck-${deck._id}" class="deck" href="/deck/${deck._id}">
-	<div class="deck-name">${deck.name}</div>
-	<img class="deck-thumb" src="${deck.image}"/>
-	<div class="deck-details">
-		<span class="deck-stars"><img class="texticon" src="/img/star-unfilled.svg" alt="star"/> ${deck.stars}</span>
-		<span class="deck-creator">by ${deck.creator}</span>
-	</div>
-	<div class="fine-print">${deck._id}</div>
-</a>
+<div id="card-${card._id}" class="card">
+	<div class="card-question">${card.name}</div>
+	<img class="card-thumb" src="${card.image}"/>
+	<div class="card-tags">${tagText}</div>
+	<div class="fine-print">${card._id}</div>
+</div>
 `;
 	}
 }

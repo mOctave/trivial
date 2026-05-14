@@ -61,6 +61,11 @@ a:hover {
 	color: #f42 !important;
 }
 
+.pfp {
+	width: 100%;
+	aspect-ratio: 1;
+}
+
 /*
 MARK: Page Layout
 */
@@ -275,6 +280,9 @@ MARK: Decks
 	border-radius: 10px;
 	background-color: #eff;
 	padding: 10px;
+
+	color: black;
+	text-decoration: none;
 }
 
 .deck:hover {
@@ -299,6 +307,27 @@ MARK: Decks
 .deck-creator {
 	float: right;
 	font-style: italic;
+}
+
+/*
+MARK: Cards
+*/
+
+.card-container {
+	width: 100%;
+}
+
+.card {
+	display: inline-block;
+	width: 200px;
+	height: 300px;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: #eff;
+	padding: 10px;
+
+	color: black;
+	text-decoration: none;
 }
 
 /*

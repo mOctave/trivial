@@ -1,4 +1,5 @@
 const express = require("express");
+const Card = require("../models/Card");
 const Deck = require("../models/Deck");
 const User = require("../models/User");
 const authorize = require("../services/authorize");
@@ -24,6 +25,8 @@ async function showpage(page, req, res) {
 }
 
 async function chooseData(page, req, res) {
+	let key;
+	let target;
 	switch (page) {
 		case "pages/index":
 			return {
@@ -38,17 +41,33 @@ async function chooseData(page, req, res) {
 				errorLoginUsername: req.session.errorLoginUsername,
 				errorLoginPassword: req.session.errorLoginPassword,
 				errorRegisterUsername: req.session.errorRegisterUsername,
-				errorRegisterPassword: req.session.errorRegisterPassword
+				errorRegisterPassword: req.session.errorRegisterPassword,
+				loggedIn: await (req.user !== undefined)
 			};
 		case "pages/user":
-			const username = decodeURI(req.params.target);
-			const target = await getUser(username);
+			key = decodeURI(req.params.target);
+			target = await getUser(key);
 			if (!target) throw new PageResolutionError();
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
 				targetUser: target,
-				decks: await Deck.find({"creator": username}).then((x) => {return x}),
-				leaderboard: await getLeaderboard(10, 0)
+				decks: await Deck.find({"creator": key}).then((x) => {return x}),
+				leaderboard: await getLeaderboard(10, 0),
+				loggedIn: await (req.user !== undefined)
+			}
+		case "pages/deck":
+			try {
+				target = await Deck.find({"_id": req.params.target}).then((x) => {return x});
+			} catch (e) {
+				// Errors will be caught in the next line anyways.
+			}
+			if (!target) throw new PageResolutionError();
+			return {
+				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
+				decks: target,
+				cards: await Card.find({"_id": {$in: target.cards}}).then((x) => {return x}),
+				leaderboard: await getLeaderboard(10, 0),
+				loggedIn: await (req.user !== undefined)
 			}
 		default:
 			return {

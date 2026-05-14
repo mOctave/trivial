@@ -1,0 +1,47 @@
+<!--
+Trivial: Multiplayer trivia online.
+Copyright (C) 2026 mOctave
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include("../partials/head"); %>
+	</head>
+	<body>
+		<%- include("../partials/navbar"); %>
+		<div class="left-bar">
+			<div class="content-box">
+				<h2><%- decks[0].name %></h2>
+				<img class="pfp" src="<%- decks[0].image %>"/>
+				<p>Created by <%- decks[0].creator %></p>
+				<p><%- decks[0].cards.length %> cards</p>
+				<p><%- decks[0].stars %> stars</p>
+				<div class="fine-print"><%- decks[0]._id %></div>
+			</div>
+		</div>
+		<div class="main-container">
+			<div class="content-box">
+				<%- include("../partials/cardbox"); %>
+			</div>
+		</div>
+		<div class="right-bar">
+			<%- include("../partials/leaderboard"); %>
+			<%- include("../partials/contribute"); %>
+		</div>
+	</body>
+</html>

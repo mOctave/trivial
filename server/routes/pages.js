@@ -32,6 +32,10 @@ router.get("/user/:target", async (req, res) => {
 	showpage("pages/user", req, res);
 });
 
+router.get("/deck/:target", async (req, res) => {
+	showpage("pages/deck", req, res);
+});
+
 router.get("/*splat", async (req, res) => {
 	showpage("errors/404", req, res);
 });
