@@ -25,19 +25,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	<body>
 		<%- include("../partials/navbar"); %>
 		<div class="left-bar">
-			<div class="content-box">
-				<h2><%- decks[0].name %></h2>
-				<img class="pfp" src="<%- decks[0].image %>"/>
-				<div class="deck-creator">Created by <%- decks[0].creator %></div>
-				<p><%- decks[0].cards.length %> cards</p>
-				<p><%- decks[0].stars %> stars</p>
-				<div class="fine-print"><%- decks[0]._id %></div>
-			</div>
+			<%- include("../partials/cookies"); %>
+			<%- include("../partials/ranks"); %>
 		</div>
 		<div class="main-container">
-			<div class="content-box">
-				<%- include("../partials/cardbox"); %>
-			</div>
+			<h1>All Cards</h1>
+			<%- include("../partials/cardbox"); %>
 		</div>
 		<div class="right-bar">
 			<%- include("../partials/leaderboard"); %>

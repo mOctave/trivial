@@ -28,12 +28,20 @@ router.get("/privacy", async (req, res) => {
 	showpage("pages/privacy", req, res);
 });
 
+router.get("/cards", async (req, res) => {
+	showpage("pages/cards", req, res);
+});
+
 router.get("/user/:target", async (req, res) => {
 	showpage("pages/user", req, res);
 });
 
 router.get("/deck/:target", async (req, res) => {
 	showpage("pages/deck", req, res);
+});
+
+router.get("/card/:target", async (req, res) => {
+	showpage("pages/card", req, res);
 });
 
 router.get("/*splat", async (req, res) => {

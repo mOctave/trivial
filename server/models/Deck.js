@@ -7,10 +7,10 @@ const DeckSchema = new mongoose.Schema({
 	},
 	image: {
 		type: String,
-		required: false
+		required: true
 	},
 	cards: {
-		type: [String],
+		type: [mongoose.Schema.Types.ObjectId],
 		required: true,
 		default: []
 	},
@@ -25,6 +25,11 @@ const DeckSchema = new mongoose.Schema({
 		default: "Trivial"
 	},
 	dateCreated: {
+		type: Date,
+		required: true,
+		default: () => new Date()
+	},
+	dateModified: {
 		type: Date,
 		required: true,
 		default: () => new Date()

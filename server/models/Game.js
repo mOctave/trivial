@@ -7,7 +7,7 @@ const GameSchema = new mongoose.Schema({
 	},
 	players: [{
 		name: {type: String, required: true},
-		deck: {type: mongoose.Schema.Types.ObjectId, ref: "Deck", required: false},
+		deck: {type: mongoose.Types.ObjectId, ref: "Deck", required: false},
 		score: {type: Number, required: true, default: 0}
 	}],
 	nextPlayer: {
@@ -26,7 +26,7 @@ const GameSchema = new mongoose.Schema({
 		default: false
 	},
 	currentCard: {
-		type: mongoose.Schema.Types.ObjectId,
+		type: mongoose.Types.ObjectId,
 		ref: "Card",
 		required: false
 	}

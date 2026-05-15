@@ -26,17 +26,23 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		<%- include("../partials/navbar"); %>
 		<div class="left-bar">
 			<div class="content-box">
-				<h2><%- decks[0].name %></h2>
-				<img class="pfp" src="<%- decks[0].image %>"/>
-				<div class="deck-creator">Created by <%- decks[0].creator %></div>
-				<p><%- decks[0].cards.length %> cards</p>
-				<p><%- decks[0].stars %> stars</p>
-				<div class="fine-print"><%- decks[0]._id %></div>
+				<div class="question"><%- cards[0].question %></div>
+				<% if(cards[0].image) { %>
+					<img class="pfp" src="<%- cards[0].image %>"/>
+				<% } %>
+				<hr/>
+				<div class="answer"><%- cards[0].answer %></div>
+				<div class="deck-creator">Created by <%- cards[0].creator %></div>
+				<div class="fine-print"><%- cards[0]._id %></div>
 			</div>
 		</div>
 		<div class="main-container">
 			<div class="content-box">
-				<%- include("../partials/cardbox"); %>
+				<p>This card was created <%- cards[0].dateCreated %> by <%- cards[0].creator %> and was last modified <%- cards[0].dateModified %>. It has been correctly answered <%- cards[0].correct %> times out of the <%- cards[0].presentations %> times it has been shown.</p>
+			</div>
+			<div class="content-box">
+				<h2>Decks with this card</h2>
+				<%- include("../partials/deckbox"); %>
 			</div>
 		</div>
 		<div class="right-bar">

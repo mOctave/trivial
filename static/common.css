@@ -321,13 +321,40 @@ MARK: Cards
 	display: inline-block;
 	width: 200px;
 	height: 300px;
-	border: 1px solid black;
+	border: 2px solid black;
 	border-radius: 10px;
 	background-color: #eff;
 	padding: 10px;
 
 	color: black;
 	text-decoration: none;
+}
+
+.card hr {
+	color: #eff;
+}
+
+.card:hover {
+	background-color: #8dc;
+}
+
+.card:hover hr {
+	color: #8dc;
+}
+
+.card-thumb {
+	width: 200px;
+	height: 240px;
+}
+
+.card-details {
+	width: 200px;
+	color: #555;
+}
+
+.card-creator {
+	float: right;
+	font-style: italic;
 }
 
 /*

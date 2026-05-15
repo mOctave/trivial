@@ -23,6 +23,31 @@ const CardSchema = new mongoose.Schema({
 		required: true,
 		default: []
 	},
+	correct: {
+		type: Number,
+		required: true,
+		default: 0
+	},
+	presentations: {
+		type: Number,
+		required: true,
+		default: 0
+	},
+	creator: {
+		type: String,
+		required: true,
+		default: "Trivial"
+	},
+	dateCreated: {
+		type: Date,
+		required: true,
+		default: () => new Date()
+	},
+	dateModified: {
+		type: Date,
+		required: true,
+		default: () => new Date()
+	}
 });
 
 module.exports = mongoose.model("Card", CardSchema);

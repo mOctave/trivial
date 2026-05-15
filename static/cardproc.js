@@ -19,27 +19,44 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // MARK: Execute
 console.log("Processing cards");
 let cardContainers = document.getElementsByClassName("card-container");
-for (let cardContainers of cardContainers) {
-	populateContainer(cardContainers);
+for (let cardContainer of cardContainers) {
+	populateContainer(cardContainer);
 }
 
 
 // MARK: Functions
-function populateContainer(cardContainers) {
+function populateContainer(cardContainer) {
 	for (let card of window.cardData) {
 		let tagText = "";
 		for (let tag of card.tags) {
 			tagText += `<div class="card-tag">${tag}</div>`;
 		}
-		cardContainers.innerHTML +=
+		if (card.image) {
+			cardContainer.innerHTML +=
 `
-<div id="card-${card._id}" class="card">
-	<div class="card-question">${card.name}</div>
+<a id="card-${card._id}" class="card" href="/card/${card._id}">
+	<div class="card-question">${card.question}</div>
 	<img class="card-thumb" src="${card.image}"/>
+	<hr/>
+	<div class="card-answer">${card.answer}</div>
+	<div class="card-creator">by ${card.creator}</div>
 	<div class="card-tags">${tagText}</div>
 	<div class="fine-print">${card._id}</div>
-</div>
+</a>
 `;
+		} else {
+			cardContainer.innerHTML +=
+`
+<a id="card-${card._id}" class="card" href="/card/${card._id}">
+	<div class="card-question">${card.question}</div>
+	<hr/>
+	<div class="card-answer">${card.answer}</div>
+	<div class="card-creator">by ${card.creator}</div>
+	<div class="card-tags">${tagText}</div>
+	<div class="fine-print">${card._id}</div>
+</a>
+`;
+		}
 	}
 }
 

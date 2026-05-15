@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const Card = require("../models/Card");
 const Deck = require("../models/Deck");
 const User = require("../models/User");
@@ -44,6 +45,13 @@ async function chooseData(page, req, res) {
 				errorRegisterPassword: req.session.errorRegisterPassword,
 				loggedIn: await (req.user !== undefined)
 			};
+		case "pages/cards":
+			return {
+				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
+				cards: await Card.find().then((x) => {return x}),
+				leaderboard: await getLeaderboard(10, 0),
+				loggedIn: await (req.user !== undefined)
+			}
 		case "pages/user":
 			key = decodeURI(req.params.target);
 			target = await getUser(key);
@@ -65,7 +73,25 @@ async function chooseData(page, req, res) {
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
 				decks: target,
-				cards: await Card.find({"_id": {$in: target.cards}}).then((x) => {return x}),
+				cards: await Card.find({"_id": {$in: target[0].cards}}).then((x) => {return x}),
+				leaderboard: await getLeaderboard(10, 0),
+				loggedIn: await (req.user !== undefined)
+			}
+		case "pages/card":
+			console.log("Displaying card page!");
+			try {
+				target = await Card.find({"_id": req.params.target}).then((x) => {return x});
+			} catch (e) {
+				// Errors will be caught in the next line anyways.
+			}
+			if (!target) throw new PageResolutionError();
+			return {
+				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
+				decks: await Deck.aggregate([
+					{$unwind: "$cards"},
+					{$match: {"cards": req.params.target}}
+				]),
+				cards: target,
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined)
 			}
