@@ -15,4 +15,6 @@ const databaseURI = databaseUser ? `mongodb://${databaseUser}:${databasePassword
 const jwtSecret = process.env.JWT_SECRET ? process.env.JWT_SECRET : "!!! INSECURE !!!";
 const sessionSecret = process.env.SESSION_SECRET ? process.env.SESSION_SECRET : "!!! INSECURE !!!";
 
-module.exports = { mainPort, databaseURI, jwtSecret, sessionSecret }
+const superuserPassword = process.env.SUPERUSER_PASSWORD ? process.env.SUPERUSER_PASSWORD : "admin";
+
+module.exports = { mainPort, databaseURI, jwtSecret, sessionSecret, superuserPassword }

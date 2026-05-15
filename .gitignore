@@ -9,3 +9,6 @@ package-lock.json
 
 # System-Specific
 .DS_Store
+
+# Assets
+*.afdesign~lock~

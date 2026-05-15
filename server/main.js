@@ -5,6 +5,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
 const env = require("./config/env");
+const setSuperuser = require("./config/setsuperuser");
 
 const limiter = erl.rateLimit({
 	windowMs: 30 * 1000,
@@ -34,3 +35,5 @@ app.use("/api/decks", require("./routes/deck"));
 app.use("/api/users", require("./routes/user"));
 
 app.listen(env.mainPort, () => console.log(`Server listening on port ${env.mainPort}`));
+
+setSuperuser();

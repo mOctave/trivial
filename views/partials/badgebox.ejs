@@ -1,0 +1,13 @@
+<% if (locals.targetUser) { %>
+	<div class="content-box">
+		<h2><%- locals.targetUser.name %>'s badges</h2>
+		<div class="badge-container">
+		</div>
+	</div>
+
+	<script>
+		window.targetUserData = <%- JSON.stringify(targetUser) %>;
+	</script>
+	<script src="/scripts/fillers/badgebox.js" defer></script>
+
+<% } %>

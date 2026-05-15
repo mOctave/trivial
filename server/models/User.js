@@ -39,6 +39,11 @@ const UserSchema = new mongoose.Schema({
 		type: Number,
 		required: true,
 		default: 100
+	},
+	badges: {
+		type: [String],
+		required: true,
+		default: ["Trivialist"]
 	}
 });
 
