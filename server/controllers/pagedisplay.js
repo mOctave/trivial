@@ -56,10 +56,13 @@ async function chooseData(page, req, res) {
 			key = decodeURI(req.params.target);
 			target = await getUser(key);
 			if (!target) throw new PageResolutionError();
+			//console.log((await Card.find({}))[0].creator === key);
+			//console.log(await Card.find({creator: key}));
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
 				targetUser: target,
-				decks: await Deck.find({"creator": key}).then((x) => {return x}),
+				cards: await Card.find({"creator": key}).sort({"dateCreated": "descending"}).then((x) => {return x}),
+				decks: await Deck.find({"creator": key}).sort({"stars": "descending"}).then((x) => {return x}),
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined)
 			}

@@ -21,6 +21,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 <html>
 	<head>
 		<%- include("../partials/head"); %>
+		<script src="/scripts/utils/timestamp.js"></script>
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
@@ -38,7 +39,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		</div>
 		<div class="main-container">
 			<div class="content-box">
-				<p>This card was created <%- cards[0].dateCreated %> by <%- cards[0].creator %> and was last modified <%- cards[0].dateModified %>. It has been correctly answered <%- cards[0].correct %> times out of the <%- cards[0].presentations %> times it has been shown.</p>
+				<%- include("../partials/carddesc"); %>
 			</div>
 			<div class="content-box">
 				<h2>Decks with this card</h2>

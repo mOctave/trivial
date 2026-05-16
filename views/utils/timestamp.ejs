@@ -15,32 +15,18 @@ GNU Affero General Public License for more details.
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
+<%
+function timestamp(dateString) {
+	const date = new Date(dateString);
+	console.log(`Describing date ${date}`);
+	const diffTime = (new Date() - date) / 1000;
+	
+	if (diffTime < 0) return "in the future";
+	if (diffTime < 60) return "less than a minute ago";
+	if (diffTime < 60 * 60) return `${Math.floor(diffTime / 60)} minutes ago`;
+	if (diffTime < 60 * 60 * 24) return `${Math.floor(diffTime / 60 / 60)} hours ago`;
+	if (diffTime < 60 * 60 * 24 * 7) return `${Math.floor(diffTime / 60 / 60 / 24)} days ago`;
 
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<%- include("../partials/head"); %>
-	</head>
-	<body>
-		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<%- include("../partials/userbox"); %>
-		</div>
-		<div class="main-container">
-			<%- include("../partials/badgebox"); %>
-			<div class="content-box">
-				<h2><%- targetUser.name %>'s decks</h2>
-				<%- include("../partials/deckbox"); %>
-			</div>
-			<div class="content-box">
-				<h2><%- targetUser.name %>'s cards</h2>
-				<%- include("../partials/cardbox"); %>
-			</div>
-		</div>
-		<div class="right-bar">
-			<%- include("../partials/leaderboard"); %>
-			<%- include("../partials/contribute"); %>
-		</div>
-	</body>
-</html>
+	return Intl.DateTimeFormat(navigator.language, {month: "long", year: "numeric", day: "numeric"}).format(date);
+}
+%>

@@ -1,4 +1,4 @@
-<!--
+/*
 Trivial: Multiplayer trivia online.
 Copyright (C) 2026 mOctave
 
@@ -14,33 +14,19 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
--->
+*/
 
+// MARK: Execute
+let cardDescriptionContainers = document.getElementsByClassName("card-desc-container");
+for (let cardDescriptionContainer of cardDescriptionContainers) {
+	populateContainer(cardDescriptionContainer);
+}
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<%- include("../partials/head"); %>
-	</head>
-	<body>
-		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<%- include("../partials/userbox"); %>
-		</div>
-		<div class="main-container">
-			<%- include("../partials/badgebox"); %>
-			<div class="content-box">
-				<h2><%- targetUser.name %>'s decks</h2>
-				<%- include("../partials/deckbox"); %>
-			</div>
-			<div class="content-box">
-				<h2><%- targetUser.name %>'s cards</h2>
-				<%- include("../partials/cardbox"); %>
-			</div>
-		</div>
-		<div class="right-bar">
-			<%- include("../partials/leaderboard"); %>
-			<%- include("../partials/contribute"); %>
-		</div>
-	</body>
-</html>
+// MARK: Functions
+function populateContainer(cardDescriptionContainer) {
+	let card = window.cardData[0];
+	cardDescriptionContainer.innerHTML +=
+`
+<p>This card was created ${window.timestamp(card.dateCreated)} by ${card.creator} and was last modified ${window.timestamp(card.dateModified)}. It has been correctly answered ${card.correct} times out of the ${card.presentations} times it has been shown.</p>
+`;
+}

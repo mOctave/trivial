@@ -30,8 +30,8 @@ function populateContainer(userContainer) {
 <h2 class="user-name">${user.name}</h2>
 <img class="pfp" src="${user.pfp}" alt="${user.name}'s profile picture"/>
 <div class="user-rating">${user.rating} <span style="float: right;">${describeUserRating(user.rating)}</span></div>
-<div class="user-join-date">Joined ${describeDate(user.dateCreated)}</div>
-<div class="user-activity">Last active ${describeDate(user.dateActive)}</div>
+<div class="user-join-date">Joined ${window.timestamp(user.dateCreated)}</div>
+<div class="user-activity">Last active ${window.timestamp(user.dateActive)}</div>
 <div class="fine-print">${user._id}</div>
 `;
 }
@@ -58,19 +58,4 @@ function describeUserRating(raw) {
 	if (raw < 1500) return `<span class="rank-astral">Astral III</span>`;
 	if (raw < 2000) return `<span class="rank-master">Master</span>`;
 	return `<span class="rank-gm">Grandmaster</span>`;
-}
-
-
-function describeDate(dateString) {
-	const date = new Date(dateString);
-	console.log(`Describing date ${date}`);
-	const diffTime = (new Date() - date) / 1000;
-	
-	if (diffTime < 0) return "in the future";
-	if (diffTime < 60) return "less than a minute ago";
-	if (diffTime < 60 * 60) return `${Math.floor(diffTime / 60)} minutes ago`;
-	if (diffTime < 60 * 60 * 24) return `${Math.floor(diffTime / 60 / 60)} hours ago`;
-	if (diffTime < 60 * 60 * 24 * 7) return `${Math.floor(diffTime / 60 / 60 / 24)} days ago`;
-
-	return Intl.DateTimeFormat(navigator.language, {month: "long", year: "numeric", day: "numeric"}).format(date);
 }

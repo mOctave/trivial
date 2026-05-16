@@ -343,8 +343,7 @@ MARK: Cards
 }
 
 .card-thumb {
-	width: 200px;
-	height: 240px;
+	/* TODO: Dynamic resizing */
 }
 
 .card-details {
