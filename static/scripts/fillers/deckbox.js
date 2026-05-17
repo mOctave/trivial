@@ -41,6 +41,7 @@ function populateContainer(deckContainer) {
 	<img class="deck-thumb" src="${deck.image}"/>
 	<div class="deck-details">
 		<span class="deck-stars"><button id="deck-star-toggle-${deck._id}" class="${starButtonClasses}" onclick="toggleStar('${deck._id}')"></button> <span id="deck-star-count-${deck._id}">${deck.stars}</span></span>
+		<span class="deck-cards"><span class="icon-card"></span><span id="deck-card-count-${deck._id}">${deck.cards.length}</span></span>
 		<span class="deck-creator">by ${deck.creator}</span>
 	</div>
 	<div class="fine-print">${deck._id}</div>

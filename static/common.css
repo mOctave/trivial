@@ -470,6 +470,20 @@ Badges
 }
 
 /*
+MARK: Icon Sets
+*/
+.icon-card {
+	width: 20px;
+	height: 20px;
+	background-image: url("/img/card-filled.svg");
+	border: none;
+	background-color: transparent;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+
+/*
 MARK: Mobile Support
 */
 
