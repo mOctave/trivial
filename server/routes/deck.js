@@ -18,6 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 const express = require("express");
 const Deck = require("../models/Deck");
+const { star, unstar } = require("../controllers/deck");
 const router = express.Router();
 
 router.post("/add", async (req, res) => {
@@ -61,6 +62,14 @@ router.get("/list", async (req, res) => {
 		res.status(500).json({error: e.message});
 		console.log(e);
 	}
+});
+
+router.post("/star/:id", async (req, res) => {
+	star(req, res);
+});
+
+router.post("/unstar/:id", async (req, res) => {
+	unstar(req, res);
 });
 
 module.exports = router;

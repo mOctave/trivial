@@ -51,8 +51,8 @@ async function chooseData(page, req, res) {
 			return {
 				decks: await getPopularDecks(6, 0),
 				leaderboard: await getLeaderboard(10, 0),
-				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
-				targetUser: await (req.user ? await getUser(req.user.name) : undefined),
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
+				targetUser: await (req.user ? await getUser(req.user.name) : null),
 				loggedIn: await (req.user !== undefined)
 			};
 		case "pages/login":
@@ -65,7 +65,7 @@ async function chooseData(page, req, res) {
 			};
 		case "pages/cards":
 			return {
-				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				cards: await Card.find().then((x) => {return x}),
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined)
@@ -77,7 +77,7 @@ async function chooseData(page, req, res) {
 			//console.log((await Card.find({}))[0].creator === key);
 			//console.log(await Card.find({creator: key}));
 			return {
-				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				targetUser: target,
 				cards: await Card.find({"creator": key}).sort({"dateCreated": "descending"}).then((x) => {return x}),
 				decks: await Deck.find({"creator": key}).sort({"stars": "descending"}).then((x) => {return x}),
@@ -92,7 +92,7 @@ async function chooseData(page, req, res) {
 			}
 			if (!target) throw new PageResolutionError();
 			return {
-				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				decks: target,
 				cards: await Card.find({"_id": {$in: target[0].cards}}).then((x) => {return x}),
 				leaderboard: await getLeaderboard(10, 0),
@@ -107,7 +107,7 @@ async function chooseData(page, req, res) {
 			}
 			if (!target) throw new PageResolutionError();
 			return {
-				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				decks: await Deck.aggregate([
 					{$unwind: "$cards"},
 					{$match: {"cards": req.params.target}}
@@ -118,7 +118,7 @@ async function chooseData(page, req, res) {
 			}
 		default:
 			return {
-				activeUser: await (req.user ? await getUser(req.user.name) : undefined),
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				loggedIn: await (req.user !== undefined)
 			}
 	}

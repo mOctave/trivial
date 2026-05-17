@@ -304,6 +304,27 @@ MARK: Decks
 	color: #555;
 }
 
+.deck-star-toggle {
+	width: 20px;
+	height: 20px;
+	background-image: url("/img/star-unfilled.svg");
+	border: none;
+	background-color: transparent;
+	vertical-align: middle;
+}
+
+.deck-star-toggle.active-button {
+	background-image: url("/img/star-filled.svg");
+}
+
+.deck-star-toggle:hover {
+	background-image: url("/img/star-unfilled-hover.svg");
+}
+
+.deck-star-toggle.active-button:hover {
+	background-image: url("/img/star-filled-hover.svg");
+}
+
 .deck-creator {
 	float: right;
 	font-style: italic;

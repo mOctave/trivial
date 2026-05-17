@@ -27,13 +27,20 @@ for (let deckContainer of deckContainers) {
 // MARK: Functions
 function populateContainer(deckContainer) {
 	for (let deck of window.deckData) {
+		let starButtonClasses = "deck-star-toggle";
+		if (window.activeUserData != null) {
+			if (window.activeUserData.decksStarred.includes(deck._id)) {
+				starButtonClasses += " active-button";
+			}
+		}
+
 		deckContainer.innerHTML +=
 `
-<a id="deck-${deck._id}" class="deck" href="/deck/${deck._id}">
+<a id="deck-${deck._id}" class="deck" href="/deck/${deck._id}" onclick="return dontLinkOnButton(event)">
 	<div class="deck-name">${deck.name}</div>
 	<img class="deck-thumb" src="${deck.image}"/>
 	<div class="deck-details">
-		<span class="deck-stars"><img class="texticon" src="/img/star-unfilled.svg" alt="star"/> ${deck.stars}</span>
+		<span class="deck-stars"><button id="deck-star-toggle-${deck._id}" class="${starButtonClasses}" onclick="toggleStar('${deck._id}')"></button> <span id="deck-star-count-${deck._id}">${deck.stars}</span></span>
 		<span class="deck-creator">by ${deck.creator}</span>
 	</div>
 	<div class="fine-print">${deck._id}</div>
@@ -42,3 +49,28 @@ function populateContainer(deckContainer) {
 	}
 }
 
+function dontLinkOnButton(e) {
+	if (e.target instanceof HTMLElement && e.target.tagName === "BUTTON") {
+	 	e.preventDefault();
+	}
+}
+
+function toggleStar(deck) {
+	if (window.activeUserData != null) {
+		let toggle = document.getElementById(`deck-star-toggle-${deck}`);
+		let count = document.getElementById(`deck-star-count-${deck}`);
+		if (window.activeUserData.decksStarred.includes(deck)) {
+			toggle.classList.remove("active-button");
+			count.innerText = Number(count.innerText) - 1;
+			window.activeUserData.decksStarred.splice(window.activeUserData.decksStarred.indexOf(deck), 1);
+			// Send to server
+			fetch(`/api/decks/unstar/${deck}`, {method: "POST"}).catch((e) => {console.log(e)});
+		} else {
+			toggle.classList.add("active-button");
+			count.innerText = Number(count.innerText) + 1;
+			window.activeUserData.decksStarred.push(deck);
+			// Send to server
+			fetch(`/api/decks/star/${deck}`, {method: "POST"}).catch((e) => {console.log(e)});
+		}
+	}
+}
