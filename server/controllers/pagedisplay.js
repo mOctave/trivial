@@ -57,6 +57,7 @@ async function chooseData(page, req, res) {
 			};
 		case "pages/login":
 			return {
+				activeUser: null,
 				errorLoginUsername: req.session.errorLoginUsername,
 				errorLoginPassword: req.session.errorLoginPassword,
 				errorRegisterUsername: req.session.errorRegisterUsername,
