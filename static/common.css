@@ -271,7 +271,7 @@ MARK: Navbar
 	padding: 10px;
 	margin: 0;
 	border-radius: 3px;
-	width: 100%;
+	width: calc(100%-20px);
 	height: 20px;
 }
 
