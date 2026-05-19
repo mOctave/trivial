@@ -55,23 +55,3 @@ function dontLinkOnButton(e) {
 	 	e.preventDefault();
 	}
 }
-
-function toggleStar(deck) {
-	if (window.activeUserData != null) {
-		let toggle = document.getElementById(`deck-star-toggle-${deck}`);
-		let count = document.getElementById(`deck-star-count-${deck}`);
-		if (window.activeUserData.decksStarred.includes(deck)) {
-			toggle.classList.remove("active-button");
-			count.innerText = Number(count.innerText) - 1;
-			window.activeUserData.decksStarred.splice(window.activeUserData.decksStarred.indexOf(deck), 1);
-			// Send to server
-			fetch(`/api/decks/unstar/${deck}`, {method: "POST"}).catch((e) => {console.log(e)});
-		} else {
-			toggle.classList.add("active-button");
-			count.innerText = Number(count.innerText) + 1;
-			window.activeUserData.decksStarred.push(deck);
-			// Send to server
-			fetch(`/api/decks/star/${deck}`, {method: "POST"}).catch((e) => {console.log(e)});
-		}
-	}
-}

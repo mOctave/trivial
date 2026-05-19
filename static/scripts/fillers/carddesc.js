@@ -27,6 +27,6 @@ function populateContainer(cardDescriptionContainer) {
 	let card = window.cardData[0];
 	cardDescriptionContainer.innerHTML +=
 `
-<p>This card was created ${window.timestamp(card.dateCreated)} by ${card.creator} and was last modified ${window.timestamp(card.dateModified)}. It has been correctly answered ${card.correct} times out of the ${card.presentations} times it has been shown.</p>
+<p>This card was created ${timestamp(card.dateCreated)} by ${card.creator} and was last modified ${timestamp(card.dateModified)}. It has been correctly answered ${card.correct} times out of the ${card.presentations} times it has been shown.</p>
 `;
 }

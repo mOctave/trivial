@@ -16,7 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-window.timestamp = function(dateString) {
+function timestamp(dateString) {
 	const date = new Date(dateString);
 	console.log(`Describing date ${date}`);
 	const diffTime = (new Date() - date) / 1000;

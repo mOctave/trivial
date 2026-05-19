@@ -1,0 +1,23 @@
+<script src="/scripts/utils/stars.js"></script>
+<div id="deck-profile" class="content-box">
+</div>
+<form id="deck-editor" action="/api/decks/edit/<%- decks[0]._id %>" method="POST">
+	<div id="deck-editor-body" class="content-box">
+
+	</div>
+	<input class="button-highlighted" type="submit" value="Save"/>
+	<button type="button" class="button-standard" onclick="uneditDeck()">Cancel</button>
+</form>
+<button id="edit-button" class="button-highlighted" onclick="editDeck()">Edit Deck</button>
+<button id="delete-button" class="button-danger" onclick="promptDeleteDeck()">Delete Deck</button>
+<div id="delete-confirmation" class="content-box">
+	You are trying to delete this deck. Once you delete it, it is gone forever: this action cannot be undone.
+	<button class="button-danger" onclick="confirmDeleteDeck()">Delete Forever</button>
+</div>
+
+<script>
+	window.activeUserData = <%- JSON.stringify(activeUser) %>;
+	window.deckData = <%- JSON.stringify(decks) %>;
+</script>
+<script src="/scripts/utils/stars.js"></script>
+<script src="/scripts/controllers/deckprofile.js" defer></script>

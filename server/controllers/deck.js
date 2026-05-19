@@ -29,15 +29,16 @@ async function star(req, res) {
 		const deck = await Deck.findById(id);
 
 		if (user.decksStarred.includes(id)) {
-			return res.status(400);
+			return res.status(400).send();
 		} else {
 			user.decksStarred.push(id);
 			await user.save();
 			deck.stars++;
 			await deck.save();
+			return res.status(200).send();
 		}
 	} catch (e) {
-		res.status(500);
+		res.status(500).send();
 		console.log(e);
 	}
 }
@@ -55,13 +56,66 @@ async function unstar(req, res) {
 			await user.save();
 			deck.stars--;
 			await deck.save();
+			return res.status(200).send();
 		} else {
-			return res.status(400);
+			return res.status(400).send();
 		}
 	} catch (e) {
-		res.status(500);
+		res.status(500).send();
 		console.log(e);
 	}
 }
 
-module.exports = { star, unstar };
+
+async function edit(req, res) {
+	try {
+		const id = req.params.id;
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+		const deck = await Deck.findById(id);
+
+		if (user.name === deck.creator || user.badges.includes("Admin")) {
+			console.log(`Authorized edits to deck ${id}.`);
+			deck.name = req.body.name;
+			deck.save();
+			return res.status(200).redirect(`/deck/${id}`);
+		} else {
+			return res.status(403).render("errors/403");
+		}
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+async function destroy(req, res) {
+	try {
+		const id = req.params.id;
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+		const deck = await Deck.findById(id);
+
+		if (user.name === deck.creator || user.badges.includes("Admin")) {
+			console.log(`Authorized deletion of deck ${id}.`);
+			await Deck.deleteOne({_id: id});
+			return res.status(200).send();
+		} else {
+			return res.status(403).render("errors/403");
+		}
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { star, unstar, edit, destroy };

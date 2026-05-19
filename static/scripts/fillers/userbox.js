@@ -30,8 +30,8 @@ function populateContainer(userContainer) {
 <h2 class="user-name">${user.name}</h2>
 <img class="pfp" src="${user.pfp}" alt="${user.name}'s profile picture"/>
 <div class="user-rating">${user.rating} <span style="float: right;">${describeUserRating(user.rating)}</span></div>
-<div class="user-join-date">Joined ${window.timestamp(user.dateCreated)}</div>
-<div class="user-activity">Last active ${window.timestamp(user.dateActive)}</div>
+<div class="user-join-date">Joined ${timestamp(user.dateCreated)}</div>
+<div class="user-activity">Last active ${timestamp(user.dateActive)}</div>
 <div class="fine-print">${user._id}</div>
 `;
 }

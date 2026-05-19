@@ -74,8 +74,6 @@ async function chooseData(page, req, res) {
 			key = decodeURI(req.params.target);
 			target = await getUser(key);
 			if (!target) throw new PageResolutionError();
-			//console.log((await Card.find({}))[0].creator === key);
-			//console.log(await Card.find({creator: key}));
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				targetUser: target,
@@ -90,7 +88,7 @@ async function chooseData(page, req, res) {
 			} catch (e) {
 				// Errors will be caught in the next line anyways.
 			}
-			if (!target) throw new PageResolutionError();
+			if (!target || target.length === 0) throw new PageResolutionError();
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				decks: target,
@@ -105,7 +103,7 @@ async function chooseData(page, req, res) {
 			} catch (e) {
 				// Errors will be caught in the next line anyways.
 			}
-			if (!target) throw new PageResolutionError();
+			if (!target || target.length === 0) throw new PageResolutionError();
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				decks: await Deck.aggregate([

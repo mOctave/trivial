@@ -17,8 +17,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 const express = require("express");
+const { body, validationResult } = require("express-validator");
 const Deck = require("../models/Deck");
-const { star, unstar } = require("../controllers/deck");
+const { star, unstar, edit, destroy } = require("../controllers/deck");
 const router = express.Router();
 
 router.post("/add", async (req, res) => {
@@ -70,6 +71,23 @@ router.post("/star/:id", async (req, res) => {
 
 router.post("/unstar/:id", async (req, res) => {
 	unstar(req, res);
+});
+
+router.post("/edit/:id", 
+	body("name").trim().escape(),
+	async (req, res) => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			return res.status(400).json({errors: errors.array()});
+		}
+		console.log(`Attempting to edit deck ${req.params.id}`);
+		edit(req, res);
+	}
+);
+
+router.post("/delete/:id", async (req, res) => {
+	console.log(`Attempting to delete deck ${req.params.id}`);
+	destroy(req, res);
 });
 
 module.exports = router;
