@@ -105,7 +105,7 @@ function clearSelection() {
 	for (let card of selectedCards) {
 		document.getElementById(`card-selector-${card}`).classList.remove("active-button");
 	}
-	for (let menu of document.getElementsByClassName("card-menu")) {
+	for (let menu of document.getElementsByClassName("select-hidable")) {
 		menu.style.display = "none";
 	}
 	selectedCards = [];
@@ -146,6 +146,31 @@ async function addToDeck(form) {
 		},
 		body: JSON.stringify({
 			deck: form.deck.value,
+			cards: selectedCards
+		})
+	})
+}
+
+
+function applyTagMenu() {
+	const menu = document.getElementById("card-tag-menu");
+	if (menu.style.visibility === "visible") {
+		menu.style.visibility = "hidden";
+	} else {
+		populateSelector("tag-selector");
+		menu.style.visibility = "visible";
+	}
+}
+
+async function applyTag(form) {
+	await fetch("/api/cards/batchapplytag", {
+		method: "POST",
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			tag: form.tag.value,
 			cards: selectedCards
 		})
 	})

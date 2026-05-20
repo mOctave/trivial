@@ -165,7 +165,6 @@ async function checkModifiable(req, res) {
 
 async function addCards(req, res) {
 	try {
-		console.log("Adding cards...");
 		const deckId = req.body.deck;
 		const cardIds = req.body.cards;
 		await authorize(req, res, true);
@@ -185,7 +184,7 @@ async function addCards(req, res) {
 		if (user.name === deck.creator || user.badges.includes("Admin")) {
 			for (const cardId of cardIds) {
 				if (!deck.cards.includes(cardId)) {
-					console.log(`Adding card ${cardId} to deck ${deckId}.`);
+					console.log(`Added card ${cardId} to deck ${deckId}.`);
 					deck.cards.push(cardId);
 				}
 				deck.save();

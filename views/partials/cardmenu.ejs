@@ -1,0 +1,30 @@
+
+<div class="bottom-fixed select-hidable" style="display:none;">
+	<div id="card-menu-container">
+		<div></div>
+		<form id="card-deck-menu" class="content-box" onsubmit="addToDeck(this);return false;" style="visibility:hidden;">
+			<label for="deck-selector">Choose a deck:</label>
+			<select name="deck" id="deck-selector">
+			</select>
+			<input class="button-highlighted" type="submit" value="Add to Deck"/>
+		</form>
+		<form id="card-tag-menu" class="content-box" onsubmit="applyTag(this);return false;" style="visibility:hidden;">
+			<label for="tag-selector">Choose a tag:</label>
+			<select name="tag" id="tag-selector">
+			</select>
+			<input class="button-highlighted" type="submit" value="Apply Tag"/>
+		</form> 
+		<div></div>
+	</div>
+	<div id="card-menu">
+		<p><span class="card-selected-count">0 cards</span> selected</p>
+		<div>
+			<button class="button-standard" onclick="clearSelection()">Clear Selection</button>
+			<button class="button-highlighted" onclick="addToDeckMenu()">Add to Deck</button>
+			<button class="button-standard" onclick="applyTagMenu()">Apply Tag</button>
+			<button class="button-danger" onclick="promptDeleteCard()">Delete Cards</button>
+		</div>
+	</div>
+</div>
+
+

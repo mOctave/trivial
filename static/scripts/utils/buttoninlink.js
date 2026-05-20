@@ -17,7 +17,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 function dontLinkOnButton(e) {
-	if (e.target instanceof HTMLElement && e.target.tagName === "BUTTON") {
+	if (e.target instanceof HTMLElement && (
+		e.target.tagName === "BUTTON"
+		|| e.target.classList.contains("card-tag")
+	)) {
 	 	e.preventDefault();
 	}
+
 }

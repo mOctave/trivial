@@ -16,6 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+
 const tagData = {
 	"Geography": {
 		image: "/img/geography.svg",
@@ -54,35 +55,13 @@ const tagData = {
 	}
 }
 
-function tagImage(tag) {
-	if (!(tagData.hasOwnProperty(tag))) return undefined;
-	return tagData[tag].image;
+function hasPermission(tag, user) {
+	const perms = tagData[tag] ? (tagData[tag].perms ? tagData[tag].perms.toLowerCase() : "none") : "admin";
+	return (
+		perms === "none"
+		|| (perms === "curator" && (user.badges.includes("Curator") || user.badges.includes("Admin")))
+		|| (perms === "admin" && (user.badges.includes("Admin")))
+	);
 }
 
-function tagComponent(tag, removeId) {
-	const img = tagImage(tag);
-	const imageString = img ? `<img src="${img}"/>` : "";
-	const removableString = removeId ? `<button onclick="removeTag('${removeId}', '${tag}')"></button>` : "";
-	return `<div class="card-tag">${removableString}${imageString}<span>${tag}</span></div>`;
-}
-
-function populateSelector(id) {
-	const selector = document.getElementById(id);
-	const user = window.activeUserData;
-	while (selector.options.length) selector.remove(0);
-	for (let tag in tagData) {
-		const perms = tagData[tag].perms ? tagData[tag].perms.toLowerCase() : "none";
-		if (
-			perms === "none"
-			|| (perms === "curator" && (user.badges.includes("Curator") || user.badges.includes("Admin")))
-			|| (perms === "admin" && (user.badges.includes("Admin")))
-		) {
-			const img = tagImage(tag);
-			const imageString = img ? `<img src="${img}"/>` : "";
-			let option = document.createElement("option");
-			option.innerHTML = `${imageString} ${tag}`;
-			option.value = tag;
-			selector.add(option);
-		}
-	}
-}
+module.exports = hasPermission;
