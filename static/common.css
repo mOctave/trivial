@@ -124,6 +124,13 @@ MARK: Page Layout
 	margin-bottom: 10px;
 }
 
+.bottom-fixed {
+	position: fixed;
+	width: inherit;
+	margin: 0;
+	bottom: 0;
+}
+
 /*
 MARK: Buttons
 */
@@ -448,6 +455,72 @@ MARK: Cards
 .card-creator {
 	float: right;
 	font-style: italic;
+}
+
+.card-menu {
+	background-color: white;
+	border: 2px solid black;
+	border-bottom: none;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+}
+
+.card-menu p {
+	margin: 0;
+	margin-top: 5px;
+}
+
+.card-menu div {
+	margin: 0;
+	display: flex;
+}
+
+
+.card-selection-button {
+	width: 30px;
+	height: 30px;
+	margin: -5px;
+	background-image: url("/img/checkbox-unchecked.svg");
+	border: none;
+	background-color: transparent;
+	vertical-align: middle;
+	float: right;
+}
+
+.card-selection-button.active-button {
+	background-image: url("/img/checkbox-checked.svg");
+}
+
+.card-selection-button:hover {
+	background-image: url("/img/checkbox-unchecked-hover.svg");
+}
+
+.card-selection-button.active-button:hover {
+	background-image: url("/img/checkbox-checked-hover.svg");
+}
+
+.card-menu-container {
+	margin: auto;
+	display: flex;
+	width: calc(100% - 20px);
+	gap: 20px;
+}
+
+.card-menu-container * {
+	flex: 1 1 0px;
+	margin: 0;
+}
+
+#card-deck-menu {
+	align-content: center;
+}
+
+#card-deck-menu * {
+	text-align: center;
+	display: block;
+	width: calc(100% - 20px);
+	margin: 10px;
 }
 
 /*

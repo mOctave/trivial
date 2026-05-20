@@ -26,6 +26,11 @@ async function star(req, res) {
 		await authorize(req, res, false);
 
 		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+		
 		const deck = await Deck.findById(id);
 
 		if (user.decksStarred.includes(id)) {
@@ -49,6 +54,11 @@ async function unstar(req, res) {
 		await authorize(req, res, false);
 
 		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
 		const deck = await Deck.findById(id);
 
 		if (user.decksStarred.includes(id)) {
@@ -77,6 +87,11 @@ async function edit(req, res) {
 		}
 
 		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
 		const deck = await Deck.findById(id);
 
 		if (user.name === deck.creator || user.badges.includes("Admin")) {
@@ -103,6 +118,11 @@ async function destroy(req, res) {
 		}
 
 		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
 		const deck = await Deck.findById(id);
 
 		if (user.name === deck.creator || user.badges.includes("Admin")) {
@@ -118,4 +138,66 @@ async function destroy(req, res) {
 	}
 }
 
-module.exports = { star, unstar, edit, destroy };
+async function checkModifiable(req, res) {
+	try {
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return res.status(200).json({"modifiableDecks": []});
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		if (user.badges.includes("Admin")) {
+			return res.status(200).json({"modifiableDecks": await Deck.find({}).then((x) => {return x})});
+		}
+
+		return res.status(200).json({"modifiableDecks": await Deck.find({"creator": user.name}).then((x) => {return x})});
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+async function addCards(req, res) {
+	try {
+		console.log("Adding cards...");
+		const deckId = req.body.deck;
+		const cardIds = req.body.cards;
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		const deck = await Deck.findById(deckId);
+
+		if (user.name === deck.creator || user.badges.includes("Admin")) {
+			for (const cardId of cardIds) {
+				if (!deck.cards.includes(cardId)) {
+					console.log(`Adding card ${cardId} to deck ${deckId}.`);
+					deck.cards.push(cardId);
+				}
+				deck.save();
+			}
+			return res.status(201).send();
+		} else {
+			return res.status(403).render("errors/403");
+		}
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { star, unstar, edit, destroy, checkModifiable, addCards };

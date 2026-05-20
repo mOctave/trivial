@@ -49,9 +49,3 @@ function populateContainer(deckContainer) {
 `;
 	}
 }
-
-function dontLinkOnButton(e) {
-	if (e.target instanceof HTMLElement && e.target.tagName === "BUTTON") {
-	 	e.preventDefault();
-	}
-}

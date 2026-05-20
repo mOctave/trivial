@@ -46,11 +46,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use("", require("./routes/pages"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/cards", require("./routes/card"));
 app.use("/api/decks", require("./routes/deck"));
 app.use("/api/users", require("./routes/user"));
+
+app.use("", require("./routes/pages"));
 
 app.listen(env.mainPort, () => console.log(`Server listening on port ${env.mainPort}`));
 

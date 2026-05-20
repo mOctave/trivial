@@ -1,7 +1,32 @@
 <div class="card-container">
 </div>
+<div class="bottom-fixed select-hidable" style="display:none;">
+	<div class="card-menu-container">
+		<div></div>
+		<form id="card-deck-menu" class="content-box" onsubmit="addToDeck(this);return false;" style="visibility:hidden;">
+			<label for="deck-selector">Choose a deck:</label>
+			<select name="deck" id="deck-selector">
+			</select>
+			<input class="button-highlighted" type="submit" value="Add to Deck"/>
+		</form>
+		<div></div>
+		<div></div>
+	</div>
+	<div class="card-menu">
+		<p><span class="card-selected-count">0 cards</span> selected</p>
+		<div class="">
+			<button class="button-standard" onclick="clearSelection()">Clear Selection</button>
+			<button class="button-highlighted" onclick="addToDeckMenu()">Add to Deck</button>
+			<button class="button-standard" onclick="applyTagMenu()">Apply Tag</button>
+			<button class="button-danger" onclick="promptDeleteCard()">Delete Cards</button>
+		</div>
+	</div>
+</div>
 
 <script>
+	window.activeUserData = <%- JSON.stringify(activeUser) %>;
 	window.cardData = <%- JSON.stringify(cards) %>;
 </script>
-<script src="/scripts/fillers/cardbox.js" defer></script>
+<script src="/scripts/utils/buttoninlink.js"></script>
+<script src="/scripts/utils/tagdisplay.js"></script>
+<script src="/scripts/controllers/cardbox.js" defer></script>
