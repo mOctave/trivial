@@ -5,22 +5,8 @@
 		<a href="/create" class="navitem">Create</a>
 		<a href="/cards" class="navitem">Cards</a>
 		<a href="/decks" class="navitem">Decks</a>
-		<% if (!locals.loggedIn) { %>
-		<a href="/login" class="navitem">Log In</a>
-		<% } else { %>
-		<a id="dropdown-toggle-user" class="navitem" href="/user/<%- encodeURI(activeUser.name) %>">
-			<img class="navbar-pfp" src="<%- activeUser.pfp %>"/>
-			<%- activeUser.name %>
-		</a>
-		<% } %>
 	</div>
 </div>
-<% if (locals.loggedIn) { %>
-	<div id="dropdown-content-user">
-		<a href="/user/<%- encodeURI(activeUser.name) %>" class="navitem">Profile</a>
-		<a href="/logout" class="navitem">Log Out</a>
-	</div>
-<% } %>
 <div class="mobile-navbar">
 	<a href="/" class="navitem"><img src="/img/favicon.svg"/>Trivial</a>
 	<div class="navright">
@@ -31,16 +17,8 @@
 		<a href="/create" class="navitem">Create</a>
 		<a href="/cards" class="navitem">Cards</a>
 		<a href="/decks" class="navitem">Decks</a>
-		<% if (!locals.loggedIn) { %>
-		<a href="/login" class="navitem">Log In</a>
-		<% } else { %>
-		<a href="/logout" class="navitem">Log Out</a>
-		<% } %>
 	</div>
 </div>
 <div class="navbar-padding"></div>
 
-<script>
-	window.activeUserData = <%- JSON.stringify(activeUser) %>;
-</script>
 <script src="/scripts/navbar.js" defer></script>

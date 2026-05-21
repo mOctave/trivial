@@ -20,12 +20,11 @@ const navmenuToggle = document.getElementById("navmenu-toggle");
 
 navmenuToggle.addEventListener("click", () => {
 	const navmenu = document.getElementById("navmenu");
-	if (navmenuToggle.innerText === "☰") {
-		navmenu.style.display = "block";
-		navmenuToggle.innerText = "X";
-	} else {
+	if (navmenuToggle.classList.contains("active-button")) {
 		navmenu.style.display = "none";
-		navmenuToggle.innerText = "☰";
+		navmenuToggle.classList.remove("active-button");
+	} else {
+		navmenu.style.display = "block";
+		navmenuToggle.classList.add("active-button");
 	}
-	console.log("Toggled navbar");
 });

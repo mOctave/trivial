@@ -238,24 +238,40 @@ MARK: Navbar
 
 #navmenu-toggle {
 	cursor: pointer;
+	background-image: url("/img/menu.svg");
+	background-size: 60%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	aspect-ratio: 1;
+}
+
+#navmenu-toggle.active-button {
+	background-image: url("/img/x.svg");
 }
 
 #navmenu {
 	display: none;
 	position: fixed;
-	top: 50px;
+	top: 52px;
 	right: 0;
 	bottom: 0;
 	width: 200px;
 	transition: linear 0.3s;
 	overflow: hidden;
-	background-color: #8c3;
+	background-color: #6a1;
+	border-left: 2px solid black;
 }
 
 #navmenu .navitem {
 	float: none;
 	text-align: right;
+	margin: 0;
+	padding-right: 15px;
 	height: 30px;
+}
+
+#navmenu .navitem:hover {
+	background-color: #6ba;
 }
 
 #dropdown-content-user {

@@ -22,12 +22,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		<%- include("../partials/head"); %>
 	</head>
 	<body>
-		<%- include("../partials/navbar"); %>
-		<div>
-			<h1>Out of Cheese Error</h1>
-			<p>Something went wrong, but it's not your fault. Please report this error <a href="https://github.com/moctave/trivial/issues">on Github</a>.</p>
-			<p><a href="/">Head home?</a></p>
-			<p><em>500 Internal Server Error</em></p>
+		<%- include("../partials/errornavbar"); %>
+		<div class="main-container">
+			<div class="content-box">
+				<h1>Out of Cheese Error</h1>
+				<p>Something went wrong, but it's not your fault. Please report this error <a href="https://github.com/moctave/trivial/issues">on Github</a>.</p>
+				<p><a href="/">Head home?</a></p>
+				<p><em>500 Internal Server Error</em></p>
+			</div>
 		</div>
 	</body>
 </html>

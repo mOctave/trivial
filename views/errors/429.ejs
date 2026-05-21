@@ -22,11 +22,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		<%- include("../partials/head"); %>
 	</head>
 	<body>
-		<%- include("../partials/navbar"); %>
+		<%- include("../partials/errornavbar"); %>
 		<div class="main-container">
-			<h1>3 • 10<sup>8</sup> m/s</h1>
-			<p>You're sending requests too fast. How about you slow down a bit?</p>
-			<p><em>429 Too Many Requests</em></p>
+			<div class="content-box">
+				<h1>3 • 10<sup>8</sup> m/s</h1>
+				<p>You're sending requests too fast. How about you slow down a bit?</p>
+				<p><em>429 Too Many Requests</em></p>
+			</div>
 		</div>
 	</body>
 </html>
