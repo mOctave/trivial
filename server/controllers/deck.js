@@ -199,4 +199,41 @@ async function addCards(req, res) {
 	}
 }
 
-module.exports = { star, unstar, edit, destroy, checkModifiable, addCards };
+async function removeCards(req, res) {
+	try {
+		const deckId = req.body.deck;
+		const cardIds = req.body.cards;
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		const deck = await Deck.findById(deckId);
+
+		if (user.name === deck.creator || user.badges.includes("Admin")) {
+			const newCards = [];
+			for (const oldId of deck.cards) {
+				if (cardIds.includes(oldId)) {
+					console.log(`Removed card ${oldId} from deck ${deckId}`);
+				} else {
+					newCards.push(oldId);
+				}
+			}
+			return res.status(200).send();
+		} else {
+			return res.status(403).render("errors/403");
+		}
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { star, unstar, edit, destroy, checkModifiable, addCards, removeCards };

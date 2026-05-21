@@ -28,11 +28,10 @@ for (let cardContainer of cardContainers) {
 
 // MARK: Functions
 function populateContainer(cardContainer) {
-	const admin = (window.activeUserData && window.activeUserData.badges.includes("Admin"));
 	for (let card of window.cardData) {
 		let tagText = "";
 		for (let tag of card.tags) {
-			if (admin) {
+			if (tagModifiable(tag, window.activeUserData)) {
 				tagText += tagComponent(tag, card._id);
 			} else {
 				tagText += tagComponent(tag);
@@ -148,7 +147,7 @@ async function addToDeck(form) {
 			deck: form.deck.value,
 			cards: selectedCards
 		})
-	})
+	});
 }
 
 
@@ -173,5 +172,41 @@ async function applyTag(form) {
 			tag: form.tag.value,
 			cards: selectedCards
 		})
-	})
+	});
+}
+
+function deleteCardsMenu() {
+	const menu = document.getElementById("delete-cards-menu");
+	if (menu.style.visibility === "visible") {
+		menu.style.visibility = "hidden";
+	} else {
+		menu.style.visibility = "visible";
+	}
+}
+
+async function deleteCards() {
+	await fetch("/api/cards/batchdelete", {
+		method: "POST",
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			cards: selectedCards
+		})
+	});
+}
+
+async function removeTag(card, tag) {
+	await fetch("/api/cards/batchremovetag", {
+		method: "POST",
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			tag: tag,
+			cards: [card]
+		})
+	});
 }

@@ -13,18 +13,19 @@
 			<select name="tag" id="tag-selector">
 			</select>
 			<input class="button-highlighted" type="submit" value="Apply Tag"/>
-		</form> 
-		<div></div>
+		</form>
+		<form id="delete-cards-menu" class="content-box" onsubmit="deleteCards();return false;" style="visibility:hidden;">
+			<div>You are trying to delete <span class="card-selected-count">0 cards</span>. This action cannot be undone.</div>
+			<input class="button-danger" type="submit" value="Delete Forever"/>
+		</form>
 	</div>
 	<div id="card-menu">
 		<p><span class="card-selected-count">0 cards</span> selected</p>
 		<div>
 			<button class="button-standard" onclick="clearSelection()">Clear Selection</button>
-			<button class="button-highlighted" onclick="addToDeckMenu()">Add to Deck</button>
-			<button class="button-standard" onclick="applyTagMenu()">Apply Tag</button>
-			<button class="button-danger" onclick="promptDeleteCard()">Delete Cards</button>
+			<button id="add-to-deck-pull" class="button-highlighted" onclick="addToDeckMenu()">Add to Deck</button>
+			<button id="apply-tag-pull" class="button-standard" onclick="applyTagMenu()">Apply Tag</button>
+			<button id="delete-cards-pull" class="button-danger" onclick="deleteCardsMenu()">Delete Cards</button>
 		</div>
 	</div>
 </div>
-
-

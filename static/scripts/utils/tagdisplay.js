@@ -72,11 +72,7 @@ function populateSelector(id) {
 	while (selector.options.length) selector.remove(0);
 	for (let tag in tagData) {
 		const perms = tagData[tag].perms ? tagData[tag].perms.toLowerCase() : "none";
-		if (
-			perms === "none"
-			|| (perms === "curator" && (user.badges.includes("Curator") || user.badges.includes("Admin")))
-			|| (perms === "admin" && (user.badges.includes("Admin")))
-		) {
+		if (tagModifiable(tag, user)) {
 			const img = tagImage(tag);
 			const imageString = img ? `<img src="${img}"/>` : "";
 			let option = document.createElement("option");
@@ -85,4 +81,14 @@ function populateSelector(id) {
 			selector.add(option);
 		}
 	}
+}
+
+function tagModifiable(tag, user) {
+	if (!user) return false;
+	const perms = tagData[tag] ? (tagData[tag].perms ? tagData[tag].perms.toLowerCase() : "none") : "admin";
+	return (
+		perms === "none"
+		|| (perms === "curator" && (user.badges.includes("Curator") || user.badges.includes("Admin")))
+		|| (perms === "admin" && (user.badges.includes("Admin")))
+	);
 }

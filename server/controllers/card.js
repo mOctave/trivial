@@ -41,7 +41,7 @@ async function batchApplyTag(req, res) {
 			for (const cardId of cardIds) {
 				const card = await Card.findById(cardId);
 				if (!card.tags.includes(tag)) {
-					console.log(`Adding tag ${tag} to card ${cardId}.`);
+					console.log(`Added tag ${tag} to card ${cardId}.`);
 					card.tags.push(tag);
 				}
 				card.save();
@@ -56,4 +56,69 @@ async function batchApplyTag(req, res) {
 	}
 }
 
-module.exports = { batchApplyTag };
+async function batchRemoveTag(req, res) {
+	try {
+		const tag = req.body.tag;
+		const cardIds = req.body.cards;
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		if (hasPermission(tag, user)) {
+			for (const cardId of cardIds) {
+				const card = await Card.findById(cardId);
+				if (card.tags.includes(tag)) {
+					console.log(`Added tag ${tag} to card ${cardId}.`);
+					card.tags.splice(card.tags.indexOf(tag), 1);
+				}
+				card.save();
+			}
+			return res.status(200).send();
+		} else {
+			return res.status(403).render("errors/403");
+		}
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+async function batchDestroy(req, res) {
+	try {
+		const cardIds = req.body.cards;
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		for (const cardId of cardIds) {
+			const card = await Card.findById(cardId);
+
+			if (user.name === card.creator || user.badges.includes("Admin")) {
+				console.log(`Deleted card ${cardId}.`);
+				await Card.findByIdAndDelete(cardId);
+			}
+			return res.status(200).send();
+		}
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { batchApplyTag, batchRemoveTag, batchDestroy };

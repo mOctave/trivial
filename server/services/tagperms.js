@@ -56,6 +56,7 @@ const tagData = {
 }
 
 function hasPermission(tag, user) {
+	if (!user) return false;
 	const perms = tagData[tag] ? (tagData[tag].perms ? tagData[tag].perms.toLowerCase() : "none") : "admin";
 	return (
 		perms === "none"
