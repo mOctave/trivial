@@ -1,4 +1,4 @@
-<div class="navbar">
+<nav class="navbar">
 	<a href="/" class="navitem"><img src="/img/favicon.svg"/>Trivial</a>
 	<div class="navright">
 		<a href="/play" class="navitem">Play</a>
@@ -14,14 +14,14 @@
 		</a>
 		<% } %>
 	</div>
-</div>
+</nav>
 <% if (locals.loggedIn) { %>
 	<div id="dropdown-content-user">
 		<a href="/user/<%- encodeURI(activeUser.name) %>" class="navitem">Profile</a>
 		<a href="/logout" class="navitem">Log Out</a>
 	</div>
 <% } %>
-<div class="mobile-navbar">
+<nav class="mobile-navbar">
 	<a href="/" class="navitem"><img src="/img/favicon.svg"/>Trivial</a>
 	<div class="navright">
 		<div id="navmenu-toggle" class="navitem"></div>
@@ -37,7 +37,7 @@
 		<a href="/logout" class="navitem">Log Out</a>
 		<% } %>
 	</div>
-</div>
+</nav>
 <div class="navbar-padding"></div>
 
 <script>

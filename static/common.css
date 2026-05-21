@@ -72,6 +72,13 @@ a:hover {
 	margin-right: 5px;
 }
 
+.copyright {
+	font-size: x-small;
+	font-style: italic;
+	text-align: center;
+	margin-top: 10px;
+}
+
 /*
 MARK: Page Layout
 */
