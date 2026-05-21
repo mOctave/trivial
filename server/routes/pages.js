@@ -66,6 +66,10 @@ router.get("/create", async (req, res) => {
 	showpage("pages/create", req, res);
 });
 
+router.get("/play", async (req, res) => {
+	showpage("pages/play", req, res);
+});
+
 router.get("/*splat", async (req, res) => {
 	showpage("errors/404", req, res);
 });

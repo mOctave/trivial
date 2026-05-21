@@ -66,6 +66,12 @@ a:hover {
 	aspect-ratio: 1;
 }
 
+.lobby-count {
+	size: small;
+	color: #d64;
+	margin-right: 5px;
+}
+
 /*
 MARK: Page Layout
 */
@@ -132,6 +138,30 @@ MARK: Page Layout
 	bottom: 0;
 }
 
+.basic-grid {
+	display: grid;
+	gap: 5px;
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.narrow-grid-element {
+	grid-column-end: span 2;
+}
+
+.medium-grid-element {
+	grid-column-end: span 3;
+}
+
+.wide-grid-element {
+	grid-column-end: span 6;
+}
+
+.narrow-grid-element, .medium-grid-element, .wide-grid-element {
+	min-height: 50px;
+	height: 10vh;
+	max-height: 100px;
+}
+
 /*
 MARK: Buttons
 */
@@ -159,6 +189,25 @@ MARK: Buttons
 
 .button-danger:hover {
 	background-color: #d20;
+}
+
+.button-join {
+	display: inline-flex;
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px;
+	font-weight: 600;
+	border: 2px solid black;
+	align-items: center;
+	justify-content: center;
+}
+
+.button-join img {
+	height: 100%;
+}
+
+.button-join:hover {
+	background-color: #ddd;
 }
 
 /*

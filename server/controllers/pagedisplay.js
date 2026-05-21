@@ -115,6 +115,13 @@ async function chooseData(page, req, res) {
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined)
 			}
+		case "pages/play":
+			return {
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
+				targetUser: await (req.user ? await getUser(req.user.name) : null),
+				leaderboard: await getLeaderboard(10, 0),
+				loggedIn: await (req.user !== undefined)
+			}
 		default:
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
