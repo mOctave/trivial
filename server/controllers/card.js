@@ -117,6 +117,7 @@ async function batchDestroy(req, res) {
 					{$match: {"cards": cardId}}
 				])) {
 					deck.cards.splice(deck.cards.indexOf(cardId), 1);
+					deck.save();
 				}
 				
 				// Actually delete the card
