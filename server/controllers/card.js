@@ -111,6 +111,15 @@ async function batchDestroy(req, res) {
 
 			if (user.name === card.creator || user.badges.includes("Admin")) {
 				console.log(`Deleted card ${cardId}.`);
+				// Remove references to card
+				for (const deck of await Deck.aggregate([
+					{$unwind: "$cards"},
+					{$match: {"cards": cardId}}
+				])) {
+					deck.cards.splice(deck.cards.indexOf(cardId), 1);
+				}
+				
+				// Actually delete the card
 				await Card.findByIdAndDelete(cardId);
 			}
 			return res.status(200).send();
