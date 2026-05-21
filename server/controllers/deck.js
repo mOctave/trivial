@@ -187,8 +187,8 @@ async function addCards(req, res) {
 					console.log(`Added card ${cardId} to deck ${deckId}.`);
 					deck.cards.push(cardId);
 				}
-				deck.save();
 			}
+			deck.save();
 			return res.status(201).send();
 		} else {
 			return res.status(403).render("errors/403");
@@ -226,6 +226,8 @@ async function removeCards(req, res) {
 					newCards.push(oldId);
 				}
 			}
+			deck.cards = newCards;
+			deck.save();
 			return res.status(200).send();
 		} else {
 			return res.status(403).render("errors/403");
@@ -236,4 +238,33 @@ async function removeCards(req, res) {
 	}
 }
 
-module.exports = { star, unstar, edit, destroy, checkModifiable, addCards, removeCards };
+async function create(req, res) {
+	try {
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		const params = {
+			name: req.body.name,
+			image: "/img/favicon.svg",
+			creator: user.name
+		};
+
+		const deck = await Deck.create(params); 
+		console.log(`User ${user.name} created deck ${deck._id}.`);
+		return res.status(200).redirect(`/deck/${deck._id}`);
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { star, unstar, edit, destroy, checkModifiable, addCards, removeCards, create };

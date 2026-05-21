@@ -18,7 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 const express = require("express");
 const Card = require("../models/Card");
-const { batchApplyTag, batchRemoveTag, batchDestroy } = require("../controllers/card");
+const { batchApplyTag, batchRemoveTag, batchDestroy, create } = require("../controllers/card");
 const router = express.Router();
 
 router.post("/add", async (req, res) => {
@@ -76,5 +76,11 @@ router.post("/batchremovetag", async (req, res) => {
 router.post("/batchdelete", async (req, res) => {
 	batchDestroy(req, res);
 });
+
+
+router.post("/create", async (req, res) => {
+	create(req, res);
+});
+
 
 module.exports = router;

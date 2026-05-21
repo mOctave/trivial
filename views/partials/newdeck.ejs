@@ -1,0 +1,16 @@
+<div class="content-box">
+	<h2>Create a new deck</h2>
+	<hr/>
+	<form id="deck-editor" action="/api/decks/create" method="POST">
+
+		<div id="deck-editor-body">
+
+			<div class="deck-name">
+				<label for="name">Deck name:</label>
+				<input name="name" type="text" placeholder="My new deck" required/>
+			</div>
+			<img class="deck-thumb" src="/img/favicon.svg"/>
+		</div>
+		<input class="button-highlighted" type="submit" value="Create"/>
+	</form>
+</div>

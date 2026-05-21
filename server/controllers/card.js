@@ -17,6 +17,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 const Card = require("../models/Card");
+const Deck = require("../models/Deck");
 const User = require("../models/User");
 const authorize = require("../services/authorize");
 const hasPermission = require("../services/tagperms");
@@ -110,12 +111,20 @@ async function batchDestroy(req, res) {
 			const card = await Card.findById(cardId);
 
 			if (user.name === card.creator || user.badges.includes("Admin")) {
-				console.log(`Deleted card ${cardId}.`);
+				await console.log(`Deleted card ${cardId}.`);
 				// Remove references to card
+				// TODO: FIX THIS!
+				await console.log(
+					await Deck.aggregate([
+						{$unwind: "$cards"},
+						{$match: {"cards": cardId}}
+					])
+				);
 				for (const deck of await Deck.aggregate([
 					{$unwind: "$cards"},
 					{$match: {"cards": cardId}}
 				])) {
+					console.log(deck.name);
 					deck.cards.splice(deck.cards.indexOf(cardId), 1);
 					deck.save();
 				}
@@ -131,4 +140,34 @@ async function batchDestroy(req, res) {
 	}
 }
 
-module.exports = { batchApplyTag, batchRemoveTag, batchDestroy };
+async function create(req, res) {
+	try {
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		const params = {
+			question: req.body.question,
+			image: undefined,
+			answer: req.body.answer,
+			creator: user.name
+		};
+
+		const card = await Card.create(params); 
+		console.log(`User ${user.name} created card ${card._id}.`);
+		return res.status(200).redirect(`/card/${card._id}`);
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { batchApplyTag, batchRemoveTag, batchDestroy, create };

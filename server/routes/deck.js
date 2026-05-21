@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 const express = require("express");
 const { body, validationResult } = require("express-validator");
 const Deck = require("../models/Deck");
-const { star, unstar, edit, destroy, checkModifiable, addCards, removeCards } = require("../controllers/deck");
+const { star, unstar, edit, destroy, checkModifiable, addCards, removeCards, create } = require("../controllers/deck");
 const router = express.Router();
 
 router.post("/add", async (req, res) => {
@@ -100,6 +100,10 @@ router.post("/addcards", async (req, res) => {
 
 router.post("/removecards", async (req, res) => {
 	removeCards(req, res);
+});
+
+router.post("/create", async (req, res) => {
+	create(req, res);
 });
 
 module.exports = router;
