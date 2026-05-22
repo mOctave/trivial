@@ -70,6 +70,14 @@ function populateContainer(cardContainer) {
 `;
 		}
 	}
+
+	if (window.cardData.length === 0) {
+		cardContainer.innerHTML += 
+`
+<p>There's nothing here! Maybe you'd like to <a href="/cards">browse all cards</a> to find something?</p>
+`;
+		cardContainer.classList.add("wasteland");
+	}
 }
 
 function selectCard(id) {
