@@ -54,7 +54,7 @@ function populateProfile() {
 	<img class="deck-thumb" src="${deck.image}"/>
 	<div class="deck-description">
 		<label for="description">Deck description:</label>
-		<textarea name="description" placeholder="Enter a short description of your deck.">${deck.description}</textarea>
+		<textarea name="description" placeholder="Enter a short description of your deck." rows="4">${deck.description}</textarea>
 	</div>
 	<div class="deck-details">
 		<span class="deck-stars"><button id="deck-star-toggle-${deck._id}" class="${starButtonClasses}" onclick="toggleStar('${deck._id}')"></button> <span id="deck-star-count-${deck._id}">${deck.stars}</span></span>
