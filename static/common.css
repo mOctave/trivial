@@ -169,6 +169,10 @@ MARK: Page Layout
 	max-height: 100px;
 }
 
+.inline-form {
+	display: inline-block;
+}
+
 /*
 MARK: Buttons
 */
@@ -542,16 +546,25 @@ MARK: Cards
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	text-align: center;
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-rows: 1;
 }
 
 #card-menu p {
 	margin: 0;
 	margin-top: 5px;
+	grid-column-end: span 4;
 }
 
-#card-menu div {
-	margin: 0;
-	display: flex;
+#card-menu form {
+	grid-column-end: span 1;
+	grid-row-end: span 2;
+}
+
+#card-menu button {
+	grid-column-end: span 1;
+	grid-row-end: span 1;
 }
 
 
@@ -576,18 +589,6 @@ MARK: Cards
 
 .card-selection-button.active-button:hover {
 	background-image: url("/img/checkbox-checked-hover.svg");
-}
-
-#card-menu-container {
-	margin: auto;
-	display: flex;
-	width: calc(100% - 20px);
-	gap: 20px;
-}
-
-#card-menu-container * {
-	flex: 1 1 0px;
-	margin: 0;
 }
 
 #card-deck-menu, #card-tag-menu {

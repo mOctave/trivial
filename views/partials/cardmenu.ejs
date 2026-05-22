@@ -2,30 +2,24 @@
 <div class="bottom-fixed select-hidable" style="display:none;">
 	<div id="card-menu-container">
 		<div></div>
-		<form id="card-deck-menu" class="content-box" onsubmit="addToDeck(this);return false;" style="visibility:hidden;">
-			<label for="deck-selector">Choose a deck:</label>
+	</div>
+	<div id="card-menu">
+		<p><span class="card-selected-count">0 cards</span> selected</p>
+		<button class="button-standard" onclick="clearSelection()">Clear Selection</button>
+		<form id="card-deck-menu" class="inline-form" onsubmit="addToDeck(this);return false;">
 			<select name="deck" id="deck-selector">
 			</select>
 			<input class="button-highlighted" type="submit" value="Add to Deck"/>
 		</form>
-		<form id="card-tag-menu" class="content-box" onsubmit="applyTag(this);return false;" style="visibility:hidden;">
-			<label for="tag-selector">Choose a tag:</label>
+		<form id="card-tag-menu" class="inline-form" onsubmit="applyTag(this);return false;">
 			<select name="tag" id="tag-selector">
 			</select>
 			<input class="button-highlighted" type="submit" value="Apply Tag"/>
 		</form>
-		<form id="delete-cards-menu" class="content-box" onsubmit="deleteCards();return false;" style="visibility:hidden;">
-			<div>You are trying to delete <span class="card-selected-count">0 cards</span>. This action cannot be undone.</div>
+		<form id="delete-cards-menu" class="inline-form" onsubmit="await deleteCards();return true;" style="display:none;">
+			<div class="fine-print">You are trying to delete <span class="card-selected-count">0 cards</span>. This action is irreversible.</div>
 			<input class="button-danger" type="submit" value="Delete Forever"/>
 		</form>
-	</div>
-	<div id="card-menu">
-		<p><span class="card-selected-count">0 cards</span> selected</p>
-		<div>
-			<button class="button-standard" onclick="clearSelection()">Clear Selection</button>
-			<button id="add-to-deck-pull" class="button-highlighted" onclick="addToDeckMenu()">Add to Deck</button>
-			<button id="apply-tag-pull" class="button-standard" onclick="applyTagMenu()">Apply Tag</button>
-			<button id="delete-cards-pull" class="button-danger" onclick="deleteCardsMenu()">Delete Cards</button>
-		</div>
+		<button id="delete-cards-pull" class="button-danger" onclick="deleteCardsMenu()">Delete Cards</button>
 	</div>
 </div>

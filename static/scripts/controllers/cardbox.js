@@ -98,6 +98,8 @@ function selectCard(id) {
 	for (let span of document.getElementsByClassName("card-selected-count")) {
 		span.innerText = selectedCards.length + " card" + (selectedCards.length === 1 ? "" : "s");
 	}
+
+	hideDeleteCardsMenu();
 }
 
 function clearSelection() {
@@ -108,32 +110,31 @@ function clearSelection() {
 		menu.style.display = "none";
 	}
 	selectedCards = [];
+
+	hideDeleteCardsMenu();
 }
 
-function addToDeckMenu() {
-	const menu = document.getElementById("card-deck-menu");
-	if (menu.style.visibility === "visible") {
-		menu.style.visibility = "hidden";
-	} else {
-		fetch("/api/decks/modifiable", {method: "GET"})
-			.then((response) => {
-				console.log(response);
-				return response.json();
-			})
-			.then((data) => {
-				console.log(data);
-				let selector = document.getElementById("deck-selector");
-
-				while (selector.options.length) selector.remove(0);
-				for (let deck of data.modifiableDecks) {
-					let option = document.createElement("option");
-					option.innerHTML = `${deck.name} (${deck._id.slice(-4)})`;
-					option.value = deck._id;
-					selector.add(option);
-				}
-				menu.style.visibility = "visible";
-			});
-	}
+window.onload = () => {
+	fetch("/api/decks/modifiable", {method: "GET"})
+		.then((response) => {
+			console.log(response);
+			return response.json();
+		})
+		.then((data) => {
+			console.log(data);
+			let selector = document.getElementById("deck-selector");
+		
+			while (selector.options.length) selector.remove(0);
+			for (let deck of data.modifiableDecks) {
+				let option = document.createElement("option");
+				option.innerHTML = `${deck.name} (${deck._id.slice(-4)})`;
+				option.value = deck._id;
+				selector.add(option);
+			}
+			menu.style.visibility = "visible";
+		});
+		
+	populateSelector("tag-selector");
 }
 
 async function addToDeck(form) {
@@ -148,17 +149,6 @@ async function addToDeck(form) {
 			cards: selectedCards
 		})
 	});
-}
-
-
-function applyTagMenu() {
-	const menu = document.getElementById("card-tag-menu");
-	if (menu.style.visibility === "visible") {
-		menu.style.visibility = "hidden";
-	} else {
-		populateSelector("tag-selector");
-		menu.style.visibility = "visible";
-	}
 }
 
 async function applyTag(form) {
@@ -176,12 +166,17 @@ async function applyTag(form) {
 }
 
 function deleteCardsMenu() {
-	const menu = document.getElementById("delete-cards-menu");
-	if (menu.style.visibility === "visible") {
-		menu.style.visibility = "hidden";
-	} else {
-		menu.style.visibility = "visible";
-	}
+	const deletePull = document.getElementById("delete-cards-pull");
+	const deleteMenu = document.getElementById("delete-cards-menu");
+	deletePull.style.display = "none";
+	deleteMenu.style.display = "block";
+}
+
+function hideDeleteCardsMenu() {
+	const deletePull = document.getElementById("delete-cards-pull");
+	const deleteMenu = document.getElementById("delete-cards-menu");
+	deletePull.style.display = "block";
+	deleteMenu.style.display = "none";
 }
 
 async function deleteCards() {
