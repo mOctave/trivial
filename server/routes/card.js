@@ -19,6 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 const express = require("express");
 const Card = require("../models/Card");
 const { batchApplyTag, batchRemoveTag, batchDestroy, create } = require("../controllers/card");
+const { body, validationResult } = require("express-validator");
 const router = express.Router();
 
 router.post("/add", async (req, res) => {
@@ -78,9 +79,17 @@ router.post("/batchdelete", async (req, res) => {
 });
 
 
-router.post("/create", async (req, res) => {
-	create(req, res);
-});
+router.post("/create",
+	body("question").trim().escape(),
+	body("answer").trim().escape(),
+	async (req, res) => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			return res.status(400).json({errors: errors.array()});
+		}
+		create(req, res);
+	}
+);
 
 
 module.exports = router;

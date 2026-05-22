@@ -73,8 +73,9 @@ router.post("/unstar/:id", async (req, res) => {
 	unstar(req, res);
 });
 
-router.post("/edit/:id", 
+router.post("/edit/:id",
 	body("name").trim().escape(),
+	body("description").trim().escape(),
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
@@ -102,8 +103,16 @@ router.post("/removecards", async (req, res) => {
 	removeCards(req, res);
 });
 
-router.post("/create", async (req, res) => {
-	create(req, res);
-});
+router.post("/create",
+	body("name").trim().escape(),
+	body("description").trim().escape(),
+	async (req, res) => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			return res.status(400).json({errors: errors.array()});
+		}
+		create(req, res);
+	}
+);
 
 module.exports = router;

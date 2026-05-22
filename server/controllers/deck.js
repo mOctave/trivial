@@ -97,6 +97,7 @@ async function edit(req, res) {
 		if (user.name === deck.creator || user.badges.includes("Admin")) {
 			console.log(`Authorized edits to deck ${id}.`);
 			deck.name = req.body.name;
+			deck.description = req.body.description;
 			deck.save();
 			return res.status(200).redirect(`/deck/${id}`);
 		} else {
@@ -254,6 +255,7 @@ async function create(req, res) {
 
 		const params = {
 			name: req.body.name,
+			description: req.body.description,
 			image: "/img/favicon.svg",
 			creator: user.name
 		};
