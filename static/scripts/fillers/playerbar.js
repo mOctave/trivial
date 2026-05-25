@@ -17,16 +17,28 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
 // MARK: Execute
-let cardDescriptionContainers = document.getElementsByClassName("card-desc-container");
-for (let cardDescriptionContainer of cardDescriptionContainers) {
-	populateCardContainer(cardDescriptionContainer);
-}
+populatePlayerbars();
 
 // MARK: Functions
-function populateCardContainer(cardDescriptionContainer) {
-	let card = window.cardData[0];
-	cardDescriptionContainer.innerHTML +=
+function populatePlayerbars() {
+	let playerbars = document.getElementsByClassName("playerbar");
+	for (let playerbar of playerbars) {
+		populatePlayerbar(playerbar);
+	}
+}
+
+function populatePlayerbar(playerbar) {
+	playerbar.innerHTML = "";
+	for (let i in window.gameData.players) {
+		const player = window.gameData.players[i];
+		const lastAnswer = player.lastAnswer ? player.lastAnswer : "--";
+		playerbar.innerHTML += 
 `
-<p>This card was created ${timestamp(card.dateCreated)} by ${card.creator} and was last modified ${timestamp(card.dateModified)}. It has been correctly answered ${card.correct} times out of the ${card.presentations} times it has been shown.</p>
+<div class="player-display content-box">
+	<div class="player-score">${player.score}</div>
+	<div class="player-name"><span class="player-icons"></span>${player.name}</div>
+	<div class="player-answer">${lastAnswer}</div>
+</div>
 `;
+	}
 }

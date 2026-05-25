@@ -756,16 +756,70 @@ Badges
 }
 
 /*
+MARK: Game
+*/
+
+.gamewindow {
+	background-color: #111;
+}
+
+.gamewindow .content-box {
+	background-color: #ccc;
+	border-color: #555;
+}
+
+.player-display {
+	margin-bottom: 5px;
+}
+
+.player-display:hover {
+	background-color: #6ba;
+	border-color: #376;
+}
+
+.player-score {
+	float: right;
+}
+
+#start-button {
+	background-color: #3882ba;
+	color: black;
+	font-size: x-large;
+	font-style: italic;
+	padding: 20px;
+	border-radius: 10px;
+	border: 2px solid #269;
+	margin: auto;
+	margin-top: 40px;
+}
+
+#start-button:hover {
+	background-color: #a3b;
+	border: 2px solid #817;
+}
+
+/*
 MARK: Icon Sets
 */
-.icon-card {
+.icon-card, .icon-deck, .icon-host {
 	width: 20px;
 	height: 20px;
-	background-image: url("/img/card-filled.svg");
 	border: none;
 	background-color: transparent;
 	vertical-align: middle;
 	display: inline-block;
+}
+
+.icon-card {
+	background-image: url("/img/card-filled.svg");
+}
+
+.icon-deck {
+	background-image: url("/img/deck-filled.svg");
+}
+
+.icon-host {
+	background-image: url("/img/favicon.svg");
 }
 
 

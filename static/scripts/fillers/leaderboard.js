@@ -19,11 +19,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // MARK: Execute
 let leaderboardContainers = document.getElementsByClassName("leaderboard-container");
 for (let leaderboardContainer of leaderboardContainers) {
-	populateContainer(leaderboardContainer);
+	populateLeaderboard(leaderboardContainer);
 }
 
 // MARK: Functions
-function populateContainer(leaderboardContainer) {
+function populateLeaderboard(leaderboardContainer) {
 	for (let leader of window.leaderboardData) {
 		leaderboardContainer.innerHTML +=
 `

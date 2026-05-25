@@ -35,7 +35,7 @@ const limiter = erl.rateLimit({
 });
 
 const app = express();
-connectDB();
+initDatabase();
 
 app.use(express.json());
 app.set("view engine", "ejs");
@@ -56,4 +56,8 @@ app.use("", require("./routes/pages"));
 
 app.listen(env.mainPort, () => console.log(`Server listening on port ${env.mainPort}`));
 
-setSuperuser();
+// MARK: Functions
+async function initDatabase() {
+	await connectDB();
+	setSuperuser();
+}

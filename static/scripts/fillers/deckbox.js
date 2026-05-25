@@ -20,12 +20,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 console.log("Processing decks");
 let deckContainers = document.getElementsByClassName("deck-container");
 for (let deckContainer of deckContainers) {
-	populateContainer(deckContainer);
+	populateDeckContainer(deckContainer);
 }
 
 
 // MARK: Functions
-function populateContainer(deckContainer) {
+function populateDeckContainer(deckContainer) {
 	for (let deck of window.deckData) {
 		let starButtonClasses = "deck-star-toggle";
 		if (window.activeUserData != null) {

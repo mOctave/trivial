@@ -16,24 +16,33 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-const express = require("express");
-const { body, validationResult } = require("express-validator");
-const Game = require("../models/Game");
-const { hostCustomGame, getInfo, startGame } = require("../controllers/game");
-const router = express.Router();
+// MARK: Execute
+populateLeftBar();
 
-router.post("/host", async (req, res) => {
-	console.log("Attempting to host");
-	hostCustomGame(req, res);
-});
+setInterval(() => {
+	fetch(`/api/games/info/${window.gameData._id}`, {method: "GET"})
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			window.gameData = data.game;
+		});
+	if (window.gameData.hasFinished) {
+		location.reload();
+	} else {
+		populateLeftBar();
+		populatePlayerbars();
+	}
+}, 2000)
 
-router.get("/info/:id", async (req, res) => {
-	getInfo(req, res);
-});
-
-router.post("/start/:id", async (req, res) => {
-	console.log(`Starting game ${req.params.id}`);
-	startGame(req, res);
-});
-
-module.exports = router;
+// MARK: Functions
+function populateLeftBar() {
+	const gameDetails = document.getElementById("game-details");
+	const game = window.gameData;
+	gameDetails.innerHTML = 
+`
+<p>${game.players[0].name}'s ${game.mode}</p>
+<p>Times out at ${game.timeout}</p>
+<p>Players: ${game.players.length}</p>
+`;
+}

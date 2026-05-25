@@ -19,11 +19,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // MARK: Execute
 let userContainers = document.getElementsByClassName("user-container");
 for (let userContainer of userContainers) {
-	populateContainer(userContainer);
+	populateUserbox(userContainer);
 }
 
 // MARK: Functions
-function populateContainer(userContainer) {
+function populateUserbox(userContainer) {
 	let user = window.targetUserData;
 	userContainer.innerHTML +=
 `

@@ -72,11 +72,11 @@ const badgeData = {
 // MARK: Execute
 let badgeContainers = document.getElementsByClassName("badge-container");
 for (let badgeContainer of badgeContainers) {
-	populateContainer(badgeContainer);
+	populateBadgeContainer(badgeContainer);
 }
 
 // MARK: Functions
-function populateContainer(badgeContainer) {
+function populateBadgeContainer(badgeContainer) {
 	let user = window.targetUserData;
 	for (let badge of user.badges) {
 		console.log(badge);

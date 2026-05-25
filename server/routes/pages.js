@@ -20,6 +20,7 @@ const express = require("express");
 const { logout } = require("../controllers/login");
 const showpage = require("../controllers/pagedisplay");
 const User = require("../models/User");
+const { displayGame } = require("../controllers/game");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -68,6 +69,10 @@ router.get("/create", async (req, res) => {
 
 router.get("/play", async (req, res) => {
 	showpage("pages/play", req, res);
+});
+
+router.get("/play/:id", async (req, res) => {
+	displayGame(req, res);
 });
 
 router.get("/*splat", async (req, res) => {

@@ -19,11 +19,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // MARK: Execute
 let joinMenus = document.getElementsByClassName("joinmenu");
 for (let joinMenu of joinMenus) {
-	populateContainer(joinMenu);
+	populateJoinMenu(joinMenu);
 }
 
 // MARK: Functions
-function populateContainer(joinMenu) {
+function populateJoinMenu(joinMenu) {
 	for (let game of window.openGameData) {
 		console.log(game);
 		joinMenu.innerHTML +=

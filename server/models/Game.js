@@ -26,7 +26,8 @@ const GameSchema = new mongoose.Schema({
 	players: [{
 		name: {type: String, required: true},
 		deck: {type: mongoose.Types.ObjectId, ref: "Deck", required: false},
-		score: {type: Number, required: true, default: 0}
+		score: {type: Number, required: true, default: 0},
+		lastAnswer: {type: String, required: false}
 	}],
 	nextPlayer: {
 		type: Number,
