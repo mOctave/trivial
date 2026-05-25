@@ -1,0 +1,20 @@
+<div class="content-box">
+	<h2>Host a custom match</h2>
+	<form action="/api/games/host" method="POST">
+		<label for="gamemode">Gamemode:</label>
+		<select id="gamemode-selector" name="gamemode">
+			<option value="custom/byod-u">BYOD (Unlimited)</option>
+			<option value="custom/byod-o">BYOD (Official)</option>
+			<option value="custom/geography">Geography</option>
+			<option value="custom/history">History</option>
+			<option value="custom/language">Language</option>
+			<option value="custom/famous-people">Famous People</option>
+			<option value="custom/art-culture">Art and Culture</option>
+			<option value="custom/sports-rec">Sports and Recreation</option>
+			<option value="custom/science-tech">Science and Technology</option>
+			<option value="custom/general-knowledge">General Knowledge</option>
+			<option value="custom/ama">Ask Me Anything</option>
+		</select>
+		<input class="button-highlighted" type="submit" value="Host!"/>
+	</form>
+</div>

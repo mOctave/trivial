@@ -1,4 +1,4 @@
-<!--
+/*
 Trivial: Multiplayer trivia online.
 Copyright (C) 2026 mOctave
 
@@ -14,28 +14,17 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
--->
+*/
 
+const express = require("express");
+const { body, validationResult } = require("express-validator");
+const Game = require("../models/Game");
+const hostCustomGame = require("../controllers/game");
+const router = express.Router();
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<%- include("../partials/head"); %>
-	</head>
-	<body>
-		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<%- include("../partials/userbox"); %>
-		</div>
-		<div class="main-container">
-			<%- include("../partials/duelmenu"); %>
-			<%- include("../partials/hostmenu"); %>
-			<%- include("../partials/joinmenu"); %>
-			<%- include("../partials/copyright"); %>
-		</div>
-		<div class="right-bar">
-			<%- include("../partials/leaderboard"); %>
-			<%- include("../partials/contribute"); %>
-		</div>
-	</body>
-</html>
+router.post("/host", async (req, res) => {
+	console.log("Attempting to host");
+	hostCustomGame(req, res);
+});
+
+module.exports = router;

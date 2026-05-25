@@ -1,4 +1,4 @@
-<!--
+/*
 Trivial: Multiplayer trivia online.
 Copyright (C) 2026 mOctave
 
@@ -14,28 +14,23 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
--->
+*/
 
+// MARK: Execute
+let joinMenus = document.getElementsByClassName("joinmenu");
+for (let joinMenu of joinMenus) {
+	populateContainer(joinMenu);
+}
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<%- include("../partials/head"); %>
-	</head>
-	<body>
-		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<%- include("../partials/userbox"); %>
-		</div>
-		<div class="main-container">
-			<%- include("../partials/duelmenu"); %>
-			<%- include("../partials/hostmenu"); %>
-			<%- include("../partials/joinmenu"); %>
-			<%- include("../partials/copyright"); %>
-		</div>
-		<div class="right-bar">
-			<%- include("../partials/leaderboard"); %>
-			<%- include("../partials/contribute"); %>
-		</div>
-	</body>
-</html>
+// MARK: Functions
+function populateContainer(joinMenu) {
+	for (let game of window.openGameData) {
+		console.log(game);
+		joinMenu.innerHTML +=
+`
+<div>
+	<span><span class="lobby-count">${game.players.length}</span> ${game.players[0].name}'s ${game.mode} <a class="button-highlighted" href="/play/${game._id}">Join</a></span>
+</div>
+`;
+	}
+}

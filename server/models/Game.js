@@ -31,7 +31,7 @@ const GameSchema = new mongoose.Schema({
 	nextPlayer: {
 		type: Number,
 		required: true,
-		default: 0
+		default: -1
 	},
 	hasStarted: {
 		type: Boolean,
@@ -47,6 +47,16 @@ const GameSchema = new mongoose.Schema({
 		type: mongoose.Types.ObjectId,
 		ref: "Card",
 		required: false
+	},
+	timeout: {
+		type: Date,
+		required: true,
+		default: () => new Date(new Date().getTime() + 15 * 60 * 1000)
+	},
+	mode: {
+		type: String,
+		required: true,
+		default: "duel/byod-any"
 	}
 });
 

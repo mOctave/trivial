@@ -23,6 +23,7 @@ const Deck = require("../models/Deck");
 const User = require("../models/User");
 const authorize = require("../services/authorize");
 const registerAction = require("../services/registeraction");
+const Game = require("../models/Game");
 
 async function showpage(page, req, res) {
 	try {
@@ -120,7 +121,8 @@ async function chooseData(page, req, res) {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				targetUser: await (req.user ? await getUser(req.user.name) : null),
 				leaderboard: await getLeaderboard(10, 0),
-				loggedIn: await (req.user !== undefined)
+				loggedIn: await (req.user !== undefined),
+				openGames: await Game.find({mode: /^custom/, hasStarted: false})
 			}
 		default:
 			return {

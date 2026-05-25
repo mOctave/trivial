@@ -49,6 +49,7 @@ app.use(cookieParser());
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/cards", require("./routes/card"));
 app.use("/api/decks", require("./routes/deck"));
+app.use("/api/games", require("./routes/game"));
 app.use("/api/users", require("./routes/user"));
 
 app.use("", require("./routes/pages"));
