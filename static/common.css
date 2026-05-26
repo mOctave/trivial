@@ -798,6 +798,30 @@ MARK: Game
 	border: 2px solid #817;
 }
 
+#answer-box {
+	display: flex;
+}
+
+#answer-bar {
+	width: 75%;
+	background-color: black;
+	color: #ccc;
+	padding: 2px 5px 2px 5px;
+	margin: 3px;
+}
+
+#answer-button {
+	width: calc(25% - 9px);
+	background-color: #8dc;
+	border: 2px groove #6ba;
+	padding: 2px 10px 2px 10px;
+	margin: 3px;
+}
+
+#answer-button:hover {
+	background-color: #6ba;
+}
+
 /*
 MARK: Icon Sets
 */
