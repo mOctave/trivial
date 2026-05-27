@@ -18,6 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 // MARK: Execute
 populateLeftBar();
+populateTimerbar();
 
 setInterval(() => {
 	fetch(`/api/games/info/${window.gameData._id}`, {method: "GET"})
@@ -33,7 +34,11 @@ setInterval(() => {
 		populateLeftBar();
 		populatePlayerbars();
 	}
-}, 2000)
+}, 250)
+
+setInterval(() => {
+	populateTimerbar();
+}, 50)
 
 // MARK: Functions
 function populateLeftBar() {
@@ -61,6 +66,14 @@ function populateLeftBar() {
 	} else {
 		startButton.style.display = "none";
 	}
+}
+
+function populateTimerbar() {
+	const game = window.gameData;
+	const gameTimeLeft = document.getElementById("time-left");
+	gameTimeLeft.innerText = `Lobby closes in ${timeUntil(game.timeout)}`;
+	const timerbar = document.getElementById("time-bar");
+	timerbar.style.width = `${msUntil(game.timeout) / game.totalTimeoutLength * 100}%`;
 }
 
 function startGame() {

@@ -23,20 +23,119 @@ const User = require("../models/User");
 const authorize = require("../services/authorize");
 const registerAction = require("../services/registeraction");
 
+const gameRoundLength = 10000;
+const gameScoreLimit = 100;
+const gamePauseLength = 3000;
 
-async function drawCard(game) {
-	game.nextPlayer = (game.nextPlayer + 1) % game.players.length;
-	game.currentCard = await chooseCard(game);
-	game.save();
-	console.log(game);
+const timeouts = {};
+
+async function startRound(gameId) {
+	await drawCard(gameId);
+	const game = await Game.findById(gameId);
+	game.timeout = new Date(new Date().getTime() + gameRoundLength);
+	game.totalTimeoutLength = gameRoundLength;
+	for (const player of game.players) {
+		player.roundScore = 0;
+	}
+	await game.save();
+	timeouts[gameId] = setTimeout(() => {
+		endRound(gameId);
+	}, gameRoundLength);
 }
 
-async function chooseCard(game) {
+async function endRound(gameId) {
+	const game = await Game.findById(gameId);
+	let maxWinningScore = gameScoreLimit;
+	let maxPlayers = [];
+	for (const player of game.players) {
+		if (player.score > maxWinningScore) {
+			maxWinningScore = player.score;
+			maxPlayers = [player.name];
+		} else if (player.score == maxWinningScore) {
+			maxPlayers.push(player.name);
+		}
+	}
+	if (maxPlayers.length === 1) {
+		await finishGame(gameId);
+	}
+	// Game isn't finished yet, keep playing.
+	game.timeout = new Date(new Date().getTime() + gamePauseLength);
+	game.totalTimeoutLength = gamePauseLength;
+	game.currentCard = undefined;
+	for (const player of game.players) {
+		player.score += player.roundScore;
+		player.lastAnswer = "--";
+	}
+	await game.save();
+	timeouts[gameId] = setTimeout(() => {
+		startRound(gameId);
+	}, gamePauseLength);
+}
+
+async function finishGame(gameId) {
+	const game = await Game.findById(gameId);
+	let winningScore = 0;
+	let winner = null;
+	for (const player of game.players) {
+		if (player.score > winningScore) {
+			winningScore = player.score;
+			winner = player.name;
+		}
+	}
+	game.winner = winner;
+	game.hasFinished = true;
+	if (game.mode.split("/")[0] === "duel") {
+		assignRatingPoints(gameId);
+	}
+	await game.save();
+	timeouts[game._id] = undefined;
+}
+
+async function assignRatingPoints(gameId) {
+	console.log("TODO: Assign rating points");
+}
+
+async function matchAnswer(gameId, answer) {
+	console.log("Matching answer...");
+	const game = await Game.findById(gameId);
+	const card = await Card.findById(game.currentCard);
+
+	if (!card) {
+		return false;
+	}
+
+	if (card.answer.toLowerCase() === answer.toLowerCase()) return true;
+
+	for (const typein of card.typeins) {
+		const regex = new RegExp(typein, "i");
+		if (regex.test(answer)) return true;
+	}
+
+	console.log("Failed to match answer.");
+
+	return false;
+}
+
+async function drawCard(gameId) {
+	const game = await Game.findById(gameId);
+	game.nextPlayer = (game.nextPlayer + 1) % game.players.length;
+
+	// Choose card
+
 	const deckType = game.mode.split("/")[1];
-	if (deckType == "byod-any" || deckType == "byod-official") {
-		const deck = await Deck.findById(game.players[game.nextPlayer].deck);
-		const cardId = deck.cards[Math.floor(Math.random() * deck.cards.length)];
-		return await Card.findById(cardId);
+	if (deckType == "byod-unlimited" || deckType == "byod-official") {
+		let deck = await Deck.findById(game.players[game.nextPlayer].deck);
+		if (!deck) {
+			deck = await Deck.findOne();
+		}
+		console.log(`Choosing a card from ${deck._id}`);
+		const cardId = await deck.cards[Math.floor(Math.random() * deck.cards.length)];
+		console.log(`Chose card ${cardId}`);
+		const card = await Card.findById(cardId);
+		card.presentations += game.players.length;
+		await card.save();
+		game.currentCard = cardId;
+		await game.save();
 	} else {
 		throw new Error("TAG-BASED GAMES NOT IMPLEMENTED YET");
 	}
@@ -124,7 +223,14 @@ async function displayGame(req, res) {
 
 		if (game.hasStarted) {
 			// User is a player, the game is currently ongoing
-			return res.status(200).render("pages/game-active", {game: game, activeUser: user, loggedIn: true});
+		const card = await Card.findById(game.currentCard);
+			return res.status(200).render("pages/game-active", {
+				game: game, 
+				question: card ? card.question : null,
+				image: card ? card.image : null, 
+				activeUser: user,
+				loggedIn: true
+			});
 		}
 		// User is a player, the game is waiting to start
 		return res.status(200).render("pages/game-wait", {game: game, activeUser: user, loggedIn: true});
@@ -136,7 +242,13 @@ async function displayGame(req, res) {
 
 async function getInfo(req, res) {
 	try {
-		res.status(200).json({game: await Game.findById(req.params.id)});
+		const game = await Game.findById(req.params.id);
+		const card = await Card.findById(game.currentCard);
+		res.status(200).json({
+			game: game,
+			question: card ? card.question : null,
+			image: card ? card.image : null
+		});
 	} catch (e) {
 		res.status(500).send();
 		console.log(e);
@@ -169,6 +281,7 @@ async function startGame(req, res) {
 		if (user.name === game.players[0].name) {
 			game.hasStarted = true;
 			await game.save();
+			await startRound(game._id);
 			return res.status(200).send();
 		} else {
 			return res.status(403).send();
@@ -179,4 +292,66 @@ async function startGame(req, res) {
 	}
 }
 
-module.exports = { hostCustomGame, displayGame, getInfo, startGame };
+async function submitAnswer(req, res) {
+	try {
+		const game = await Game.findById(req.params.id);
+
+		if (!game.hasStarted || game.hasFinished || !game.currentCard) {
+			// It doesn't make sense to parse an answer right now
+			return res.status(400).send();
+		}
+
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		registerAction(user.name);
+
+		for (const player of game.players) {
+			if (user.name === player.name) {
+				if (player.roundScore > 0) {
+					// This player has already submitted the right answer!
+					return res.status(400).send();
+				}
+
+				player.lastAnswer = req.body.answer;
+				await game.save();
+				if (await matchAnswer(game._id, player.lastAnswer)) {
+					// TODO: Breakout into new function, dock points if the current player chose the deck
+					let alreadyCorrect = 0;
+					for (const x of game.players) {
+						if (x.roundScore > 0) {
+							alreadyCorrect++;
+						}
+					}
+
+					player.roundScore = Math.ceil(20 * Math.pow(alreadyCorrect + 2, -1));
+					await game.save();
+
+					if (alreadyCorrect === game.players.length - 1) {
+						// Everyone has gotten the right answer now, end the round early
+						clearTimeout(timeouts[game._id]);
+						endRound(game._id);
+					}
+				}
+				return res.status(200).send();
+			}
+		}
+
+		// User is not a player, can't submit answers
+		return res.status(403).send();
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { hostCustomGame, displayGame, getInfo, startGame, submitAnswer };

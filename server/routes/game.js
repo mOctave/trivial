@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 const express = require("express");
 const { body, validationResult } = require("express-validator");
 const Game = require("../models/Game");
-const { hostCustomGame, getInfo, startGame } = require("../controllers/game");
+const { hostCustomGame, getInfo, startGame, submitAnswer } = require("../controllers/game");
 const router = express.Router();
 
 router.post("/host", async (req, res) => {
@@ -34,6 +34,11 @@ router.get("/info/:id", async (req, res) => {
 router.post("/start/:id", async (req, res) => {
 	console.log(`Starting game ${req.params.id}`);
 	startGame(req, res);
+});
+
+router.post("/answer/:id", async (req, res) => {
+	console.log(`Answering game ${req.params.id}`);
+	submitAnswer(req, res);
 });
 
 module.exports = router;

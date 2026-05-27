@@ -27,7 +27,7 @@ const setSuperuser = require("./config/setsuperuser");
 
 const limiter = erl.rateLimit({
 	windowMs: 30 * 1000,
-	limit: 50,
+	limit: 500,
 	standardHeaders: "draft-8",
 	legacyHeaders: false,
 	ipv6Subnet: 60,

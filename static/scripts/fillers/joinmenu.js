@@ -29,7 +29,7 @@ function populateJoinMenu(joinMenu) {
 		joinMenu.innerHTML +=
 `
 <div>
-	<span><span class="lobby-count">${game.players.length}</span> ${game.players[0].name}'s ${game.mode} <a class="button-highlighted" href="/play/${game._id}">Join</a></span>
+	<span class="lobby-count">${game.players.length}</span> ${game.players[0].name}'s ${game.mode} <a class="button-highlighted" href="/play/${game._id}">Join</a>
 </div>
 `;
 	}

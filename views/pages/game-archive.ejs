@@ -27,27 +27,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		<%- include("../partials/navbar"); %>
 		<div class="left-bar">
 			<div id="game-details" class="content-box">
+				This game has finished. Yay.
 			</div>
-			<form id="answer-box" class="content-box" onsubmit="sendAnswer('<%- game._id %>'); return false;">
-				<input id="answer-bar" name="answer" type="text" placeholder="Answer" required/>
-				<input id="answer-button" type="submit" value="√"/>
-			</form>
-			<div id="time-indicator"><div id="time-left"></div><div id="time-bar"></div></div>
-		</div>
-		<div class="main-container game-container">
-			<div id="card-question"></div>
-			<div id="card-image"></div>
-			<div id="card-answer"></div>
 		</div>
 		<div class="right-bar">
 			<%- include("../partials/playerbar") %>
 		</div>
 	<script>
 		window.activeUserData = <%- JSON.stringify(activeUser) %>;
-		window.questionData = <%- question ? `"` + question + `"` : "null" %>;
-		window.imageData = <%- image ? `"` + image + `"` : "null" %>;
 	</script>
-	<script src="/scripts/utils/timestamp.js"></script>
-	<script src="/scripts/fillers/game-active.js" defer></script>
 	</body>
 </html>

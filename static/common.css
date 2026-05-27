@@ -192,6 +192,10 @@ MARK: Page Layout
 	display: inline-block;
 }
 
+.joinmenu * {
+	line-height: 45px;
+}
+
 /*
 MARK: Buttons
 */
@@ -820,6 +824,58 @@ MARK: Game
 
 #answer-button:hover {
 	background-color: #6ba;
+}
+
+.main-container.game-container {
+	height: calc(100vh - 80px);
+	border: 1px solid red;
+	display: flex;
+	flex-direction: column;
+}
+
+#card-question {
+	color: #ccc;
+	text-align: center;
+
+	flex: 1 1 auto;
+}
+
+#card-image {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden
+}
+
+#card-image * {
+	flex: 1 1 auto;
+	width: 100%;
+	height: 100%;
+}
+
+#card-answer {
+	flex: 1 1 auto;
+}
+
+#time-indicator {
+	overflow: hidden;
+	background-color: #ccc;
+	border: 2px solid #555;
+	padding: 0;
+	border-radius: 10px;
+}
+
+#time-left {
+	padding: 5px;
+}
+
+#time-bar {
+	margin: 0;
+	height: 5px;
+	width: 100%;
+	background-color: #f42;
+	border-radius: 2px;
 }
 
 /*

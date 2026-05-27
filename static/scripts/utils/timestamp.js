@@ -30,3 +30,16 @@ function timestamp(dateString) {
 	return Intl.DateTimeFormat(navigator.language, {month: "long", year: "numeric", day: "numeric"}).format(date);
 }
 
+
+function msUntil(dateString) {
+	const dateNow = new Date().getTime();
+	const dateThen = new Date(dateString).getTime();
+	return Math.max(0, dateThen - dateNow);
+}
+
+function timeUntil(dateString) {
+	const diff = Math.floor(msUntil(dateString) / 1000);
+	const min = `${Math.floor(diff / 60)}`.padStart(2, "0");
+	const sec = `${diff % 60}`.padStart(2, "0");
+	return `${min}:${sec}`;
+}
