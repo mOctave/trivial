@@ -98,6 +98,14 @@ textarea {
 	text-align: center;
 }
 
+pre {
+	display: inline;
+	background-color: black;
+	color: #6a1;
+	padding: 2px;
+	border-radius: 2px;
+}
+
 /*
 MARK: Page Layout
 */
