@@ -361,7 +361,7 @@ MARK: Navbar
 
 #dropdown-content-user {
 	display: none;
-	position: absolute;
+	position: fixed;
 	z-index: 2;
 	top: 50px;
 	width: 150px;

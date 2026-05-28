@@ -1,0 +1,25 @@
+<div class="content-box">
+	<h2>Choose your decks</h2>
+	<p>Pick one of your starred decks to join BYOD games with.</p>
+
+	<form>
+		<label for="byod-o-selector">BYOD&nbsp;Official:</label>
+		<br/>
+		<select id="byod-o-selector" class="deck-selector">
+			<option value="">(Random Deck)</option>
+			<option disabled>&#9472;&#9472;&#9472;&#9472;&#9472;</option>
+		</select>
+		<br/>
+		<label for="byod-u-selector">BYOD&nbsp;Unlimited:</label>
+		<br/>
+		<select id="byod-u-selector" class="deck-selector">
+			<option value="">(Random Deck)</option>
+			<option disabled>&#9472;&#9472;&#9472;&#9472;&#9472;</option>
+		</select>
+	</form>
+</div>
+
+<script>
+	window.deckData = <%- JSON.stringify(decks) %>;
+</script>
+<script src="/scripts/fillers/deckselector.js" defer></script>

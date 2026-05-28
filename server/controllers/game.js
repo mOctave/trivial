@@ -167,7 +167,7 @@ async function hostCustomGame(req, res) {
 		registerAction(user.name);
 
 		const params = {
-			players: [{name: user.name, deck: await Deck.findOne()._id /* TODO */, score: 0}],
+			players: [{name: user.name, deck: await chooseDeck(req, res, gamemode), score: 0}],
 			mode: gamemode
 		}
 
@@ -194,16 +194,17 @@ async function displayGame(req, res) {
 
 		if (!user) {
 			if (game.hasFinished) {
+				// Players can view past games without logging in
 				return res.status(200).render("pages/game-archive", {game: game, activeUser: null, loggedIn: false});
 			} else {
+				// Players can't view ongoing games unless they log in
 				return res.status(403).send();
 			}
 		}
 
 
 		if (game.hasFinished) {
-			// Game is finished
-			// TODO
+			// Game is finished and open to the public
 			return res.status(200).render("pages/game-archive", {game: game, activeUser: user, loggedIn: true});
 		}
 
@@ -227,7 +228,8 @@ async function displayGame(req, res) {
 				return res.status(403).render("errors/403");
 			} else {
 				// User can join the game!
-				game.players.push({name: user.name, deck: await Deck.findOne()._id /* TODO */, score: 0});
+				game.players.push({name: user.name, deck: await chooseDeck(req, res, game.mode), score: 0});
+
 				await game.save();
 				return res.status(200).render("pages/game-wait", {game: game, activeUser: user, loggedIn: true});
 			}
@@ -250,6 +252,28 @@ async function displayGame(req, res) {
 	} catch (e) {
 		res.status(500).send();
 		console.log(e);
+	}
+}
+
+async function chooseDeck(req, res, gamemode) {
+	const officialDecks = await Deck.find({"creator": "Trivial"});
+	const randomOfficial = officialDecks[Math.floor(Math.random() * officialDecks.length)];
+	const unlimitedDecks = await Deck.find({});
+	const randomUnlimited = unlimitedDecks[Math.floor(Math.random() * unlimitedDecks.length)];
+
+	let deckChoiceOfficial = req.cookies.deckChoiceOfficial;
+	if (!deckChoiceOfficial) deckChoiceOfficial = randomOfficial._id;
+
+	let deckChoiceUnlimited = req.cookies.deckChoiceUnlimited;
+	if (!deckChoiceUnlimited) deckChoiceUnlimited = randomUnlimited._id;
+
+	switch (gamemode.split("/")[1]) {
+		case "byod-official":
+			return deckChoiceOfficial;
+		case "byod-unlimited":
+			return deckChoiceUnlimited;
+		default:
+			return null;
 	}
 }
 
