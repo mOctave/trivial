@@ -465,7 +465,7 @@ MARK: Decks
 .deck {
 	display: inline-block;
 	width: 200px;
-	height: 300px;
+	height: fit-content;
 	border: 4px double black;
 	border-radius: 10px;
 	background-color: #eff;
