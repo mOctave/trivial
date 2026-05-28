@@ -23,9 +23,9 @@ const User = require("../models/User");
 const authorize = require("../services/authorize");
 const registerAction = require("../services/registeraction");
 
-const gameRoundLength = 10000;
+const gameRoundLength = 20000;
 const gameScoreLimit = 100;
-const gamePauseLength = 3000;
+const gamePauseLength = 10000;
 
 const timeouts = {};
 
@@ -35,8 +35,10 @@ async function startRound(gameId) {
 	game.timeout = new Date(new Date().getTime() + gameRoundLength);
 	game.totalTimeoutLength = gameRoundLength;
 	for (const player of game.players) {
+		player.lastAnswer = "--";
 		player.roundScore = 0;
 	}
+	game.roundActive = true;
 	await game.save();
 	timeouts[gameId] = setTimeout(() => {
 		endRound(gameId);
@@ -45,6 +47,12 @@ async function startRound(gameId) {
 
 async function endRound(gameId) {
 	const game = await Game.findById(gameId);
+
+	// Update scores
+	for (const player of game.players) {
+		player.score += player.roundScore;
+	}
+	// Check if someone is winning
 	let maxWinningScore = gameScoreLimit;
 	let maxPlayers = [];
 	for (const player of game.players) {
@@ -61,11 +69,7 @@ async function endRound(gameId) {
 	// Game isn't finished yet, keep playing.
 	game.timeout = new Date(new Date().getTime() + gamePauseLength);
 	game.totalTimeoutLength = gamePauseLength;
-	game.currentCard = undefined;
-	for (const player of game.players) {
-		player.score += player.roundScore;
-		player.lastAnswer = "--";
-	}
+	game.roundActive = false;
 	await game.save();
 	timeouts[gameId] = setTimeout(() => {
 		startRound(gameId);
@@ -73,6 +77,7 @@ async function endRound(gameId) {
 }
 
 async function finishGame(gameId) {
+	console.log(`Game ${gameId} has finished.`);
 	const game = await Game.findById(gameId);
 	let winningScore = 0;
 	let winner = null;
@@ -87,6 +92,8 @@ async function finishGame(gameId) {
 	if (game.mode.split("/")[0] === "duel") {
 		assignRatingPoints(gameId);
 	}
+	game.roundActive = false;
+	game.timeout = new Date();
 	await game.save();
 	timeouts[game._id] = undefined;
 }
@@ -177,12 +184,6 @@ async function displayGame(req, res) {
 	try {
 		const game = await Game.findById(req.params.id);
 
-		if (game.isFinished) {
-			// Game is finished
-			// TODO
-			return res.status(200).render("pages/game-archive");
-		}
-
 		await authorize(req, res, true);
 
 		if (req.user == null) {
@@ -192,7 +193,18 @@ async function displayGame(req, res) {
 		const user = await User.findOne({"name": req.user.name});
 
 		if (!user) {
-			return res.status(401).send();
+			if (game.hasFinished) {
+				return res.status(200).render("pages/game-archive", {game: game, activeUser: null, loggedIn: false});
+			} else {
+				return res.status(403).send();
+			}
+		}
+
+
+		if (game.hasFinished) {
+			// Game is finished
+			// TODO
+			return res.status(200).render("pages/game-archive", {game: game, activeUser: user, loggedIn: true});
 		}
 
 		registerAction(user.name);
@@ -223,11 +235,12 @@ async function displayGame(req, res) {
 
 		if (game.hasStarted) {
 			// User is a player, the game is currently ongoing
-		const card = await Card.findById(game.currentCard);
+			const card = await Card.findById(game.currentCard);
 			return res.status(200).render("pages/game-active", {
 				game: game, 
 				question: card ? card.question : null,
 				image: card ? card.image : null, 
+				answer: (card && !game.roundActive) ? card.answer : null,
 				activeUser: user,
 				loggedIn: true
 			});
@@ -243,12 +256,23 @@ async function displayGame(req, res) {
 async function getInfo(req, res) {
 	try {
 		const game = await Game.findById(req.params.id);
-		const card = await Card.findById(game.currentCard);
-		res.status(200).json({
-			game: game,
-			question: card ? card.question : null,
-			image: card ? card.image : null
-		});
+
+		if (game.hasFinished) {
+			res.status(200).json({
+				game: game,
+				question: "This game has finished.",
+				image: "/img/favicon.svg",
+				answer: `Congratulations ${game.winner}! You've won the game!`
+			});
+		} else {
+			const card = await Card.findById(game.currentCard);
+			res.status(200).json({
+				game: game,
+				question: card ? card.question : null,
+				image: card ? card.image : null,
+				answer: (card && !game.roundActive) ? card.answer : null
+			});
+		}
 	} catch (e) {
 		res.status(500).send();
 		console.log(e);
@@ -296,7 +320,7 @@ async function submitAnswer(req, res) {
 	try {
 		const game = await Game.findById(req.params.id);
 
-		if (!game.hasStarted || game.hasFinished || !game.currentCard) {
+		if (!game.hasStarted || game.hasFinished || !game.roundActive) {
 			// It doesn't make sense to parse an answer right now
 			return res.status(400).send();
 		}
@@ -326,6 +350,15 @@ async function submitAnswer(req, res) {
 				await game.save();
 				if (await matchAnswer(game._id, player.lastAnswer)) {
 					// TODO: Breakout into new function, dock points if the current player chose the deck
+					const card = await Card.findById(game.currentCard);
+					card.correct++;
+					await card.save();
+					const user = await User.findOne({"name": player.name});
+					if (!user.cardsAnswered.includes(game.currentCard)) {
+						user.cardsAnswered.push(game.currentCard);
+						await user.save();
+					}
+
 					let alreadyCorrect = 0;
 					for (const x of game.players) {
 						if (x.roundScore > 0) {

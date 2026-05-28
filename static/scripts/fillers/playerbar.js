@@ -32,7 +32,28 @@ function populatePlayerbar(playerbar) {
 	for (let i in window.gameData.players) {
 		const player = window.gameData.players[i];
 		const lastAnswer = player.lastAnswer ? player.lastAnswer : "--";
-		playerbar.innerHTML += 
+		if (player.roundScore > 0) {
+			if (player.name === window.activeUserData.name || !window.gameData.roundActive) {
+				playerbar.innerHTML += 
+`
+<div class="player-display content-box">
+	<div class="player-score">${player.score}</div>
+	<div class="player-name"><span class="player-icons"></span>${player.name}</div>
+	<div class="player-answer correct-answer">${lastAnswer}</div>
+</div>
+`;
+			} else {
+				playerbar.innerHTML += 
+`
+<div class="player-display content-box">
+	<div class="player-score">${player.score}</div>
+	<div class="player-name"><span class="player-icons"></span>${player.name}</div>
+	<div class="player-answer correct-answer">???</div>
+</div>
+`;
+			}
+		} else {
+			playerbar.innerHTML += 
 `
 <div class="player-display content-box">
 	<div class="player-score">${player.score}</div>
@@ -40,5 +61,6 @@ function populatePlayerbar(playerbar) {
 	<div class="player-answer">${lastAnswer}</div>
 </div>
 `;
+		}
 	}
 }

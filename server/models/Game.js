@@ -64,6 +64,11 @@ const GameSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		default: "duel/byod-unlimited"
+	},
+	roundActive: {
+		type: Boolean,
+		required: true,
+		default: false
 	}
 });
 

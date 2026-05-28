@@ -62,6 +62,11 @@ const UserSchema = new mongoose.Schema({
 		type: [String],
 		required: true,
 		default: ["Trivialist"]
+	},
+	cardsAnswered: {
+		type: [String],
+		required: true,
+		default: []
 	}
 });
 

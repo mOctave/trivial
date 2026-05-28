@@ -21,14 +21,25 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	<head>
 		<%- include("../partials/head"); %>
 		<script src="/scripts/utils/timestamp.js"></script>
-		<!-- <meta http-equiv="refresh" content="1"/> -->
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
 		<div class="left-bar">
 			<div id="game-details" class="content-box">
-				This game has finished. Yay.
+				<p><%- game.players[0].name %>'s <%- game.mode %></p>
+				<p>Players: <%- game.players.length %></p>
+				<p>This game ended 
+					<%- new Date(game.timeout).toLocaleDateString("en-CA",
+						{year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"}
+					)%>
+				</p>
+				<p>Full archive data is not yet supported.</p>
 			</div>
+		</div>
+		<div class="main-container game-container">
+			<div id="card-question">This game has finished.</div>
+			<div id="card-image"><img src="/img/favicon.svg"></div>
+			<div id="card-answer">Congratulations <%- game.winner %>! You won the game.</div>
 		</div>
 		<div class="right-bar">
 			<%- include("../partials/playerbar") %>

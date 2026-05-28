@@ -49,7 +49,6 @@ function populateLeftBar() {
 	gameDetails.innerHTML = 
 `
 <p>${game.players[0].name}'s ${game.mode}</p>
-<p>Times out at ${game.timeout}</p>
 <p>Players: ${game.players.length}</p>
 `;
 

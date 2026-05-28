@@ -21,7 +21,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	<head>
 		<%- include("../partials/head"); %>
 		<script src="/scripts/utils/timestamp.js"></script>
-		<!-- <meta http-equiv="refresh" content="1"/> -->
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
@@ -29,7 +28,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 			<div id="game-details" class="content-box">
 			</div>
 			<form id="answer-box" class="content-box" onsubmit="sendAnswer('<%- game._id %>'); return false;">
-				<input id="answer-bar" name="answer" type="text" placeholder="Answer" required/>
+				<input id="answer-bar" name="answer" type="text" placeholder="Answer" autocomplete="off" required/>
 				<input id="answer-button" type="submit" value="√"/>
 			</form>
 			<div id="time-indicator"><div id="time-left"></div><div id="time-bar"></div></div>
@@ -46,6 +45,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		window.activeUserData = <%- JSON.stringify(activeUser) %>;
 		window.questionData = <%- question ? `"` + question + `"` : "null" %>;
 		window.imageData = <%- image ? `"` + image + `"` : "null" %>;
+		window.answerData = <%- answer ? `"` + answer + `"` : "null" %>;
 	</script>
 	<script src="/scripts/utils/timestamp.js"></script>
 	<script src="/scripts/fillers/game-active.js" defer></script>

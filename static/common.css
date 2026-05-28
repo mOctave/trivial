@@ -827,13 +827,13 @@ MARK: Game
 }
 
 .main-container.game-container {
-	height: calc(100vh - 80px);
-	border: 1px solid red;
+	height: calc(100vh - 120px);
+	padding: 20px;
 	display: flex;
 	flex-direction: column;
 }
 
-#card-question {
+#card-question, #card-answer {
 	color: #ccc;
 	text-align: center;
 
@@ -854,10 +854,6 @@ MARK: Game
 	height: 100%;
 }
 
-#card-answer {
-	flex: 1 1 auto;
-}
-
 #time-indicator {
 	overflow: hidden;
 	background-color: #ccc;
@@ -876,6 +872,11 @@ MARK: Game
 	width: 100%;
 	background-color: #f42;
 	border-radius: 2px;
+}
+
+.correct-answer {
+	font-style: italic;
+	color: #6a1;
 }
 
 /*

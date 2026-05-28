@@ -19,6 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 // MARK: Execute
 populateLeftBar();
 populateCentre();
+document.getElementById("answer-bar").focus();
 
 setInterval(() => {
 	fetch(`/api/games/info/${window.gameData._id}`, {method: "GET"})
@@ -28,6 +29,7 @@ setInterval(() => {
 		.then((data) => {
 			window.gameData = data.game;
 			window.questionData = data.question;
+			window.imageData = data.image;
 			window.answerData = data.answer;
 		});
 	if (window.gameData.hasFinished) {
@@ -57,7 +59,7 @@ function populateLeftBar() {
 function populateTimerbar() {
 	const game = window.gameData;
 	const gameTimeLeft = document.getElementById("time-left");
-	if (game.currentCard) {
+	if (game.roundActive) {
 		gameTimeLeft.innerText = `${timeUntil(game.timeout)} remaining`;
 	} else {
 		gameTimeLeft.innerText = `Next round in ${timeUntil(game.timeout)}`;
@@ -73,18 +75,29 @@ function populateCentre() {
 
 	if (window.questionData) {
 		gameQuestion.innerText = window.questionData;
+	} else {
+		gameQuestion.innerText = "ERROR: Could not find question.";
 	}
 
 	if (window.imageData) {
-		gameImage.innerHTML = `<img src="${window.imageData}"/>`
+		gameImage.innerHTML = `<img src="${window.imageData}"/>`;
+		gameImage.style.display = "block";
+	} else {
+		gameImage.style.display = "none";
 	}
 
 	if (window.answerData) {
-		gameAnswer.innerText = window.answerData;
+		gameAnswer.innerText = `Answer: ${window.answerData}`;
+	} else {
+		gameAnswer.innerText = "";
 	}
 }
 
 async function sendAnswer(id) {
+	const answerBar = document.getElementById("answer-bar");
+	const answer = answerBar.value;
+	answerBar.value = "";
+	answerBar.focus();
 	await fetch(`/api/games/answer/${id}`, {
 		method: "POST",
 		headers: {
@@ -92,7 +105,7 @@ async function sendAnswer(id) {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({
-			answer: document.getElementById("answer-bar").value
+			answer: answer
 		})
 	});
 }
