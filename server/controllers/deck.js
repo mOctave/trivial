@@ -130,6 +130,14 @@ async function destroy(req, res) {
 		if (user.name === deck.creator || user.badges.includes("Admin")) {
 			console.log(`Authorized deletion of deck ${id}.`);
 			await Deck.deleteOne({_id: id});
+							
+			// Remove references to deck
+			for (const user of await User.find({"decksStarred": id})) {
+				console.log(`Deleting reference: ${user.name}`);
+				user.decksStarred.splice(user.decksStarred.indexOf(id), 1);
+				user.save();
+			}
+			
 			return res.status(200).send();
 		} else {
 			return res.status(403).render("errors/403");

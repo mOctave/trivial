@@ -16,7 +16,7 @@
 			</select>
 			<input class="button-highlighted" type="submit" value="Apply Tag"/>
 		</form>
-		<form id="delete-cards-menu" class="inline-form" onsubmit="await deleteCards();return true;" style="display:none;">
+		<form id="delete-cards-menu" class="inline-form" onsubmit="deleteCards();return false;" style="display:none;">
 			<div class="fine-print">You are trying to delete <span class="card-selected-count">0 cards</span>. This action is irreversible.</div>
 			<input class="button-danger" type="submit" value="Delete Forever"/>
 		</form>

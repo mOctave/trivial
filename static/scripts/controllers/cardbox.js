@@ -211,6 +211,7 @@ async function deleteCards() {
 			cards: selectedCards
 		})
 	});
+	console.log("deleted");
 }
 
 async function removeTag(card, tag) {

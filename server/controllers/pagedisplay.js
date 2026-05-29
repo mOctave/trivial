@@ -108,10 +108,7 @@ async function chooseData(page, req, res) {
 			if (!target || target.length === 0) throw new PageResolutionError();
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
-				decks: await Deck.aggregate([
-					{$unwind: "$cards"},
-					{$match: {"cards": req.params.target}}
-				]),
+				decks: await Deck.find({"cards": req.params.target}),
 				cards: target,
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined)

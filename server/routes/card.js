@@ -75,6 +75,7 @@ router.post("/batchremovetag", async (req, res) => {
 });
 
 router.post("/batchdelete", async (req, res) => {
+	console.log("Attempting to batch delete cards");
 	batchDestroy(req, res);
 });
 

@@ -21,6 +21,7 @@ const Deck = require("../models/Deck");
 const User = require("../models/User");
 const authorize = require("../services/authorize");
 const hasPermission = require("../services/tagperms");
+const mongoose = require("mongoose");
 
 async function batchApplyTag(req, res) {
 	try {
@@ -113,22 +114,18 @@ async function batchDestroy(req, res) {
 			if (user.name === card.creator || user.badges.includes("Admin")) {
 				await console.log(`Deleted card ${cardId}.`);
 				// Remove references to card
-				// TODO: FIX THIS!
-				await console.log(
-					await Deck.aggregate([
-						{$unwind: "$cards"},
-						{$match: {"cards": cardId}}
-					])
-				);
-				for (const deck of await Deck.aggregate([
-					{$unwind: "$cards"},
-					{$match: {"cards": cardId}}
-				])) {
-					console.log(deck.name);
+				for (const deck of await Deck.find({"cards": cardId})) {
+					console.log(`Deleting reference: ${deck.name}`);
 					deck.cards.splice(deck.cards.indexOf(cardId), 1);
 					deck.save();
 				}
-				
+
+				for (const user of await User.find({"cardsAnswered": cardId})) {
+					console.log(`Deleting reference: ${user.name}`);
+					user.cardsAnswered.splice(user.cardsAnswered.indexOf(cardId), 1);
+					user.save();
+				}
+
 				// Actually delete the card
 				await Card.findByIdAndDelete(cardId);
 			}
