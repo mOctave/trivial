@@ -51,6 +51,10 @@ router.get("/cards", async (req, res) => {
 	showpage("pages/cards", req, res);
 });
 
+router.get("/decks", async (req, res) => {
+	showpage("pages/decks", req, res);
+});
+
 router.get("/user/:target", async (req, res) => {
 	showpage("pages/user", req, res);
 });

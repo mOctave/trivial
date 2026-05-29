@@ -68,7 +68,14 @@ async function chooseData(page, req, res) {
 		case "pages/cards":
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
-				cards: await Card.find().then((x) => {return x}),
+				cards: await Card.find(),
+				leaderboard: await getLeaderboard(10, 0),
+				loggedIn: await (req.user !== undefined)
+			}
+		case "pages/decks":
+			return {
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
+				decks: await Deck.find().sort({"stars": "descending"}),
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined)
 			}
@@ -79,14 +86,14 @@ async function chooseData(page, req, res) {
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				targetUser: target,
-				cards: await Card.find({"creator": key}).sort({"dateCreated": "descending"}).then((x) => {return x}),
-				decks: await Deck.find({"creator": key}).sort({"stars": "descending"}).then((x) => {return x}),
+				cards: await Card.find({"creator": key}).sort({"dateCreated": "descending"}),
+				decks: await Deck.find({"creator": key}).sort({"stars": "descending"}),
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined)
 			}
 		case "pages/deck":
 			try {
-				target = await Deck.find({"_id": req.params.target}).then((x) => {return x});
+				target = await Deck.find({"_id": req.params.target});
 			} catch (e) {
 				// Errors will be caught in the next line anyways.
 			}
@@ -94,14 +101,14 @@ async function chooseData(page, req, res) {
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				decks: target,
-				cards: await Card.find({"_id": {$in: target[0].cards}}).then((x) => {return x}),
+				cards: await Card.find({"_id": {$in: target[0].cards}}),
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined)
 			}
 		case "pages/card":
 			console.log("Displaying card page!");
 			try {
-				target = await Card.find({"_id": req.params.target}).then((x) => {return x});
+				target = await Card.find({"_id": req.params.target});
 			} catch (e) {
 				// Errors will be caught in the next line anyways.
 			}
@@ -131,17 +138,17 @@ async function chooseData(page, req, res) {
 }
 
 async function getPopularDecks(n, start) {
-	let decks = await Deck.find().sort({"stars": "descending"}).lean().skip(start).limit(n).then((x) => {return x});
+	let decks = await Deck.find().sort({"stars": "descending"}).lean().skip(start).limit(n);
 	return decks;
 }
 
 async function getLeaderboard(n, start) {
-	let leaderboard = await User.find().sort({"rating": "descending"}).lean().skip(start).limit(n).then((x) => {return x});
+	let leaderboard = await User.find().sort({"rating": "descending"}).lean().skip(start).limit(n);
 	return leaderboard;
 }
 
 async function getUser(name) {
-	let user = await User.findOne({"name": name}).then((x) => {return x});
+	let user = await User.findOne({"name": name});
 	return user;
 }
 

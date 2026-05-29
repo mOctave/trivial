@@ -163,10 +163,10 @@ async function checkModifiable(req, res) {
 		}
 
 		if (user.badges.includes("Admin")) {
-			return res.status(200).json({"modifiableDecks": await Deck.find({}).then((x) => {return x})});
+			return res.status(200).json({"modifiableDecks": await Deck.find({})});
 		}
 
-		return res.status(200).json({"modifiableDecks": await Deck.find({"creator": user.name}).then((x) => {return x})});
+		return res.status(200).json({"modifiableDecks": await Deck.find({"creator": user.name})});
 	} catch (e) {
 		res.status(500).send();
 		console.log(e);
