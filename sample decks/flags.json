@@ -1,0 +1,25 @@
+{
+	"name": "National Flags",
+	"image": "/img/flags/ad.svg",
+	"description": "This deck contains flags for every country of the world.",
+	"cards": [
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ad.svg",
+			"answer": "Andorra",
+			"typeins": ["^Andora"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ae.svg",
+			"answer": "United Arab Emirates",
+			"typeins": ["^(THE)?\\s*UNITED\\s*ARAB\\s*EM[AEI]RATES", "^UAE"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/af.svg",
+			"answer": "Afghanistan",
+			"typeins": ["^AFGH?AN[AEI]STAN"]
+		}
+	]
+}

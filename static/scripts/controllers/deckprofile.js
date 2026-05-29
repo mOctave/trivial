@@ -48,12 +48,12 @@ function populateProfile() {
 	document.getElementById("deck-editor-body").innerHTML = 
 `
 	<div class="deck-name">
-		<label for="name">Deck name:</label>
+		<label for="name">Deck&nbsp;name:</label>
 		<input name="name" type="text" placeholder="${deck.name}" value="${deck.name}" required/>
 	</div>
 	<img class="deck-thumb" src="${deck.image}"/>
 	<div class="deck-description">
-		<label for="description">Deck description:</label>
+		<label for="description">Deck&nbsp;description:</label>
 		<textarea name="description" placeholder="Enter a short description of your deck." rows="4">${deck.description}</textarea>
 	</div>
 	<div class="deck-details">

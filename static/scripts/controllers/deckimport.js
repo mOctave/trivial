@@ -1,4 +1,4 @@
-<!--
+/*
 Trivial: Multiplayer trivia online.
 Copyright (C) 2026 mOctave
 
@@ -14,25 +14,23 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
--->
+*/
 
+const jsonImportWidget = document.getElementById("import-deck-json");
 
-<!DOCTYPE html>
-<html>
-	<head>
-		<%- include("../partials/head"); %>
-		<script src="/scripts/utils/timestamp.js"></script>
-	</head>
-	<body>
-		<%- include("../partials/navbar"); %>
-		<div class="left-half">
-			<%- include("../partials/newdeck"); %>
-			<%- include("../partials/deckimport"); %>
-		</div>
-		<div class="right-half">
-			<%- include("../partials/newcard"); %>
-			<%- include("../partials/contribute"); %>
-			<%- include("../partials/copyright"); %>
-		</div>
-	</body>
-</html>
+async function importJSON() {
+	if (jsonImportWidget.files[0] === undefined) return;
+
+	const body = await new Response(jsonImportWidget.files[0]).json();
+
+	await fetch("/api/decks/import", {
+		method: "POST",
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(body)
+	});
+	console.log(body);
+	location.reload();
+}

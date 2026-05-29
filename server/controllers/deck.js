@@ -16,6 +16,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+const Card = require("../models/Card");
 const Deck = require("../models/Deck");
 const User = require("../models/User");
 const authorize = require("../services/authorize");
@@ -269,4 +270,52 @@ async function create(req, res) {
 	}
 }
 
-module.exports = { star, unstar, edit, destroy, checkModifiable, addCards, removeCards, create };
+async function importJSON(req, res) {
+	try {
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		const cards = [];
+		if (req.body.cards) {
+			for (const cardEntry of req.body.cards) {
+				const cardParams = {
+					question: cardEntry.question ? cardEntry.question : "ERROR: No question provided.",
+					image: cardEntry.image ? cardEntry.image : undefined,
+					answer: cardEntry.answer ? cardEntry.answer : "ERROR: No answer provided.",
+					typeins: cardEntry.typeins ? cardEntry.typeins : [],
+					creator: user.name
+				};
+
+				const card = await Card.create(cardParams);
+				cards.push(card);
+			}
+		}
+
+		const deckParams = {
+			name: req.body.name ? req.body.name : `${user.name}'s Imported Deck`,
+			description: req.body.description ? req.body.description : "This deck has no description.",
+			image: req.body.image ? req.body.image : "/img/favicon.svg",
+			creator: user.name,
+			cards: cards
+		};
+
+		const deck = await Deck.create(deckParams); 
+		console.log(`User ${user.name} imported deck ${deck._id} with ${cards.length} new cards.`);
+
+		return res.status(200).redirect(`/deck/${deck._id}`);
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { star, unstar, edit, destroy, checkModifiable, addCards, removeCards, create, importJSON };
