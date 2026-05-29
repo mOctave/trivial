@@ -78,6 +78,19 @@ function populateContainer(cardContainer) {
 `;
 		cardContainer.classList.add("wasteland");
 	}
+
+	for (let tile of cardContainer.children) {
+		const rowHeight = 50;
+		const originalHeight = tile.getBoundingClientRect().height;
+		let height = -10;
+		let rows = 0;
+		while (height < originalHeight) {
+			height += rowHeight + 10;
+			rows ++;
+		}
+		tile.style["grid-row"] = `span ${rows}`;
+		tile.style.height = `${height - 25}px`;
+	}
 }
 
 function selectCard(id) {

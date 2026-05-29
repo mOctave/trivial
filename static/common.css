@@ -459,7 +459,17 @@ MARK: Decks
 */
 
 .deck-container {
-	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	grid-template-rows: 50px;
+	grid-auto-rows: 50px;
+	gap: 10px;
+	padding: 10px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	min-height: 340px;
+	max-height: calc(90vh - 120px);
+	overflow: scroll;
 }
 
 .deck {
@@ -470,6 +480,7 @@ MARK: Decks
 	border-radius: 10px;
 	background-color: #eff;
 	padding: 10px;
+	margin: auto;
 
 	color: black;
 	text-decoration: none;
@@ -525,18 +536,28 @@ MARK: Cards
 */
 
 .card-container-aligner {
-	width: 100%;
-	align-content: center;
+	display: block;
+	width: calc(100% - 20px);
 }
 
 .card-container {
-	margin: auto;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	grid-template-rows: 50px;
+	grid-auto-rows: 50px;
+	gap: 10px;
+	padding: 10px;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	height: calc(90vh - 120px);
+	overflow: scroll;
 }
 
 .card {
-	display: inline-block;
-	width: 200px;
-	min-height: 200px;
+	/* display: inline-block; */
+	min-width: 200px;
+	height: fit-content;
 	border: 2px solid black;
 	border-radius: 10px;
 	background-color: #eff;
@@ -559,7 +580,7 @@ MARK: Cards
 }
 
 .card-thumb {
-	/* TODO: Dynamic resizing */
+	aspect-ratio: 1;
 }
 
 .card-details {
@@ -568,7 +589,7 @@ MARK: Cards
 }
 
 .card-creator {
-	float: right;
+	text-align: right;
 	font-style: italic;
 }
 
