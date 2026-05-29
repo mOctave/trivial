@@ -875,7 +875,8 @@ MARK: Game
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow: hidden
+	overflow: hidden;
+	width: calc(100% - 60px);
 }
 
 #card-image * {
