@@ -127,7 +127,7 @@ async function chooseData(page, req, res) {
 				decks: await Deck.find(),
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined),
-				openGames: await Game.find({mode: /^custom/, hasStarted: false})
+				openGames: await Game.find({"options.style": "custom", hasStarted: false})
 			}
 		default:
 			return {

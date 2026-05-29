@@ -60,10 +60,12 @@ const GameSchema = new mongoose.Schema({
 		required: true,
 		default: 15 * 60 * 1000
 	},
-	mode: {
-		type: String,
-		required: true,
-		default: "duel/byod-unlimited"
+	options: {
+		style: {type: String, required: true, default: "duel"},
+		cardChoice: {type: String, required: true, default: "byod-unlimited"},
+		roundLength: {type: Number, required: true, default: 20},
+		pauseLength: {type: Number, required: true, default: 5},
+		targetScore: {type: Number, required: true, default: 100}
 	},
 	roundActive: {
 		type: Boolean,

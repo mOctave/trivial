@@ -27,7 +27,9 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 		<div class="page-wrapper game-container">
 			<div class="left-bar">
 				<div id="game-details" class="content-box">
-					<p><%- game.players[0].name %>'s <%- game.mode %></p>
+					<p><%- game.players[0].name %>'s <%- game.options.style %> / <%- game.options.cardChoice %></p>
+					<p>Time control: <%- game.options.roundLength %> + <%- game.options.pauseLength %></p>
+					<p>Target score: <%- game.options.targetScore %></p>
 					<p>Players: <%- game.players.length %></p>
 					<p>This game ended 
 						<%- new Date(game.timeout).toLocaleDateString("en-CA",

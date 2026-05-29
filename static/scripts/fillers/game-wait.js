@@ -48,12 +48,16 @@ function populateLeftBar() {
 	const game = window.gameData;
 	gameDetails.innerHTML = 
 `
-<p>${game.players[0].name}'s ${game.mode}</p>
+<p>${game.players[0].name}'s ${game.options.style} / ${game.options.cardChoice}</p>
+<p>Time Control: ${game.options.roundLength} + ${game.options.pauseLength}</p>
+<p>First to ${game.options.targetScore} wins (ties resolved with extra rounds).</p>
 <p>Players: ${game.players.length}</p>
 `;
 
 	if (game.players.length < 2) {
 		waitCondition.innerHTML = `<p>Waiting for more players...</p>`;
+	} else if (game.options.style === "duel") {
+		waitCondition.innerHTML = `<p>This game is starting now.</p>`
 	} else if (window.activeUserData.name === game.players[0].name) {
 		waitCondition.innerHTML = `<p>You're the host! Start this game when you're ready.</p>`;
 	} else {

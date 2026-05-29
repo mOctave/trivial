@@ -51,7 +51,9 @@ function populateLeftBar() {
 	const game = window.gameData;
 	gameDetails.innerHTML = 
 `
-<p>${game.players[0].name}'s ${game.mode}</p>
+<p>${game.players[0].name}'s ${game.options.style} / ${game.options.cardChoice}</p>
+<p>Time Control: ${game.options.roundLength} + ${game.options.pauseLength}</p>
+<p>First to ${game.options.targetScore} wins (ties resolved with extra rounds).</p>
 <p>Players: ${game.players.length}</p>
 `;
 }

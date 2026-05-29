@@ -23,17 +23,14 @@ const User = require("../models/User");
 const authorize = require("../services/authorize");
 const registerAction = require("../services/registeraction");
 
-const gameRoundLength = 20000;
-const gameScoreLimit = 100;
-const gamePauseLength = 5000;
-
 const timeouts = {};
 
 async function startRound(gameId) {
 	await drawCard(gameId);
 	const game = await Game.findById(gameId);
-	game.timeout = new Date(new Date().getTime() + gameRoundLength);
-	game.totalTimeoutLength = gameRoundLength;
+	const roundLength = game.options.roundLength * 1000
+	game.timeout = new Date(new Date().getTime() + roundLength);
+	game.totalTimeoutLength = roundLength;
 	for (const player of game.players) {
 		player.lastAnswer = "--";
 		player.roundScore = 0;
@@ -42,7 +39,7 @@ async function startRound(gameId) {
 	await game.save();
 	timeouts[gameId] = setTimeout(() => {
 		endRound(gameId);
-	}, gameRoundLength);
+	}, roundLength);
 }
 
 async function endRound(gameId) {
@@ -53,7 +50,7 @@ async function endRound(gameId) {
 		player.score += player.roundScore;
 	}
 	// Check if someone is winning
-	let maxWinningScore = gameScoreLimit;
+	let maxWinningScore = game.options.targetScore;
 	let maxPlayers = [];
 	for (const player of game.players) {
 		if (player.score > maxWinningScore) {
@@ -70,13 +67,14 @@ async function endRound(gameId) {
 		return;
 	}
 	// Game isn't finished yet, keep playing.
-	game.timeout = new Date(new Date().getTime() + gamePauseLength);
-	game.totalTimeoutLength = gamePauseLength;
+	const pauseLength = game.options.pauseLength * 1000;
+	game.timeout = new Date(new Date().getTime() + pauseLength);
+	game.totalTimeoutLength = pauseLength;
 	game.roundActive = false;
 	await game.save();
 	timeouts[gameId] = setTimeout(() => {
 		startRound(gameId);
-	}, gamePauseLength);
+	}, pauseLength);
 }
 
 async function finishGame(gameId) {
@@ -95,7 +93,7 @@ async function finishGame(gameId) {
 	}
 	game.winner = winner;
 	game.hasFinished = true;
-	if (game.mode.split("/")[0] === "duel") {
+	if (game.options.style === "duel") {
 		assignRatingPoints(gameId);
 	}
 	game.roundActive = false;
@@ -134,7 +132,7 @@ async function drawCard(gameId) {
 
 	// Choose card
 
-	const deckType = game.mode.split("/")[1];
+	const deckType = game.options.cardChoice;
 	if (deckType == "byod-unlimited" || deckType == "byod-official") {
 		let deck = await Deck.findById(game.players[game.nextPlayer].deck);
 		if (!deck) {
@@ -187,7 +185,13 @@ const tagNames = {
 
 async function hostCustomGame(req, res) {
 	try {
-		const gamemode = req.body.gamemode;
+		const options = {
+			style: "custom",
+			cardChoice: req.body.cardChoice,
+			roundLength: req.body.roundLength,
+			pauseLength: req.body.pauseLength,
+			targetScore: req.body.targetScore
+		}
 		await authorize(req, res, true);
 
 		if (req.user == null) {
@@ -204,12 +208,12 @@ async function hostCustomGame(req, res) {
 		registerAction(user.name);
 
 		const params = {
-			players: [{name: user.name, deck: await chooseDeck(req, res, gamemode), score: 0}],
-			mode: gamemode
+			players: [{name: user.name, deck: await chooseDeck(req, res, options.cardChoice), score: 0}],
+			options: options
 		}
 
 		const game = await Game.create(params);
-		console.log(`Created new game with gamemode ${gamemode}`);
+		console.log(`Created new game with options ${options}`);
 		return res.status(201).redirect(`/play/${game._id}`);
 	} catch (e) {
 		res.status(500).send();
@@ -267,7 +271,7 @@ async function displayGame(req, res) {
 				// User can join the game!
 
 				// TODO: Check if the user is already in a game - enforce one user one game limit
-				game.players.push({name: user.name, deck: await chooseDeck(req, res, game.mode), score: 0});
+				game.players.push({name: user.name, deck: await chooseDeck(req, res, game.options.cardChoice), score: 0});
 
 				await game.save();
 				return res.status(200).render("pages/game-wait", {game: game, activeUser: user, loggedIn: true});
@@ -294,7 +298,7 @@ async function displayGame(req, res) {
 	}
 }
 
-async function chooseDeck(req, res, gamemode) {
+async function chooseDeck(req, res, cardChoice) {
 	const officialDecks = await Deck.find({"creator": "Trivial"});
 	const randomOfficial = officialDecks[Math.floor(Math.random() * officialDecks.length)];
 	const unlimitedDecks = await Deck.find({});
@@ -306,7 +310,7 @@ async function chooseDeck(req, res, gamemode) {
 	let deckChoiceUnlimited = req.cookies.deckChoiceUnlimited;
 	if (!deckChoiceUnlimited) deckChoiceUnlimited = randomUnlimited._id;
 
-	switch (gamemode.split("/")[1]) {
+	switch (cardChoice) {
 		case "byod-official":
 			return deckChoiceOfficial;
 		case "byod-unlimited":
@@ -335,6 +339,10 @@ async function getInfo(req, res) {
 				image: card ? card.image : null,
 				answer: (card && !game.roundActive) ? card.answer : null
 			});
+
+			if (!game.hasStarted && game.options.style === "duel" && game.players.length >= 2) {
+				await startGame(req, res);
+			}
 		}
 	} catch (e) {
 		res.status(500).send();
