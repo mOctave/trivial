@@ -78,6 +78,9 @@ async function endRound(gameId) {
 
 async function finishGame(gameId) {
 	console.log(`Game ${gameId} has finished.`);
+	if (timeouts[gameId]) clearTimeout(timeouts[gameId]);
+	timeouts[gameId] = undefined;
+
 	const game = await Game.findById(gameId);
 	let winningScore = 0;
 	let winner = null;
@@ -95,7 +98,6 @@ async function finishGame(gameId) {
 	game.roundActive = false;
 	game.timeout = new Date();
 	await game.save();
-	timeouts[game._id] = undefined;
 }
 
 async function assignRatingPoints(gameId) {

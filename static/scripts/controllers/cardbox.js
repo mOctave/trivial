@@ -42,8 +42,8 @@ function populateContainer(cardContainer) {
 `
 <a id="card-${card._id}" class="card" href="/card/${card._id}" onclick="return dontLinkOnButton(event)">
 	<div class="card-question">
-		${card.question} 
 		<button id="card-selector-${card._id}" class="card-selection-button" onclick="selectCard('${card._id}')"></button>
+		${card.question} 
 	</div>
 	<img class="card-thumb" src="${card.image}"/>
 	<hr/>
@@ -58,8 +58,8 @@ function populateContainer(cardContainer) {
 `
 <a id="card-${card._id}" class="card" href="/card/${card._id}" onclick="return dontLinkOnButton(event)">
 	<div class="card-question">
-		${card.question} 
 		<button id="card-selector-${card._id}" class="card-selection-button" onclick="selectCard('${card._id}')"></button>
+		${card.question} 
 	</div>
 	<hr/>
 	<div class="card-answer">${card.answer}</div>

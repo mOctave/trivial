@@ -25,31 +25,36 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<div class="content-box">
-				<div class="question"><%- cards[0].question %></div>
-				<% if(cards[0].image) { %>
-					<img class="pfp" src="<%- cards[0].image %>"/>
-				<% } %>
-				<hr/>
-				<div class="answer"><%- cards[0].answer %></div>
-				<div class="deck-creator">Created by <%- cards[0].creator %></div>
-				<div class="fine-print"><%- cards[0]._id %></div>
+		<div class="page-wrapper">
+			<div class="left-bar">
+				<div class="content-box">
+					<div class="question"><%- cards[0].question %></div>
+					<% if(cards[0].image) { %>
+						<img class="pfp" src="<%- cards[0].image %>"/>
+					<% } %>
+					<hr/>
+					<div class="answer"><%- cards[0].answer %></div>
+					<div class="deck-creator">Created by <%- cards[0].creator %></div>
+					<div class="fine-print"><%- cards[0]._id %></div>
+				</div>
+				<div class="left-overflow">
+					<%- include("../partials/leaderboard"); %>
+				</div>
+			</div>
+			<div class="main-container">
+				<div class="content-box">
+					<%- include("../partials/carddesc"); %>
+				</div>
+				<div class="content-box">
+					<h2>Decks with this card</h2>
+					<%- include("../partials/deckbox"); %>
+				</div>
+			</div>
+			<div class="right-bar">
+				<%- include("../partials/leaderboard"); %>
+				<%- include("../partials/contribute"); %>
 			</div>
 		</div>
-		<div class="main-container">
-			<div class="content-box">
-				<%- include("../partials/carddesc"); %>
-			</div>
-			<div class="content-box">
-				<h2>Decks with this card</h2>
-				<%- include("../partials/deckbox"); %>
-			</div>
-			<%- include("../partials/copyright"); %>
-		</div>
-		<div class="right-bar">
-			<%- include("../partials/leaderboard"); %>
-			<%- include("../partials/contribute"); %>
-		</div>
+		<%- include("../partials/copyright"); %>
 	</body>
 </html>

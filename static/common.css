@@ -74,6 +74,10 @@ a:hover {
 
 .copyright {
 	font-size: x-small;
+	position: relative;
+	width: 70%;
+	margin: auto;
+	bottom: 0;
 	font-style: italic;
 	text-align: center;
 	margin-top: 10px;
@@ -109,40 +113,51 @@ pre {
 /*
 MARK: Page Layout
 */
+.page-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .left-bar {
-	left: 0;
-	width: 20%;
+	flex: 1 1 20%;
 }
 
 .right-bar {
-	right: 0;
-	width: 20%;
+	flex: 1 1 20%;
 }
 
 .main-container {
-	left: 20%;
-	width: 60%;
+	flex: 1 1 60%;
+}
+
+.page-wrapper.game-container .main-container {
+	flex: 1 1 55%;
 }
 
 .left-half {
-	left: 0;
-	width: 50%;
+	flex: 1 1 50%;
 }
 
 .right-half {
-	right: 0;
-	width: 50%;
+	flex: 1 1 50%;
 }
 
 .left-bar, .right-bar, .main-container, .left-half, .right-half {
-	position: absolute;
-	top: 60px;
 	margin: 0;
 	padding: 0;
 }
 
-.left-bar>*, .right-bar>*, .main-container>*, .left-half>*, .right-half>* {
+.left-bar>*, .right-bar>*, .main-container>*, .left-half>*, .right-half>*, .left-overflow>*, .unimportant>* {
 	margin: 10px;
+}
+
+.left-overflow {
+	margin: 0;
+	display: none;
+}
+
+.unimportant {
+	margin: 0;
 }
 
 .content-box {
@@ -536,7 +551,7 @@ MARK: Cards
 
 .card-container-aligner {
 	display: block;
-	width: calc(100% - 20px);
+	width: calc(100% - 40px);
 }
 
 .card-container {
@@ -938,12 +953,48 @@ MARK: Icon Sets
 /*
 MARK: Mobile Support
 */
+@media screen and (min-width: 650px) and (max-width: 980px) {
+	.left-bar {
+		flex: 1 1 30%;
+	}
+	.main-container {
+		flex: 1 1 70%;
+	}
+	.right-bar {
+		display: none;
+	}
+	.left-overflow {
+		display: block;
+	}
+}
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 649px) {
 	.navbar {
 		display: none;
 	}
 	.mobile-navbar {
+		display: block;
+	}
+	.left-bar {
+		display: block;
+		flex: 1 1 100%;
+	}
+	.main-container {
+		flex: 1 1 100%;
+	}
+	.right-bar {
+		display: none;
+	}
+	.unimportant {
+		display: none;
+	}
+	.page-wrapper.game-container .left-bar {
+		flex: 1 1 40%;
+	}
+	.page-wrapper.game-container .main-container {
+		flex: 1 1 60%;
+	}
+	.page-wrapper.game-container .left-overflow {
 		display: block;
 	}
 }

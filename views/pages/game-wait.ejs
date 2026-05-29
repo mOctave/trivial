@@ -24,18 +24,23 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<div id="game-details" class="content-box">
+		<div class="page-wrapper game-container">
+			<div class="left-bar">
+				<div id="game-details" class="content-box">
+				</div>
+				<div id="wait-condition" class="content-box">
+				</div>
+				<div id="time-indicator"><div id="time-left"></div><div id="time-bar"></div></div>
+				<div class="left-overflow">
+					<%- include("../partials/playerbar") %>
+				</div>
 			</div>
-			<div id="wait-condition" class="content-box">
+			<div class="main-container">
+				<button id="start-button" onclick="startGame()" style="display:none;">Start!</button>
 			</div>
-			<div id="time-indicator"><div id="time-left"></div><div id="time-bar"></div></div>
-		</div>
-		<div class="main-container">
-			<button id="start-button" onclick="startGame()" style="display:none;">Start!</button>
-		</div>
-		<div class="right-bar">
-			<%- include("../partials/playerbar") %>
+			<div class="right-bar">
+				<%- include("../partials/playerbar") %>
+			</div>
 		</div>
 	<script>
 		window.activeUserData = <%- JSON.stringify(activeUser) %>;

@@ -24,25 +24,30 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<div id="game-details" class="content-box">
-				<p><%- game.players[0].name %>'s <%- game.mode %></p>
-				<p>Players: <%- game.players.length %></p>
-				<p>This game ended 
-					<%- new Date(game.timeout).toLocaleDateString("en-CA",
-						{year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"}
-					)%>
-				</p>
-				<p>Full archive data is not yet supported.</p>
+		<div class="page-wrapper game-container">
+			<div class="left-bar">
+				<div id="game-details" class="content-box">
+					<p><%- game.players[0].name %>'s <%- game.mode %></p>
+					<p>Players: <%- game.players.length %></p>
+					<p>This game ended 
+						<%- new Date(game.timeout).toLocaleDateString("en-CA",
+							{year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"}
+						)%>
+					</p>
+					<p>Full archive data is not yet supported.</p>
+				</div>
+				<div class="left-overflow">
+					<%- include("../partials/playerbar") %>
+				</div>
 			</div>
-		</div>
-		<div class="main-container game-container">
-			<div id="card-question">This game has finished.</div>
-			<div id="card-image"><img src="/img/favicon.svg"></div>
-			<div id="card-answer">Congratulations <%- game.winner %>! You won the game.</div>
-		</div>
-		<div class="right-bar">
-			<%- include("../partials/playerbar") %>
+			<div class="main-container game-container">
+				<div id="card-question">This game has finished.</div>
+				<div id="card-image"><img src="/img/favicon.svg"></div>
+				<div id="card-answer">Congratulations <%- game.winner %>! You won the game.</div>
+			</div>
+			<div class="right-bar">
+				<%- include("../partials/playerbar") %>
+			</div>
 		</div>
 	<script>
 		window.activeUserData = <%- JSON.stringify(activeUser) %>;

@@ -24,19 +24,25 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<%- include("../partials/deckprofile"); %>
-		</div>
-		<div class="main-container">
-			<div class="content-box">
-				<%- include("../partials/cardbox"); %>
+		<div class="page-wrapper">
+			<div class="left-bar">
+				<%- include("../partials/deckprofile"); %>
+				<div class="left-overflow">
+					<%- include("../partials/leaderboard"); %>
+				</div>
 			</div>
-			<%- include("../partials/copyright"); %>
-		</div>
-		<div class="right-bar">
-			<%- include("../partials/leaderboard"); %>
-			<%- include("../partials/contribute"); %>
+			<div class="main-container">
+				<div class="content-box">
+					<h2>Cards in this deck</h2>
+					<%- include("../partials/cardbox"); %>
+				</div>
+			</div>
+			<div class="right-bar">
+				<%- include("../partials/leaderboard"); %>
+				<%- include("../partials/contribute"); %>
+			</div>
 		</div>
 		<%- include("../partials/cardmenu"); %>
+		<%- include("../partials/copyright"); %>
 	</body>
 </html>

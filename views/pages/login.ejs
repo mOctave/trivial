@@ -24,55 +24,57 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
-		<div class="left-half">
-			<h2>Log In</h2>
-			<form class="content-box" action="/api/auth/login" method="POST">
-				<div class="login-line">
-					<label for="name">Username:</label>
-					<input class="login-input" name="name" type="text" placeholder="Username" required/>
-				</div>
-				<% if (locals.errorLoginUsername) { %>
-    				<div class="form-desc error-msg"><%- errorLoginUsername %></div>
-				<% } %>
-				<div class="login-line">
-					<label for="password">Password:</label>
-					<input class="login-input" name="password" type="password" placeholder="Password" required/>
-				</div>
-				<% if (locals.errorLoginPassword) { %>
-    				<div class="form-desc error-msg"><%- errorLoginPassword %></div>
-				<% } %>
-				<div class="login-line">
-					<input class="login-button" type="submit" value="Log In"/>
-				</div>
-			</form>
-			<%- include("../partials/contribute"); %>
+		<div class="page-wrapper">
+			<div class="left-half">
+				<h2>Log In</h2>
+				<form class="content-box" action="/api/auth/login" method="POST">
+					<div class="login-line">
+						<label for="name">Username:</label>
+						<input class="login-input" name="name" type="text" placeholder="Username" required/>
+					</div>
+					<% if (locals.errorLoginUsername) { %>
+    					<div class="form-desc error-msg"><%- errorLoginUsername %></div>
+					<% } %>
+					<div class="login-line">
+						<label for="password">Password:</label>
+						<input class="login-input" name="password" type="password" placeholder="Password" required/>
+					</div>
+					<% if (locals.errorLoginPassword) { %>
+    					<div class="form-desc error-msg"><%- errorLoginPassword %></div>
+					<% } %>
+					<div class="login-line">
+						<input class="login-button" type="submit" value="Log In"/>
+					</div>
+				</form>
+				<%- include("../partials/contribute"); %>
+			</div>
+			<div class="right-half">
+				<h2>Register</h2>
+				<form class="content-box" action="/api/auth/register" method="POST">
+					<div class="login-line">
+						<label for="name">Username:</label>
+						<input class="login-input" name="name" type="text" placeholder="Username" required/>
+					</div>
+					<% if (locals.errorRegisterUsername) { %>
+    					<div class="form-desc error-msg"><%- errorRegisterUsername %></div>
+					<% } %>
+					<div class="login-line">
+						<label for="password">Password:</label>
+						<input class="login-input" name="password" type="password" placeholder="Password" required/>
+					</div>
+					<% if (locals.errorRegisterPassword) { %>
+    					<div class="form-desc error-msg"><%- errorRegisterPassword %></div>
+					<% } %>
+					<div class="form-desc">
+						<p>Please use a password containing at least 8 characters. Strong passwords contain at least 16 characters and are <a href="https://xkcd.com/936/">easy to remember</a>.</p>
+						<p>By registering for Trivial you acknowledge that you have read and understood the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a> and agree to abide by both.</p>
+					</div>
+					<div class="login-line">
+						<input class="login-button" type="submit" value="Register"/>
+					</div>
+				</form>
+			</div>
 		</div>
-		<div class="right-half">
-			<h2>Register</h2>
-			<form class="content-box" action="/api/auth/register" method="POST">
-				<div class="login-line">
-					<label for="name">Username:</label>
-					<input class="login-input" name="name" type="text" placeholder="Username" required/>
-				</div>
-				<% if (locals.errorRegisterUsername) { %>
-    				<div class="form-desc error-msg"><%- errorRegisterUsername %></div>
-				<% } %>
-				<div class="login-line">
-					<label for="password">Password:</label>
-					<input class="login-input" name="password" type="password" placeholder="Password" required/>
-				</div>
-				<% if (locals.errorRegisterPassword) { %>
-    				<div class="form-desc error-msg"><%- errorRegisterPassword %></div>
-				<% } %>
-				<div class="form-desc">
-					<p>Please use a password containing at least 8 characters. Strong passwords contain at least 16 characters and are <a href="https://xkcd.com/936/">easily to remember</a>.</p>
-					<p>By registering for Trivial you acknowledge that you have read and understood the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a> and agree to abide by both.</p>
-				</div>
-				<div class="login-line">
-					<input class="login-button" type="submit" value="Register"/>
-				</div>
-			</form>
-			<%- include("../partials/copyright"); %>
-		</div>
+		<%- include("../partials/copyright"); %>
 	</body>
 </html>

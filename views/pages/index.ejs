@@ -24,23 +24,31 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
-		<div class="left-bar">
-			<%- include("../partials/userbox"); %>
-			<%- include("../partials/cookies"); %>
-			<%- include("../partials/ranks"); %>
-		</div>
-		<div class="main-container">
-			<h1>Trivial</h1>
-			<p>Show off your trivia knowledge with both custom and curated decks, building up your knowledge and prestige in an effort to become the ultimate annoying know-it-all.</p>
-			<div class="gold-content-box">
-				<h2>Popular Decks</h2>
-				<%- include("../partials/deckbox"); %>
+		<div class="page-wrapper">
+			<div class="left-bar">
+				<%- include("../partials/userbox"); %>
+				<div class="left-overflow">
+					<%- include("../partials/leaderboard"); %>
+					<%- include("../partials/contribute"); %>
+				</div>
+				<%- include("../partials/cookies"); %>
+				<div class="unimportant">
+					<%- include("../partials/ranks"); %>
+				</div>
 			</div>
-			<%- include("../partials/copyright"); %>
+			<div class="main-container">
+				<h1>Trivial</h1>
+				<p>Show off your trivia knowledge with both custom and curated decks, building up your knowledge and prestige in an effort to become the ultimate annoying know-it-all.</p>
+				<div class="gold-content-box">
+					<h2>Popular Decks</h2>
+					<%- include("../partials/deckbox"); %>
+				</div>
+			</div>
+			<div class="right-bar">
+				<%- include("../partials/leaderboard"); %>
+				<%- include("../partials/contribute"); %>
+			</div>
 		</div>
-		<div class="right-bar">
-			<%- include("../partials/leaderboard"); %>
-			<%- include("../partials/contribute"); %>
-		</div>
+		<%- include("../partials/copyright"); %>
 	</body>
 </html>

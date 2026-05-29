@@ -25,14 +25,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 	</head>
 	<body>
 		<%- include("../partials/navbar"); %>
-		<div class="left-half">
-			<%- include("../partials/newdeck"); %>
-			<%- include("../partials/deckimport"); %>
+		<div class="page-wrapper">
+			<div class="left-half">
+				<%- include("../partials/newdeck"); %>
+				<%- include("../partials/deckimport"); %>
+			</div>
+			<div class="right-half">
+				<%- include("../partials/newcard"); %>
+				<%- include("../partials/contribute"); %>
+			</div>
 		</div>
-		<div class="right-half">
-			<%- include("../partials/newcard"); %>
-			<%- include("../partials/contribute"); %>
-			<%- include("../partials/copyright"); %>
-		</div>
+		<%- include("../partials/copyright"); %>
 	</body>
 </html>
