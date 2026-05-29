@@ -300,6 +300,7 @@ async function importJSON(req, res) {
 					image: cardEntry.image ? cardEntry.image : undefined,
 					answer: cardEntry.answer ? cardEntry.answer : "ERROR: No answer provided.",
 					typeins: cardEntry.typeins ? cardEntry.typeins : [],
+					tags: (cardEntry.tags && user.badges.includes("Admin")) ? cardEntry.tags : [],
 					creator: user.name
 				};
 

@@ -7,19 +7,22 @@
 			"question": "Which country's flag is this?",
 			"image": "/img/flags/ad.svg",
 			"answer": "Andorra",
-			"typeins": ["^Andora"]
+			"typeins": ["^Andora"],
+			"tags": ["Geography"]
 		},
 		{
 			"question": "Which country's flag is this?",
 			"image": "/img/flags/ae.svg",
 			"answer": "United Arab Emirates",
-			"typeins": ["^(THE)?\\s*UNITED\\s*ARAB\\s*EM[AEI]RATES", "^UAE"]
+			"typeins": ["^(THE)?\\s*UNITED\\s*ARAB\\s*EM[AEI]RATES", "^UAE"],
+			"tags": ["Geography"]
 		},
 		{
 			"question": "Which country's flag is this?",
 			"image": "/img/flags/af.svg",
 			"answer": "Afghanistan",
-			"typeins": ["^AFGH?AN[AEI]STAN"]
+			"typeins": ["^AFGH?AN[AEI]STAN"],
+			"tags": ["Geography"]
 		}
 	]
 }
