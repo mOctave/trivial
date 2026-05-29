@@ -713,6 +713,14 @@ MARK: Cards
 	border: 1px solid #777;
 }
 
+.type-ins {
+	font-size: x-small;
+}
+
+.type-ins ul {
+	padding-left: 10px;
+}
+
 /*
 MARK: Ranks
 */

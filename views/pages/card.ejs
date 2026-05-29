@@ -34,6 +34,16 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 					<% } %>
 					<hr/>
 					<div class="answer"><%- cards[0].answer %></div>
+					<% if(cards[0].typeins.length > 0) { %>
+					<div class="type-ins">
+						<p>Also accepted:</p>
+						<ul>
+							<% for (const typein of cards[0].typeins) { %>
+								<li><%- typein %></li>
+							<% } %>
+						</ul>
+					</div>
+					<% } %>
 					<div class="deck-creator">Created by <%- cards[0].creator %></div>
 					<div class="fine-print"><%- cards[0]._id %></div>
 				</div>

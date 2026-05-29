@@ -83,6 +83,7 @@ router.post("/batchdelete", async (req, res) => {
 router.post("/create",
 	body("question").trim().escape(),
 	body("answer").trim().escape(),
+	body("typeins"),
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {

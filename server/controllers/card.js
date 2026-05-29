@@ -151,10 +151,16 @@ async function create(req, res) {
 			return res.status(401).send();
 		}
 
+		const typeins = req.body.typeins.split(/\r?\n/);
+		for (const typein of typeins) {
+			console.log(typein);
+		}
+
 		const params = {
 			question: req.body.question,
 			image: undefined,
 			answer: req.body.answer,
+			typeins: req.body.typeins.split(/\r?\n/),
 			creator: user.name
 		};
 

@@ -25,7 +25,7 @@ const registerAction = require("../services/registeraction");
 
 const gameRoundLength = 20000;
 const gameScoreLimit = 100;
-const gamePauseLength = 10000;
+const gamePauseLength = 5000;
 
 const timeouts = {};
 
@@ -63,8 +63,11 @@ async function endRound(gameId) {
 			maxPlayers.push(player.name);
 		}
 	}
+	// Check if the game is finished
 	if (maxPlayers.length === 1) {
+		await game.save();
 		await finishGame(gameId);
+		return;
 	}
 	// Game isn't finished yet, keep playing.
 	game.timeout = new Date(new Date().getTime() + gamePauseLength);
