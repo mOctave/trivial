@@ -142,15 +142,47 @@ async function drawCard(gameId) {
 		}
 		console.log(`Choosing a card from ${deck._id}`);
 		const cardId = await deck.cards[Math.floor(Math.random() * deck.cards.length)];
-		console.log(`Chose card ${cardId}`);
+		console.log(`Chose card ${cardId}`); // TODO: Handle empty decks.
 		const card = await Card.findById(cardId);
 		card.presentations += game.players.length;
 		await card.save();
 		game.currentCard = cardId;
 		await game.save();
+	} else if (deckType == "ama") {
+		console.log(`Choosing a random category-tagged card.`);
+		let cards = await Card.find({"tags": {$in: [
+			"Geography", "History", "Language",
+			"Famous People", "Art and Culture", "Sports and Recreation",
+			"Science and Technology", "General Knowledge"
+		]}});
+		const card = await cards[Math.floor(Math.random() * cards.length)];
+		console.log(`Chose card ${card._id}`); // TODO: Handle empty categories.
+		card.presentations += game.players.length;
+		await card.save();
+		game.currentCard = card._id;
+		await game.save();
 	} else {
-		throw new Error("TAG-BASED GAMES NOT IMPLEMENTED YET");
+		const tag = tagNames[deckType];
+		console.log(`Choosing a card with the tag "${tag}"`);
+		let cards = await Card.find({"tags": tag});
+		const card = await cards[Math.floor(Math.random() * cards.length)];
+		console.log(`Chose card ${card._id}`); // TODO: Handle empty categories.
+		card.presentations += game.players.length;
+		await card.save();
+		game.currentCard = card._id;
+		await game.save();
 	}
+}
+
+const tagNames = {
+	"geography": "Geography",
+	"history": "History",
+	"language": "Language",
+	"famous-people": "Famous People",
+	"art-culture": "Art and Culture",
+	"sports-rec": "Sports and Recreation",
+	"science-tech": "Science and Technology",
+	"general-knowledge": "General Knowledge"
 }
 
 async function hostCustomGame(req, res) {
@@ -233,6 +265,8 @@ async function displayGame(req, res) {
 				return res.status(403).render("errors/403");
 			} else {
 				// User can join the game!
+
+				// TODO: Check if the user is already in a game - enforce one user one game limit
 				game.players.push({name: user.name, deck: await chooseDeck(req, res, game.mode), score: 0});
 
 				await game.save();
