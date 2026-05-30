@@ -80,7 +80,7 @@ async function login(req, res) {
 			return res.redirect("/login");
 		}
 
-		const user = await User.findOne({name: req.body.name});
+		const user = await User.findOne({name: req.body.name}).select("+password");
 
 		if (!user) {
 			res.status(400);
