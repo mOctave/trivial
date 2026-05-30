@@ -37,7 +37,7 @@ function populateUserbox(userContainer) {
 }
 
 function describeUserRating(raw) {
-	if (raw < 60) return `<span class="rank-iron">Iron</span>`;
+	if (raw < 60) return `<span class="rank-rusty">Rusty</span>`;
 	if (raw < 120) return `<span class="rank-bronze">Bronze I</span>`;
 	if (raw < 150) return `<span class="rank-bronze">Bronze II</span>`;
 	if (raw < 180) return `<span class="rank-bronze">Bronze III</span>`;
