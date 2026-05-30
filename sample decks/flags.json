@@ -7,21 +7,1358 @@
 			"question": "Which country's flag is this?",
 			"image": "/img/flags/ad.svg",
 			"answer": "Andorra",
-			"typeins": ["^Andora"],
+			"typeins": ["^ANDORA$"],
 			"tags": ["Geography"]
 		},
 		{
 			"question": "Which country's flag is this?",
 			"image": "/img/flags/ae.svg",
 			"answer": "United Arab Emirates",
-			"typeins": ["^(THE)?\\s*UNITED\\s*ARAB\\s*EM[AEI]RATES", "^UAE"],
+			"typeins": ["^(THE)?\\s*UNITED\\s*ARAB\\s*EM[AEI]RATES$", "^UAE$"],
 			"tags": ["Geography"]
 		},
 		{
 			"question": "Which country's flag is this?",
 			"image": "/img/flags/af.svg",
 			"answer": "Afghanistan",
-			"typeins": ["^AFGH?AN[AEI]STAN"],
+			"typeins": ["^AFGH?AN[AEI]STAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ag.svg",
+			"answer": "Antigua and Barbuda",
+			"typeins": ["^ANTIGUA", "^BARB[OU]+DA"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/al.svg",
+			"answer": "Albania",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/am.svg",
+			"answer": "Armenia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ao.svg",
+			"answer": "Angola",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ar.svg",
+			"answer": "Argentina",
+			"typeins": ["^ARG[AEI]NTINA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/at.svg",
+			"answer": "Austria",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/au.svg",
+			"answer": "Australia",
+			"typeins": ["^AUSTRAI?L[EI]A$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/az.svg",
+			"answer": "Azerbaijan",
+			"typeins": ["^AD?[JZ]ERB[AIE]+D?[JZ]AN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ba.svg",
+			"answer": "Bosnia and Herzegovina",
+			"typeins": ["^BOSNIA"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bb.svg",
+			"answer": "Barbados",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bd.svg",
+			"answer": "Bangladesh",
+			"typeins": ["^BANGL[AE]DESH$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/be.svg",
+			"answer": "Belgium",
+			"typeins": ["^BELG(IU|UI)M$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bf.svg",
+			"answer": "Burkina Faso",
+			"typeins": ["^B[EU]RK[EI]+NA\\s*FASO$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bg.svg",
+			"answer": "Bulgaria",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bh.svg",
+			"answer": "Bahrain",
+			"typeins": ["^BH?AH?RAIN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bi.svg",
+			"answer": "Burundi",
+			"typeins": ["^B[AEIU]RUNDI$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bj.svg",
+			"answer": "Benin",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bn.svg",
+			"answer": "Brunei",
+			"typeins": ["^BRUN[AE]I$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bo.svg",
+			"answer": "Bolivia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/br.svg",
+			"answer": "Brazil",
+			"typeins": ["^BRA[SZ]IL$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bs.svg",
+			"answer": "Bahamas",
+			"typeins": ["^(THE)?\\s*BAHAM[AEIOU]+S$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bt.svg",
+			"answer": "Bhutan",
+			"typeins": ["^BH?UH?TAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bw.svg",
+			"answer": "Botswana",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/by.svg",
+			"answer": "Belarus",
+			"typeins": ["^BEL[AEI]RUS$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/bz.svg",
+			"answer": "Belize",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ca.svg",
+			"answer": "Canada",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cd.svg",
+			"answer": "Democratic Republic of the Congo",
+			"typeins": ["CONGO", "^DRC$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cf.svg",
+			"answer": "Central African Republic",
+			"typeins": ["^(THE)?\\s*CENTRAL\\s*AFRICAN\\s*REPUBLIC$", "^CAR$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cg.svg",
+			"answer": "Republic of the Congo",
+			"typeins": ["CONGO"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ch.svg",
+			"answer": "Switzerland",
+			"typeins": ["^SWIT[SZ]ERLAND$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ci.svg",
+			"answer": "Côte d'Ivoire",
+			"typeins": ["^COTE\\s*D(E\\S*|'?)IV[IO]+RE$", "^(THE)?\\s*IVORY\\s*COAST$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cl.svg",
+			"answer": "Chile",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cm.svg",
+			"answer": "Cameroon",
+			"typeins": ["^CAM[AEIO]ROON$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cn.svg",
+			"answer": "China",
+			"typeins": ["^PRC$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cr.svg",
+			"answer": "Costa Rica",
+			"typeins": ["^COSTA\\s*RICA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cu.svg",
+			"answer": "Cuba",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cv.svg",
+			"answer": "Cabo Verde",
+			"typeins": ["^CAPE\\s*VERDE$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cy.svg",
+			"answer": "Cyprus",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/cz.svg",
+			"answer": "Czechia",
+			"typeins": ["^(THE)?\\s*CZECH\\s*REPUBLIC$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/de.svg",
+			"answer": "Germany",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/dj.svg",
+			"answer": "Djibouti",
+			"typeins": ["^DJ[AEI]B(OU|UO|U)TI$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/dk.svg",
+			"answer": "Denmark",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/dm.svg",
+			"answer": "Dominica",
+			"typeins": ["^DOMIN[AEI]CA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/do.svg",
+			"answer": "Dominican Republic",
+			"typeins": ["^(THE)?\\s*DOMIN[AEI]CAN\\s*REPUBLIC$", "^DR$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/dz.svg",
+			"answer": "Algeria",
+			"typeins": ["^ALGER[IE]A$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ec.svg",
+			"answer": "Ecuador",
+			"typeins": ["^EC(UA|AU)DOR$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ee.svg",
+			"answer": "Estonia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/eg.svg",
+			"answer": "Egypt",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/er.svg",
+			"answer": "Eritrea",
+			"typeins": ["^ER+[AEI]TR[EI]A$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/es.svg",
+			"answer": "Spain",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/et.svg",
+			"answer": "Ethiopia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/fi.svg",
+			"answer": "Finland",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/fj.svg",
+			"answer": "Fiji",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/fm.svg",
+			"answer": "Federated States of Micronesia",
+			"typeins": ["MICRONES[EI]A", "^FSM$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/fr.svg",
+			"answer": "France",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ga.svg",
+			"answer": "Gabon",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gb.svg",
+			"answer": "United Kingdom",
+			"typeins": ["^(THE)?\\s*(UNITED\\s*KINGDOM|UK)$","^GREAT\\s*BRITAIN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gd.svg",
+			"answer": "Grenada",
+			"typeins": ["^GR[AEI]NADA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ge.svg",
+			"answer": "Georgia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gh.svg",
+			"answer": "Ghana",
+			"typeins": ["^GH?AH?NA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gm.svg",
+			"answer": "Gambia",
+			"typeins": ["^(THE\\s*)?GAMBIA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gn.svg",
+			"answer": "Guinea",
+			"typeins": ["^G(UI|IU)NEA?$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gq.svg",
+			"answer": "Equitorial Guinea",
+			"typeins": ["^EQ(UI|IU)TOR[EI]AL\\s*G(UI|IU)NEA?$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gr.svg",
+			"answer": "Greece",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gt.svg",
+			"answer": "Guatemala",
+			"typeins": ["^G(AU|UA)T[AEI]MALA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gw.svg",
+			"answer": "Guinea-Bissau",
+			"typeins": ["^G(UI|IU)NEA?(\\s*|-|–|—)B[AEI]+S+AU$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/gy.svg",
+			"answer": "Guyana",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/hn.svg",
+			"answer": "Honduras",
+			"typeins": ["^(THE\\s*)?HONDUR[AEIOU]+S$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/hr.svg",
+			"answer": "Croatia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ht.svg",
+			"answer": "Haiti",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/id.svg",
+			"answer": "Indonesia",
+			"typeins": ["^INDON[EI]SIA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ie.svg",
+			"answer": "Ireland",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/il.svg",
+			"answer": "Israel",
+			"typeins": ["^ISR(AE|EA)L$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/in.svg",
+			"answer": "India",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/iq.svg",
+			"answer": "Iraq",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ir.svg",
+			"answer": "Iran",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/is.svg",
+			"answer": "Iceland",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/it.svg",
+			"answer": "Italy",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/jm.svg",
+			"answer": "Jamaica",
+			"typeins": ["^JAM(AI|IA)CA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/jo.svg",
+			"answer": "Jordan",
+			"typeins": ["^JORDEN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/jp.svg",
+			"answer": "Japan",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ke.svg",
+			"answer": "Kenya",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/kg.svg",
+			"answer": "Kyrgyzstan",
+			"typeins": ["^K[IY]RG[EIY]+Z?STAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/kh.svg",
+			"answer": "Cambodia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ki.svg",
+			"answer": "Kiribati",
+			"typeins": ["^KIR[AEI]BA(TI|S)$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/km.svg",
+			"answer": "Comoros",
+			"typeins": ["^(THE\\s*)?COM+[AEIO]ROS$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/kn.svg",
+			"answer": "Saint Kitts and Nevis",
+			"typeins": ["^(SAINT|ST|ST\\.)\\s*KITTS"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/kp.svg",
+			"answer": "North Korea",
+			"typeins": ["^NORTH\\s*KOREA$","^DPRK$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/kr.svg",
+			"answer": "South Korea",
+			"typeins": ["^SOUTH\\s*KOREA$","^REPUBLIC\\s*OF\\s*KOREA$","^ROK$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/kw.svg",
+			"answer": "Kuwait",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/kz.svg",
+			"answer": "Kazakhstan",
+			"typeins": ["^KH?AZ[AEI][CKH]+STAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/la.svg",
+			"answer": "Laos",
+			"typeins": ["^LAO\\s*PDR$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/lb.svg",
+			"answer": "Lebanon",
+			"typeins": ["^LEB[AEI]NON$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/lc.svg",
+			"answer": "Saint Lucia",
+			"typeins": ["^(SAINT|ST|ST\\.)\\s*LUCIA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/li.svg",
+			"answer": "Liechtenstein",
+			"typeins": ["^L[EI]+[CH]+TENST(EI|IE)N$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/lk.svg",
+			"answer": "Sri Lanka",
+			"typeins": ["^SRI\\s*LANKA$", "^CEYLON$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/lr.svg",
+			"answer": "Liberia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ls.svg",
+			"answer": "Lesotho",
+			"typeins": ["^L[AEO]S[OU]TH?[OU]$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/lt.svg",
+			"answer": "Lithuania",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/lu.svg",
+			"answer": "Luxembourg",
+			"typeins": ["^LUXEMB[EOU]+RG$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/lv.svg",
+			"answer": "Latvia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ly.svg",
+			"answer": "Libya",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ma.svg",
+			"answer": "Morocco",
+			"typeins": ["^MOR+OC+O$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mc.svg",
+			"answer": "Monaco",
+			"typeins": ["^M[AO]N+[AEIO]CO$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/md.svg",
+			"answer": "Moldova",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/me.svg",
+			"answer": "Montenegro",
+			"typeins": ["^MONT[AEIO]NEGRO$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mg.svg",
+			"answer": "Madagascar",
+			"typeins": ["^MAD[AEIO]GASCAR$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mh.svg",
+			"answer": "Marshall Islands",
+			"typeins": ["^(THE\\s*)?MARSHAL+\\s*ISLANDS$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mk.svg",
+			"answer": "North Macedonia",
+			"typeins": ["^(NORTH|NORTHERN)?\\s*MAC[EI]DONIA$","^FYROM$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ml.svg",
+			"answer": "Mali",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mm.svg",
+			"answer": "Myanmar",
+			"typeins": ["^BURMA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mn.svg",
+			"answer": "Mongolia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mr.svg",
+			"answer": "Mauritania",
+			"typeins": ["^M[AOU]+R[AEI]TANIA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mt.svg",
+			"answer": "Malta",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mu.svg",
+			"answer": "Mauritius",
+			"typeins": ["^M[AOU]+RIT[IOU]+S$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mv.svg",
+			"answer": "Maldives",
+			"typeins": ["^(THE\\s*)?MALDIVES$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mw.svg",
+			"answer": "Malawi",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mx.svg",
+			"answer": "Mexico",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/my.svg",
+			"answer": "Malaysia",
+			"typeins": ["^MALAY?SIA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/mz.svg",
+			"answer": "Mozambique",
+			"typeins": ["^MOZAMBIQ[UE]+$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/na.svg",
+			"answer": "Namibia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ne.svg",
+			"answer": "Niger",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ng.svg",
+			"answer": "Nigeria",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ni.svg",
+			"answer": "Nicaragua",
+			"typeins": ["^NIC[AEI]RAGUA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/nl.svg",
+			"answer": "Netherlands",
+			"typeins": ["^(THE\\s*)?NETHERLANDS$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/no.svg",
+			"answer": "Norway",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/np.svg",
+			"answer": "Nepal",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/nr.svg",
+			"answer": "Nauru",
+			"typeins": ["^N(AU|UA)RU$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/nz.svg",
+			"answer": "New Zealand",
+			"typeins": ["^NEW\\s*ZE[AE]LAND$", "^NZ$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/om.svg",
+			"answer": "Oman",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/pa.svg",
+			"answer": "Panama",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/pe.svg",
+			"answer": "Peru",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/pg.svg",
+			"answer": "Papua New Guinea",
+			"typeins": ["^PAP[AU]+\\s*NEW\\s*G(UI|IU)NEA$", "^PNG$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ph.svg",
+			"answer": "Philippines",
+			"typeins": ["^(THE\\s**)?PHIL+[AEI]P+INES$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/pk.svg",
+			"answer": "Pakistan",
+			"typeins": ["^PAK[AEI]STAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/pl.svg",
+			"answer": "Poland",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ps.svg",
+			"answer": "Palestine",
+			"typeins": ["^(STATE\\s**OF\\s*)?PALESTINE$", "$PALESTINIAN\\s*STATE$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/pt.svg",
+			"answer": "Portugal",
+			"typeins": ["^PORTUG[AE]L$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/pw.svg",
+			"answer": "Palau",
+			"typeins": ["^PAL(AU|UA)$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/py.svg",
+			"answer": "Paraguay",
+			"typeins": ["^PARAG[AU]+Y$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/qa.svg",
+			"answer": "Qatar",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ro.svg",
+			"answer": "Romania",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/rs.svg",
+			"answer": "Serbia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ru.svg",
+			"answer": "Russia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/rw.svg",
+			"answer": "Rwanda",
+			"typeins": ["^R[UW]ANDA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sa.svg",
+			"answer": "Saudi Arabia",
+			"typeins": ["^SAUDI\\s*ARABIA$", "^KSA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sb.svg",
+			"answer": "Solomon Islands",
+			"typeins": ["^(THE\\s*)?SOLOM[AO]N\\s*ISLANDS$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sc.svg",
+			"answer": "Seychelles",
+			"typeins": ["^SEYCHEL+ES$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sd.svg",
+			"answer": "Sudan",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/se.svg",
+			"answer": "Sweden",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sg.svg",
+			"answer": "Singapore",
+			"typeins": ["^SING[AEIO]PORE$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/si.svg",
+			"answer": "Slovenia",
+			"typeins": ["^SLOVEN[EI]A$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sk.svg",
+			"answer": "Slovakia",
+			"typeins": ["^SLOVAK[EI]A$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sl.svg",
+			"answer": "Sierra Leone",
+			"typeins": ["^SIER+A\\s*LEONE$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sm.svg",
+			"answer": "San Marino",
+			"typeins": ["^SAN\\s*MARINO$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sn.svg",
+			"answer": "Senegal",
+			"typeins": ["^SEN[AEI]GAL$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/so.svg",
+			"answer": "Somalia",
+			"typeins": ["^SOM[AO]LIA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sr.svg",
+			"answer": "Suriname",
+			"typeins": ["^SUR[AEI]NAME$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ss.svg",
+			"answer": "South Sudan",
+			"typeins": ["^SOUTH(ERN)?\\s*SUDAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/st.svg",
+			"answer": "São Tomé and Príncipe",
+			"typeins": ["^SAO\\s*TOME"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sv.svg",
+			"answer": "El Salvador",
+			"typeins": ["^EL\\s*SALV[AEI]DOR$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sy.svg",
+			"answer": "Syria",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/sz.svg",
+			"answer": "Eswatini",
+			"typeins": ["^SWAZILAND$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/td.svg",
+			"answer": "Chad",
+			"typeins": ["^TCHAD$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/togo.svg",
+			"answer": "Togo",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/th.svg",
+			"answer": "Thailand",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tj.svg",
+			"answer": "Tajikistan",
+			"typeins": ["^TA[DJZ]+IK[AEI]STAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tl.svg",
+			"answer": "Timor-Leste",
+			"typeins": ["^EAST\\s*TIMOR$", "^TIMOR(\\s*|-|–|—)LESTE$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tm.svg",
+			"answer": "Turkmenistan",
+			"typeins": ["^TURKM[EI]N[AEI]STAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tn.svg",
+			"answer": "Tunisia",
+			"typeins": ["^TUN[EI]S[EI]A$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/to.svg",
+			"answer": "Tonga",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tr.svg",
+			"answer": "Türkiye",
+			"typeins": ["^TURKEY$", "^TURKIYE$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tt.svg",
+			"answer": "Trinidad and Tobago",
+			"typeins": ["^TRIN[AEI]DAD"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tw.svg",
+			"answer": "Taiwan",
+			"typeins": ["^T(AI|IA)WAN$", "^ROC$", "^REPUBLIC\\s*OF\\s*CHINA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tz.svg",
+			"answer": "Tanzania",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ua.svg",
+			"answer": "Ukraine",
+			"typeins": ["^THE\\s*UKRAINE$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ug.svg",
+			"answer": "Uganda",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/us.svg",
+			"answer": "United States",
+			"typeins": ["^(THE\\s*)?(UNITED\\s*STATES(\\s*OF\\s*AMERICA)?|USA)$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/uy.svg",
+			"answer": "Uruguay",
+			"typeins": ["^UR[AU]G[AU]+Y$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/uz.svg",
+			"answer": "Uzbekistan",
+			"typeins": ["^UZBE[CK]+[AEI]STAN$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/va.svg",
+			"answer": "Vatican City",
+			"typeins": ["^(THE\\s*)?(HOLY\\s*SEE|VATICAN)$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/vc.svg",
+			"answer": "Saint Vincent and the Grenadines",
+			"typeins": ["^(SAINT|ST|ST\\.)\\s*VINCENT"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ve.svg",
+			"answer": "Venezuela",
+			"typeins": ["^VEN[AEI]Z(EU|UE)LA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/vn.svg",
+			"answer": "Vietnam",
+			"typeins": ["^VIET\\s*NAM$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/vu.svg",
+			"answer": "Vanuatu",
+			"typeins": ["^VAN[UA]+TU$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ws.svg",
+			"answer": "Samoa",
+			"typeins": ["^(WESTERN\\s*)?SAMOA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/xk.svg",
+			"answer": "Kosovo",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/ye.svg",
+			"answer": "Yemen",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/za.svg",
+			"answer": "South Africa",
+			"typeins": ["^SOUTH\\s*AFRICA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/zm.svg",
+			"answer": "Zambia",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/zw.svg",
+			"answer": "Zimbabwe",
+			"typeins": ["^ZIMB[AO]BWE$"],
 			"tags": ["Geography"]
 		}
 	]
