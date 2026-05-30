@@ -264,6 +264,13 @@
 		},
 		{
 			"question": "Which country's flag is this?",
+			"image": "/img/flags/co.svg",
+			"answer": "Colombia",
+			"typeins": ["^COLUMBIA$"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
 			"image": "/img/flags/cr.svg",
 			"answer": "Costa Rica",
 			"typeins": ["^COSTA\\s*RICA$"],
@@ -511,6 +518,13 @@
 			"question": "Which country's flag is this?",
 			"image": "/img/flags/ht.svg",
 			"answer": "Haiti",
+			"typeins": [],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/hu.svg",
+			"answer": "Hungary",
 			"typeins": [],
 			"tags": ["Geography"]
 		},
@@ -1174,7 +1188,7 @@
 		},
 		{
 			"question": "Which country's flag is this?",
-			"image": "/img/flags/togo.svg",
+			"image": "/img/flags/tg.svg",
 			"answer": "Togo",
 			"typeins": [],
 			"tags": ["Geography"]
@@ -1233,6 +1247,13 @@
 			"image": "/img/flags/tt.svg",
 			"answer": "Trinidad and Tobago",
 			"typeins": ["^TRIN[AEI]DAD"],
+			"tags": ["Geography"]
+		},
+		{
+			"question": "Which country's flag is this?",
+			"image": "/img/flags/tv.svg",
+			"answer": "Tuvalu",
+			"typeins": [],
 			"tags": ["Geography"]
 		},
 		{
