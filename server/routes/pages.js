@@ -79,6 +79,10 @@ router.get("/play/:id", async (req, res) => {
 	displayGame(req, res);
 });
 
+router.get("/game-closed", async (req, res) => {
+	showpage("pages/game-closed", req, res);
+});
+
 router.get("/*splat", async (req, res) => {
 	showpage("errors/404", req, res);
 });

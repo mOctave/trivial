@@ -1,0 +1,47 @@
+<!--
+Trivial: Multiplayer trivia online.
+Copyright (C) 2026 mOctave
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<%- include("../partials/head"); %>
+		<script src="/scripts/utils/timestamp.js"></script>
+	</head>
+	<body>
+		<%- include("../partials/navbar"); %>
+		<div class="page-wrapper">
+			<div class="left-bar">
+				<div class="content-box">
+					<h2>Game Closed</h2>
+					<p>Oops! The game you were in no longer exists (the lobby timed out or the server restarted). Please join a new game.</p>
+				</div>
+				<%- include("../partials/deckselector"); %>
+			</div>
+			<div class="main-container">
+				<%- include("../partials/duelmenu"); %>
+				<%- include("../partials/hostmenu"); %>
+				<%- include("../partials/joinmenu"); %>
+			</div>
+			<div class="right-bar">
+				<%- include("../partials/leaderboard"); %>
+				<%- include("../partials/contribute"); %>
+			</div>
+		</div>
+		<%- include("../partials/copyright"); %>
+	</body>
+</html>

@@ -53,12 +53,12 @@ const GameSchema = new mongoose.Schema({
 	timeout: {
 		type: Date,
 		required: true,
-		default: () => new Date(new Date().getTime() + 15 * 60 * 1000)
+		default: () => new Date(new Date().getTime() + 300 * 1000)
 	},
 	totalTimeoutLength: {
 		type: Number,
 		required: true,
-		default: 15 * 60 * 1000
+		default: 300 * 1000
 	},
 	options: {
 		style: {type: String, required: true, default: "duel"},

@@ -24,6 +24,7 @@ const cookieParser = require("cookie-parser");
 const connectDB = require("./config/db");
 const env = require("./config/env");
 const setSuperuser = require("./config/setsuperuser");
+const { purgeAllOpenGames, purgeTimedOutLobbies } = require("./services/purge");
 
 const limiter = erl.rateLimit({
 	windowMs: 30 * 1000,
@@ -53,6 +54,9 @@ app.use("/api/games", require("./routes/game"));
 app.use("/api/users", require("./routes/user"));
 
 app.use("", require("./routes/pages"));
+
+purgeAllOpenGames();
+setInterval(purgeTimedOutLobbies, 10000);
 
 app.listen(env.mainPort, () => console.log(`Server listening on port ${env.mainPort}`));
 

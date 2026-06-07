@@ -22,6 +22,7 @@ const Game = require("../models/Game");
 const User = require("../models/User");
 const authorize = require("../services/authorize");
 const registerAction = require("../services/registeraction");
+const showpage = require("./pagedisplay");
 
 const timeouts = {};
 
@@ -225,6 +226,10 @@ async function displayGame(req, res) {
 	try {
 		const game = await Game.findById(req.params.id);
 
+		if (!game) {
+			return res.status(404).render("errors/404");
+		}
+
 		await authorize(req, res, true);
 
 		if (req.user == null) {
@@ -323,6 +328,10 @@ async function chooseDeck(req, res, cardChoice) {
 async function getInfo(req, res) {
 	try {
 		const game = await Game.findById(req.params.id);
+
+		if (!game) {
+			return res.status(404).json({closed: true}).send();
+		}
 
 		if (game.hasFinished) {
 			res.status(200).json({
@@ -458,4 +467,51 @@ async function submitAnswer(req, res) {
 	}
 }
 
-module.exports = { hostCustomGame, displayGame, getInfo, startGame, submitAnswer };
+async function joinDuel(req, res) {
+	try {
+		await authorize(req, res, true);
+
+		if (req.user == null) {
+			return;
+		}
+
+		const user = await User.findOne({"name": req.user.name});
+
+		if (!user) {
+			return res.status(401).send();
+		}
+
+		registerAction(user.name);
+
+		let game = (req.params.type === "quick-play")
+			? await Game.findOne({"options.style": "duel", hasStarted: false})
+			: await Game.findOne({"options.style": "duel", "options.cardChoice": req.params.type, hasStarted: false});
+
+		if (!game) {
+			// No valid game exists yet, make one
+			const options = {
+				style: "duel",
+				cardChoice: req.params.type === "quick-play" ? "ama" : req.params.type,
+				roundLength: 15,
+				pauseLength: 5,
+				targetScore: 100
+			}
+
+			const params = {
+				players: [{name: user.name, deck: await chooseDeck(req, res, options.cardChoice), score: 0}],
+				options: options
+			}
+
+			game = await Game.create(params);
+			console.log(`Created new game with options ${options}`);
+		}
+
+		// Pass on the link to the game
+		return res.status(200).json({id: game._id});
+	} catch (e) {
+		res.status(500).send();
+		console.log(e);
+	}
+}
+
+module.exports = { hostCustomGame, displayGame, getInfo, startGame, submitAnswer, joinDuel };

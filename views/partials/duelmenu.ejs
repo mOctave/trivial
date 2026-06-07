@@ -2,17 +2,21 @@
 	<h2>Join a Duel</h2>
 	<div class="basic-grid">
 		<!-- TODO: Make these actually do something -->
-		<button class="wide-grid-element button-join"><span id="lc-quick-play" class="lobby-count">0</span><span>Quick Play</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-geography" class="lobby-count">0</span><img src="/img/geography.svg"/><span>Geography</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-history" class="lobby-count">0</span><img src="/img/history.svg"/><span>History</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-language" class="lobby-count">0</span><img src="/img/language.svg"/><span>Language</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-famous-people" class="lobby-count">0</span><img src="/img/famous-people.svg"/><span>Famous People</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-ama" class="lobby-count">0</span><img src="/img/favicon.svg"/><span>Ask Me Anything</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-arts-culture" class="lobby-count">0</span><img src="/img/art-culture.svg"/><span>Art and Culture</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-sports-rec" class="lobby-count">0</span><img src="/img/sports-rec.svg"/><span>Sports and Recreation</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-science-tech" class="lobby-count">0</span><img src="/img/science-tech.svg"/><span>Science and Technology</span></button>
-		<button class="narrow-grid-element button-join"><span id="lc-general-knowledge" class="lobby-count">0</span><img src="/img/general-knowledge.svg"/><span>General Knowledge</span></button>
-		<button class="medium-grid-element button-join"><span id="lc-byod-o" class="lobby-count">0</span><img src="/img/deck-filled.svg"/><span>BYOD (Official)</span></button>
-		<button class="medium-grid-element button-join"><span id="lc-byod-u" class="lobby-count">0</span><img src="/img/deck-unfilled.svg"/><span>BYOD (Unlimited) </span></button>
+		<button class="wide-grid-element button-join" onclick="joinDuel('quick-play')"><span id="lc-0" class="lobby-count">0</span><span>Quick Play</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('geography')"><span id="lc-1" class="lobby-count">0</span><img src="/img/geography.svg"/><span>Geography</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('history')"><span id="lc-2" class="lobby-count">0</span><img src="/img/history.svg"/><span>History</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('language')"><span id="lc-3" class="lobby-count">0</span><img src="/img/language.svg"/><span>Language</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('famous-people')"><span id="lc-4" class="lobby-count">0</span><img src="/img/famous-people.svg"/><span>Famous People</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('ama')"><span id="lc-5" class="lobby-count">0</span><img src="/img/favicon.svg"/><span>Ask Me Anything</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('art-culture')"><span id="lc-6" class="lobby-count">0</span><img src="/img/art-culture.svg"/><span>Art and Culture</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('sports-rec')"><span id="lc-7" class="lobby-count">0</span><img src="/img/sports-rec.svg"/><span>Sports and Recreation</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('science-tech')"><span id="lc-8" class="lobby-count">0</span><img src="/img/science-tech.svg"/><span>Science and Technology</span></button>
+		<button class="narrow-grid-element button-join" onclick="joinDuel('general-knolwedge')"><span id="lc-9" class="lobby-count">0</span><img src="/img/general-knowledge.svg"/><span>General Knowledge</span></button>
+		<button class="medium-grid-element button-join" onclick="joinDuel('byod-official')"><span id="lc-10" class="lobby-count">0</span><img src="/img/deck-filled.svg"/><span>BYOD (Official)</span></button>
+		<button class="medium-grid-element button-join" onclick="joinDuel('byod-unlimited')"><span id="lc-11" class="lobby-count">0</span><img src="/img/deck-unfilled.svg"/><span>BYOD (Unlimited) </span></button>
 	</div>
 </div>
+<script>
+	window.openGameData = <%- JSON.stringify(openGames) %>;
+</script>
+<script src="/scripts/controllers/duelmenu.js" defer></script>

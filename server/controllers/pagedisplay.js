@@ -121,13 +121,14 @@ async function chooseData(page, req, res) {
 				loggedIn: await (req.user !== undefined)
 			}
 		case "pages/play":
+		case "pages/game-closed":
 			return {
 				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				targetUser: await (req.user ? await getUser(req.user.name) : null),
 				decks: await Deck.find(),
 				leaderboard: await getLeaderboard(10, 0),
 				loggedIn: await (req.user !== undefined),
-				openGames: await Game.find({"options.style": "custom", hasStarted: false})
+				openGames: await Game.find({hasStarted: false})
 			}
 		default:
 			return {

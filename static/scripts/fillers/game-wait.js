@@ -26,7 +26,11 @@ setInterval(() => {
 			return response.json();
 		})
 		.then((data) => {
-			window.gameData = data.game;
+			if (data.closed) {
+				window.location = "/game-closed";
+			} else {
+				window.gameData = data.game;
+			}
 		});
 	if (window.gameData.hasStarted) {
 		location.reload();

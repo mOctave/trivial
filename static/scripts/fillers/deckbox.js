@@ -48,4 +48,12 @@ function populateDeckContainer(deckContainer) {
 </a>
 `;
 	}
+
+	if (window.deckData.length === 0) {
+		deckContainer.innerHTML += 
+`
+<p>There's nothing here! Maybe you'd like to <a href="/decks">browse all decks</a> to find something?</p>
+`;
+		deckContainer.classList.add("wasteland");
+	}
 }

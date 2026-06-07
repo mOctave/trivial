@@ -24,15 +24,24 @@ for (let joinMenu of joinMenus) {
 
 // MARK: Functions
 function populateJoinMenu(joinMenu) {
-	for (let game of window.openGameData) {
-		console.log(game);
-		joinMenu.innerHTML +=
+	let empty = true;
+	for (const game of window.openGameData) {
+		if (game.options.style === "custom") {
+			joinMenu.innerHTML +=
 `
 <div>
 	<span class="lobby-count">${game.players.length}</span>
 	${game.players[0].name}'s ${game.options.style} / ${game.options.cardChoice}
 	<a class="button-highlighted" href="/play/${game._id}">Join</a>
 </div>
+`;
+			empty = false;
+		}
+	}
+	if (empty) {
+		joinMenu.innerHTML += 
+`
+<p style="text-align:center;font-style:italic;">There's nothing here! Looks like it's up to you to host a new game.</p>
 `;
 	}
 }

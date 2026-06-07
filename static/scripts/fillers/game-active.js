@@ -27,10 +27,14 @@ setInterval(() => {
 			return response.json();
 		})
 		.then((data) => {
-			window.gameData = data.game;
-			window.questionData = data.question;
-			window.imageData = data.image;
-			window.answerData = data.answer;
+			if (data.closed) {
+				window.location = "/game-closed";
+			} else {
+				window.gameData = data.game;
+				window.questionData = data.question;
+				window.imageData = data.image;
+				window.answerData = data.answer;
+			}
 		});
 	if (window.gameData.hasFinished) {
 		location.reload();
