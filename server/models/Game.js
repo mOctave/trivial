@@ -28,7 +28,8 @@ const GameSchema = new mongoose.Schema({
 		deck: {type: mongoose.Types.ObjectId, ref: "Deck", required: false},
 		score: {type: Number, required: true, default: 0},
 		roundScore: {type: Number, required: true, default: 0},
-		lastAnswer: {type: String, required: false}
+		lastAnswer: {type: String, required: false},
+		ratingImpact: {type: Number, required: true, default: 0}
 	}],
 	nextPlayer: {
 		type: Number,
@@ -71,7 +72,11 @@ const GameSchema = new mongoose.Schema({
 		type: Boolean,
 		required: true,
 		default: false
-	}
+	},
+	gameEvents: [{
+		time: {type: Date, required: true, default: new Date()},
+		event: {type: String, required: true}
+	}]
 });
 
 module.exports = mongoose.model("Game", GameSchema);

@@ -66,6 +66,22 @@ const badgeData = {
 		image: "/img/star-filled.svg",
 		condition: "Earn this badge by receiving ten stars on decks you create."
 	},
+	"Underdog": {
+		image: "/img/trivial.svg", // Placeholder image
+		condition: "Earn this badge by defeating a far stronger opponent."
+	},
+	"Three's a Crowd": {
+		image: "/img/trivial.svg", // Placeholder image
+		condition: "Earn this badge by winning a game with at least three players."
+	},
+	"King of the Hill": {
+		image: "/img/trivial.svg", // Placeholder image
+		condition: "Earn this badge by winning a game with at least ten players."
+	},
+	"Pheidippides": {
+		image: "/img/trivial.svg", // Placeholder image
+		condition: "Earn this badge by winning a game of marathon length or longer."
+	},
 }
 
 

@@ -934,6 +934,15 @@ MARK: Game
 	color: #6a1;
 }
 
+.log-entry {
+	font-size: small;
+	color: #000;
+}
+
+.log-timestamp {
+	color: #555;
+}
+
 /*
 MARK: Icon Sets
 */

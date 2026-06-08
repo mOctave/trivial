@@ -37,6 +37,7 @@ async function startRound(gameId) {
 		player.roundScore = 0;
 	}
 	game.roundActive = true;
+	game.gameEvents.push({time: new Date(), event: `New round! Question: ${(await Card.findById(game.currentCard)).question}`});
 	await game.save();
 	timeouts[gameId] = setTimeout(() => {
 		endRound(gameId);
@@ -93,17 +94,154 @@ async function finishGame(gameId) {
 		}
 	}
 	game.winner = winner;
+	game.gameEvents.push({time: new Date(), event: `${winner} won the game!`});
 	game.hasFinished = true;
-	if (game.options.style === "duel") {
-		assignRatingPoints(gameId);
-	}
 	game.roundActive = false;
 	game.timeout = new Date();
 	await game.save();
+	if (game.options.style === "duel") {
+		await assignRatingPoints(gameId);
+	}
+	for (const player of game.players) {
+		await assignBadges(player);
+	}
 }
 
 async function assignRatingPoints(gameId) {
-	console.log("TODO: Assign rating points");
+	try {
+		const game = await Game.findById(gameId);
+		let winnerData, loserData;
+		for (const player of game.players) {
+			if (player.name === game.winner) {
+				winnerData = player;
+			} else {
+				loserData = player;
+			}
+		}
+		const winner = await User.findOne({name: winnerData.name});
+		const loser = await User.findOne({name: loserData.name});
+
+		const ratingRatio = winner.rating / loser.rating;
+		const ratingDifference = winner.rating - loser.rating;
+
+		if ((ratingRatio > 1 / 1.1 && ratingRatio < 1.1) || (ratingDifference > -30 || ratingDifference < 30)) {
+			// Players were of a similar skill level.
+			winnerData.ratingImpact = 3;
+			loserData.ratingImpact = -3;
+			game.gameEvents.push({time: new Date(), event: `${winner.name} gained 3 rating points, while ${loser.name} lost 3.`});
+		} else if (ratingRatio > 1) {
+			// Winner was stronger
+			if (ratingRatio < 1.5 || ratingDifference < 100) {
+				// Winner was slightly stronger
+				winnerData.ratingImpact = 2;
+				loserData.ratingImpact = -2;
+				game.gameEvents.push({time: new Date(), event: `${winner.name} gained 2 rating points, while ${loser.name} lost 2.`});
+			} else if (ratingRatio < 2.5 || ratingDifference < 250) {
+				// Winner was significantly stronger
+				winnerData.ratingImpact = 1;
+				loserData.ratingImpact = -1;
+				game.gameEvents.push({time: new Date(), event: `${winner.name} gained 1 rating point, while ${loser.name} lost 1.`});
+			} else {
+				// Winner was FAR stronger
+				winnerData.ratingImpact = 1;
+				loserData.ratingImpact = 0;
+				game.gameEvents.push({time: new Date(), event: `${winner.name} gained 1 rating point. ${loser.name}'s rating was unaffected.`});
+			}
+		} else {
+			// Loser was stronger
+			if (ratingRatio > 1 / 1.5 || ratingDifference > -100) {
+				// Loser was slightly stronger
+				winnerData.ratingImpact = 4;
+				loserData.ratingImpact = -4;
+				game.gameEvents.push({time: new Date(), event: `${winner.name} gained 4 rating points, while ${loser.name} lost 4.`});
+			} else if (ratingRatio > 1 / 2.5 || ratingDifference > -250) {
+				// Winner was significantly stronger
+				winnerData.ratingImpact = 5;
+				loserData.ratingImpact = -5;
+				game.gameEvents.push({time: new Date(), event: `${winner.name} gained 5 rating points, while ${loser.name} lost 5.`});
+			} else {
+				// Winner was FAR stronger
+				winnerData.ratingImpact = 6;
+				loserData.ratingImpact = -5;
+				game.gameEvents.push({time: new Date(), event: `${winner.name} gained 6 rating points, while ${loser.name} lost 5.`});
+			}
+		}
+
+		winner.rating += winnerData.ratingImpact;
+		loser.rating += loserData.ratingImpact;
+		await winner.save();
+		await loser.save();
+		await game.save();
+	} catch (e) {
+		console.log(e);
+	}
+}
+
+async function assignBadges(playerData, gameId) {
+	try {
+		const game = await Game.findById(gameId);
+		const user = await User.findOne({name: playerData.name});
+
+		if (!user.badges.includes("Trivia Aficinado") && user.rating >= 180) {
+			user.badges.push("Trivia Aficinado");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Trivia Aficinado" badge for reaching Silver I.`});
+		}
+
+		if (!user.badges.includes("Trivia Professional") && user.rating >= 300) {
+			user.badges.push("Trivia Professional");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Trivia Professional" badge for reaching Gold I.`});
+		}
+
+		if (!user.badges.includes("Trivia Expert") && user.rating >= 450) {
+			user.badges.push("Trivia Expert");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Trivia Expert" badge for reaching Platinum I.`});
+		}
+
+		if (!user.badges.includes("Trivia Legend") && user.rating >= 600) {
+			user.badges.push("Trivia Legend");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Trivia Legend" badge for reaching Diamond I.`});
+		}
+
+		if (!user.badges.includes("Trivia Star") && user.rating >= 900) {
+			user.badges.push("Trivia Star");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Trivia Star" badge for reaching Astral I.`});
+		}
+
+		if (!user.badges.includes("Trivia Master") && user.rating >= 1500) {
+			user.badges.push("Trivia Master");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Trivia Master" badge for reaching Master rank.`});
+		}
+
+		if (!user.badges.includes("Trivia Grandmaster") && user.rating >= 2000) {
+			user.badges.push("Trivia Grandmaster");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Trivia Grandmaster" badge for reaching Grandmaster rank.`});
+		}
+
+		if (!user.badges.includes("Underdog") && playerData.ratingImpact == 6) {
+			user.badges.push("Underdog");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Underdog" badge for defeating a far more powerful opponent.`});
+		}
+
+		if (!user.badges.includes("Three's a Crowd") && game.winner == user.name && game.players.length >= 3) {
+			user.badges.push("Three's a Crowd");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Three's a Crowd" badge for winning a game with at least three players.`});
+		}
+
+		if (!user.badges.includes("King of the Hill") && game.winner == user.name && game.players.length >= 10) {
+			user.badges.push("King of the Hill");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "King of the Hill" badge for winning a game with at least ten players.`});
+		}
+
+		if (!user.badges.includes("Pheidippides") && game.winner == user.name && game.options.targetScore >= 4219.5) {
+			user.badges.push("Pheidippides");
+			game.gameEvents.push({time: new Date(), event: `${user.name} earned the "Pheidippides" badge for winning a marathon-length game.`});
+		}
+
+		await user.save();
+		await game.save();
+	} catch (e) {
+		console.log(e);
+	}
 }
 
 async function matchAnswer(gameId, answer) {
@@ -214,6 +352,8 @@ async function hostCustomGame(req, res) {
 		}
 
 		const game = await Game.create(params);
+		game.gameEvents.push({time: new Date(), event: `Lobby opened`});
+		await game.save();
 		console.log(`Created new game with options ${options}`);
 		return res.status(201).redirect(`/play/${game._id}`);
 	} catch (e) {
@@ -272,12 +412,16 @@ async function displayGame(req, res) {
 			if (game.hasStarted) {
 				// Game is underway, therefore inaccessible
 				return res.status(403).render("errors/403");
+			} else if (game.options.style === "duel" && game.players.length >= 2) {
+				// Duel is full and about to start
+				return res.status(403).render("errors/403");
 			} else {
 				// User can join the game!
 
 				// TODO: Check if the user is already in a game - enforce one user one game limit
 				game.players.push({name: user.name, deck: await chooseDeck(req, res, game.options.cardChoice), score: 0});
 
+				game.gameEvents.push({time: new Date(), event: `${user.name} joined the game`});
 				await game.save();
 				return res.status(200).render("pages/game-wait", {game: game, activeUser: user, loggedIn: true});
 			}
@@ -384,6 +528,7 @@ async function startGame(req, res) {
 
 		if (user.name === game.players[0].name) {
 			game.hasStarted = true;
+			game.gameEvents.push({time: new Date(), event: `Game started!`});
 			await game.save();
 			await startRound(game._id);
 			return res.status(200).send();
@@ -447,6 +592,8 @@ async function submitAnswer(req, res) {
 					}
 
 					player.roundScore = Math.ceil(20 * Math.pow(alreadyCorrect + 2, -1));
+
+					game.gameEvents.push({time: new Date(), event: `${player.name} scored ${player.roundScore} for "${player.lastAnswer}"`});
 					await game.save();
 
 					if (alreadyCorrect === game.players.length - 1) {
@@ -503,6 +650,8 @@ async function joinDuel(req, res) {
 			}
 
 			game = await Game.create(params);
+			game.gameEvents.push({time: new Date(), event: `Lobby opened`});
+			await game.save();
 			console.log(`Created new game with options ${options}`);
 		}
 

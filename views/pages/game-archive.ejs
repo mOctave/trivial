@@ -36,7 +36,18 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 							{year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"}
 						)%>
 					</p>
-					<p>Full archive data is not yet supported.</p>
+					<% if (game.gameEvents.length === 0) {%>
+						<p>This game did not have an event log.</p>
+					<% } else { %>
+						<% for (const event of game.gameEvents) { %>
+							<p class="log-entry">
+								<span class="log-timestamp">(<%- new Date(event.time).toLocaleString("en-CA",
+									{hour: "numeric", minute: "numeric"}
+								) %>)</span>
+								<%- event.event %>
+							</p>
+						<% } %>
+					<% } %>
 				</div>
 				<div class="left-overflow">
 					<%- include("../partials/playerbar") %>
