@@ -27,10 +27,10 @@ const Game = require("../models/Game");
 
 async function showpage(page, req, res) {
 	try {
-		await authorize(req, res, false);
-		if (req.user) {
+		if (await authorize(req, res)) {
 			await registerAction(req.user.name);
 		}
+
 		return res.render(page, await chooseData(page, req, res));
 	} catch (e) {
 		if (e instanceof PageResolutionError) {

@@ -24,13 +24,12 @@ const authorize = require("../services/authorize");
 async function star(req, res) {
 	try {
 		const id = req.params.id;
-		await authorize(req, res, false);
 
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+
+		const user = await User.findOne({"name": req.user.name});
 		
 		const deck = await Deck.findById(id);
 
@@ -52,13 +51,12 @@ async function star(req, res) {
 async function unstar(req, res) {
 	try {
 		const id = req.params.id;
-		await authorize(req, res, false);
 
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+
+		const user = await User.findOne({"name": req.user.name});
 
 		const deck = await Deck.findById(id);
 
@@ -81,17 +79,12 @@ async function unstar(req, res) {
 async function edit(req, res) {
 	try {
 		const id = req.params.id;
-		await authorize(req, res, true);
 
-		if (req.user == null) {
-			return;
+		if (!await authorize(req, res)) {
+			return res.status(401).send();
 		}
 
 		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
-			return res.status(401).send();
-		}
 
 		const deck = await Deck.findById(id);
 
@@ -113,17 +106,12 @@ async function edit(req, res) {
 async function destroy(req, res) {
 	try {
 		const id = req.params.id;
-		await authorize(req, res, true);
 
-		if (req.user == null) {
-			return;
+		if (!await authorize(req, res)) {
+			return res.status(401).send();
 		}
 
 		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
-			return res.status(401).send();
-		}
 
 		const deck = await Deck.findById(id);
 
@@ -150,17 +138,11 @@ async function destroy(req, res) {
 
 async function checkModifiable(req, res) {
 	try {
-		await authorize(req, res, false);
-
-		if (req.user == null) {
+		if (!await authorize(req, res)) {
 			return res.status(200).json({"modifiableDecks": []});
 		}
-
+		
 		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
-			return res.status(200).json({"modifiableDecks": []});
-		}
 
 		if (user.badges.includes("Admin")) {
 			return res.status(200).json({"modifiableDecks": await Deck.find({})});
@@ -176,17 +158,12 @@ async function addCards(req, res) {
 	try {
 		const deckId = req.body.deck;
 		const cardIds = req.body.cards;
-		await authorize(req, res, true);
 
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+		
+		const user = await User.findOne({"name": req.user.name});
 
 		const deck = await Deck.findById(deckId);
 
@@ -212,17 +189,12 @@ async function removeCards(req, res) {
 	try {
 		const deckId = req.body.deck;
 		const cardIds = req.body.cards;
-		await authorize(req, res, true);
 
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+		
+		const user = await User.findOne({"name": req.user.name});
 
 		const deck = await Deck.findById(deckId);
 
@@ -249,17 +221,11 @@ async function removeCards(req, res) {
 
 async function create(req, res) {
 	try {
-		await authorize(req, res, true);
-
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+		
+		const user = await User.findOne({"name": req.user.name});
 
 		const params = {
 			name: req.body.name,
@@ -279,17 +245,11 @@ async function create(req, res) {
 
 async function importJSON(req, res) {
 	try {
-		await authorize(req, res, true);
-
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+		
+		const user = await User.findOne({"name": req.user.name});
 
 		const cards = [];
 		if (req.body.cards) {

@@ -16,26 +16,27 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+const User = require("../models/User");
 const { verifyToken } = require("./jwt");
 
-function authorize(req, res, failHard) {
+// Returns:
+// false - if there is no token, the token doesn't properly verify, or there is no matching user
+// true - if there is a matching user
+async function authorize(req, res) {
 	const token = req.cookies.token;
 
 	if (!token) {
-		if (failHard) {
-			return res.status(401).render("errors/401");
-		}
-		return;
+		return false;
 	}
 
 	try {
 		req.user = verifyToken(token);
 	} catch (e) {
-		if (failHard) {
-			return res.status(401).render("errors/401");
-		}
-		return;
+		return false;
 	}
+
+	const user = await User.findOne({"name": req.user.name});
+	return user !== null;
 }
 
 module.exports = authorize;

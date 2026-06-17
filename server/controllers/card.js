@@ -27,17 +27,12 @@ async function batchApplyTag(req, res) {
 	try {
 		const tag = req.body.tag;
 		const cardIds = req.body.cards;
-		await authorize(req, res, true);
 
-		if (req.user == null) {
-			return;
+		if (!await authorize(req, res)) {
+			return res.status(401).send();
 		}
 
 		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
-			return res.status(401).send();
-		}
 
 		if (hasPermission(tag, user)) {
 			for (const cardId of cardIds) {
@@ -62,17 +57,12 @@ async function batchRemoveTag(req, res) {
 	try {
 		const tag = req.body.tag;
 		const cardIds = req.body.cards;
-		await authorize(req, res, true);
 
-		if (req.user == null) {
-			return;
+		if (!await authorize(req, res)) {
+			return res.status(401).send();
 		}
 
 		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
-			return res.status(401).send();
-		}
 
 		if (hasPermission(tag, user)) {
 			for (const cardId of cardIds) {
@@ -96,17 +86,12 @@ async function batchRemoveTag(req, res) {
 async function batchDestroy(req, res) {
 	try {
 		const cardIds = req.body.cards;
-		await authorize(req, res, true);
 
-		if (req.user == null) {
-			return;
+		if (!await authorize(req, res)) {
+			return res.status(401).send();
 		}
 
 		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
-			return res.status(401).send();
-		}
 
 		for (const cardId of cardIds) {
 			const card = await Card.findById(cardId);
@@ -139,17 +124,11 @@ async function batchDestroy(req, res) {
 
 async function create(req, res) {
 	try {
-		await authorize(req, res, true);
-
-		if (req.user == null) {
-			return;
+		if (!await authorize(req, res)) {
+			return res.status(401).send();
 		}
 
 		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
-			return res.status(401).send();
-		}
 
 		const typeins = req.body.typeins.split(/\r?\n/);
 		for (const typein of typeins) {

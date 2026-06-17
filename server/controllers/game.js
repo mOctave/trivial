@@ -331,18 +331,12 @@ async function hostCustomGame(req, res) {
 			pauseLength: req.body.pauseLength,
 			targetScore: req.body.targetScore
 		}
-		await authorize(req, res, true);
 
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+		
+		const user = await User.findOne({"name": req.user.name});
 
 		registerAction(user.name);
 
@@ -369,16 +363,8 @@ async function displayGame(req, res) {
 		if (!game) {
 			return res.status(404).render("errors/404");
 		}
-
-		await authorize(req, res, true);
-
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		
+		if (!await authorize(req, res)) {
 			if (game.hasFinished) {
 				// Players can view past games without logging in
 				return res.status(200).render("pages/game-archive", {game: game, activeUser: null, loggedIn: false});
@@ -387,7 +373,8 @@ async function displayGame(req, res) {
 				return res.status(403).send();
 			}
 		}
-
+				
+		const user = await User.findOne({"name": req.user.name});
 
 		if (game.hasFinished) {
 			// Game is finished and open to the public
@@ -512,17 +499,11 @@ async function startGame(req, res) {
 			return res.status(400).send();
 		}
 
-		await authorize(req, res, true);
-
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+		
+		const user = await User.findOne({"name": req.user.name});
 
 		registerAction(user.name);
 
@@ -550,17 +531,11 @@ async function submitAnswer(req, res) {
 			return res.status(400).send();
 		}
 
-		await authorize(req, res, true);
-
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+		
+		const user = await User.findOne({"name": req.user.name});
 
 		registerAction(user.name);
 
@@ -616,17 +591,11 @@ async function submitAnswer(req, res) {
 
 async function joinDuel(req, res) {
 	try {
-		await authorize(req, res, true);
-
-		if (req.user == null) {
-			return;
-		}
-
-		const user = await User.findOne({"name": req.user.name});
-
-		if (!user) {
+		if (!await authorize(req, res)) {
 			return res.status(401).send();
 		}
+		
+		const user = await User.findOne({"name": req.user.name});
 
 		registerAction(user.name);
 
