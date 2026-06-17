@@ -38,8 +38,9 @@ const limiter = erl.rateLimit({
 const app = express();
 initDatabase();
 
-app.use(express.json());
 app.set("view engine", "ejs");
+app.set("trust proxy", "127.0.0.1");
+app.use(express.json());
 app.use(express.static("static"));
 app.use(limiter);
 app.use(session({secret: env.sessionSecret, resave: false, saveUninitialized: false}));
