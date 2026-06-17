@@ -151,29 +151,22 @@ async function destroy(req, res) {
 async function checkModifiable(req, res) {
 	try {
 		await authorize(req, res, false);
-		console.log("[MODCHECK AUTHORIZED]");
 
 		if (req.user == null) {
-			console.log("[MODCHECK NO USER - BRANCH A]");
 			return res.status(200).json({"modifiableDecks": []});
 		}
 
 		const user = await User.findOne({"name": req.user.name});
 
 		if (!user) {
-			console.log("[MODCHECK NO USER - BRANCH B]");
 			return res.status(200).json({"modifiableDecks": []});
 		}
 
 		if (user.badges.includes("Admin")) {
-			console.log("[MODCHECK ADMIN]");
 			return res.status(200).json({"modifiableDecks": await Deck.find({})});
 		}
-
-		console.log("[MODCHECK NON-ADMIN]");
 		return res.status(200).json({"modifiableDecks": await Deck.find({"creator": user.name})});
 	} catch (e) {
-		console.log("[MODCHECK FAIL]");
 		console.log(e);
 		return res.status(500).send();
 	}

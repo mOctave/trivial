@@ -27,21 +27,17 @@ const Game = require("../models/Game");
 
 async function showpage(page, req, res) {
 	try {
-		console.log("[SHOWPAGE ATTEMPT]");
 		await authorize(req, res, false);
 		if (req.user) {
 			await registerAction(req.user.name);
 		}
-		console.log("[SHOWPAGE AUTHORIZED]");
 		return res.render(page, await chooseData(page, req, res));
 	} catch (e) {
 		if (e instanceof PageResolutionError) {
 			res.status(404);
-			console.log("[SHOWPAGE 404]");
 			return res.render("errors/404");
 		} else {
 			res.status(500);
-			console.log("[SHOWPAGE 500]");
 			console.log(e);
 			return res.render("errors/500");
 		}
