@@ -152,7 +152,6 @@ window.onload = () => {
 				option.value = deck._id;
 				selector.add(option);
 			}
-			menu.style.display = "block";
 		});
 		
 	populateSelector("tag-selector");
