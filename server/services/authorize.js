@@ -23,9 +23,10 @@ function authorize(req, res, failHard) {
 
 	if (!token) {
 		if (failHard) {
-			console.log("[AUTH FAILURE - NO TOKEN]");
+			console.log("[AUTH HARD FAILURE - NO TOKEN]");
 			return res.status(401).render("errors/401");
 		}
+		console.log("[AUTH SOFT FAILURE - NO TOKEN]");
 		return;
 	}
 
@@ -33,9 +34,10 @@ function authorize(req, res, failHard) {
 		req.user = verifyToken(token);
 	} catch (e) {
 		if (failHard) {
-			console.log("[AUTH FAILURE - CANNOT VERIFY]");
+			console.log("[AUTH HARD FAILURE - CANNOT VERIFY]");
 			return res.status(401).render("errors/401");
 		}
+		console.log("[AUTH SOFT FAILURE - CANNOT VERIFY]");
 		return;
 	}
 }

@@ -150,7 +150,7 @@ async function destroy(req, res) {
 
 async function checkModifiable(req, res) {
 	try {
-		await authorize(req, res, true);
+		await authorize(req, res, false);
 		console.log("[MODCHECK AUTHORIZED]");
 
 		if (req.user == null) {
