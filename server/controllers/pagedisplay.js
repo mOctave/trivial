@@ -28,17 +28,17 @@ const Game = require("../models/Game");
 async function showpage(page, req, res) {
 	try {
 		await authorize(req, res, false);
-		res.render(page, await chooseData(page, req, res));
+		return res.render(page, await chooseData(page, req, res));
 		if (req.user) {
 			registerAction(req.user.name);
 		}
 	} catch (e) {
 		if (e instanceof PageResolutionError) {
 			res.status(404);
-			res.render("errors/404");
+			return res.render("errors/404");
 		} else {
 			res.status(500).json({error: e.message});
-			res.render("errors/500");
+			return res.render("errors/500");
 			console.log(e);
 		}
 	}
@@ -58,7 +58,7 @@ async function chooseData(page, req, res) {
 			};
 		case "pages/login":
 			return {
-				activeUser: null,
+				activeUser: await (req.user ? await getUser(req.user.name) : null),
 				errorLoginUsername: req.session.errorLoginUsername,
 				errorLoginPassword: req.session.errorLoginPassword,
 				errorRegisterUsername: req.session.errorRegisterUsername,
