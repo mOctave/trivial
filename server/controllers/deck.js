@@ -154,13 +154,15 @@ async function checkModifiable(req, res) {
 		console.log("[MODCHECK AUTHORIZED]");
 
 		if (req.user == null) {
+			console.log("[MODCHECK NO USER - BRANCH A]");
 			return res.status(200).json({"modifiableDecks": []});
 		}
 
 		const user = await User.findOne({"name": req.user.name});
 
 		if (!user) {
-			return res.status(401).send();
+			console.log("[MODCHECK NO USER - BRANCH B]");
+			return res.status(200).json({"modifiableDecks": []});
 		}
 
 		if (user.badges.includes("Admin")) {
