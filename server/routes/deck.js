@@ -66,11 +66,11 @@ const router = express.Router();
 // });
 
 router.post("/star/:id", async (req, res) => {
-	star(req, res);
+	await star(req, res);
 });
 
 router.post("/unstar/:id", async (req, res) => {
-	unstar(req, res);
+	await unstar(req, res);
 });
 
 router.post("/edit/:id",
@@ -88,7 +88,7 @@ router.post("/edit/:id",
 
 router.post("/delete/:id", async (req, res) => {
 	console.log(`Attempting to delete deck ${req.params.id}`);
-	destroy(req, res);
+	await destroy(req, res);
 });
 
 router.get("/modifiable", async (req, res) => {
@@ -98,11 +98,11 @@ router.get("/modifiable", async (req, res) => {
 });
 
 router.post("/addcards", async (req, res) => {
-	addCards(req, res);
+	await addCards(req, res);
 });
 
 router.post("/removecards", async (req, res) => {
-	removeCards(req, res);
+	await removeCards(req, res);
 });
 
 router.post("/create",
@@ -118,7 +118,7 @@ router.post("/create",
 );
 
 router.post("/import", async (req, res) => {
-	importJSON(req, res);
+	await importJSON(req, res);
 })
 
 module.exports = router;

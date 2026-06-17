@@ -24,68 +24,67 @@ const { displayGame } = require("../controllers/game");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-	showpage("pages/index", req, res);
+	await showpage("pages/index", req, res);
 });
 
 router.get("/home", async (req, res) => {
-	showpage("pages/home", req, res);
+	await showpage("pages/home", req, res);
 });
 
 router.get("/login", async (req, res) => {
-	showpage("pages/login", req, res);
+	await showpage("pages/login", req, res);
 });
 
 router.get("/logout", async (req, res) => {
-	logout(req, res);
+	await logout(req, res);
 });
 
 router.get("/terms", async (req, res) => {
-	showpage("pages/terms", req, res);
+	await showpage("pages/terms", req, res);
 });
 
 router.get("/privacy", async (req, res) => {
-	showpage("pages/privacy", req, res);
+	await showpage("pages/privacy", req, res);
 });
 
 router.get("/cards", async (req, res) => {
-	showpage("pages/cards", req, res);
+	await showpage("pages/cards", req, res);
 });
 
 router.get("/decks", async (req, res) => {
-	showpage("pages/decks", req, res);
+	await showpage("pages/decks", req, res);
 });
 
 router.get("/user/:target", async (req, res) => {
-	showpage("pages/user", req, res);
+	await showpage("pages/user", req, res);
 });
 
 router.get("/deck/:target", async (req, res) => {
 	await showpage("pages/deck", req, res);
-	console.log("[SHOWPAGE COMPLETE]");
 });
 
 router.get("/card/:target", async (req, res) => {
-	showpage("pages/card", req, res);
+	await showpage("pages/card", req, res);
 });
 
 router.get("/create", async (req, res) => {
-	showpage("pages/create", req, res);
+	await showpage("pages/create", req, res);
 });
 
 router.get("/play", async (req, res) => {
-	showpage("pages/play", req, res);
+	await showpage("pages/play", req, res);
 });
 
 router.get("/play/:id", async (req, res) => {
-	displayGame(req, res);
+	await displayGame(req, res);
 });
 
 router.get("/game-closed", async (req, res) => {
-	showpage("pages/game-closed", req, res);
+	await showpage("pages/game-closed", req, res);
 });
 
 router.get("/*splat", async (req, res) => {
-	showpage("errors/404", req, res);
+	await showpage("errors/404", req, res);
 });
 
 module.exports = router;

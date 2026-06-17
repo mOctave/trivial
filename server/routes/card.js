@@ -67,16 +67,16 @@ const router = express.Router();
 // });
 
 router.post("/batchapplytag", async (req, res) => {
-	batchApplyTag(req, res);
+	await batchApplyTag(req, res);
 });
 
 router.post("/batchremovetag", async (req, res) => {
-	batchRemoveTag(req, res);
+	await batchRemoveTag(req, res);
 });
 
 router.post("/batchdelete", async (req, res) => {
 	console.log("Attempting to batch delete cards");
-	batchDestroy(req, res);
+	await batchDestroy(req, res);
 });
 
 

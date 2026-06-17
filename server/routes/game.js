@@ -24,26 +24,26 @@ const router = express.Router();
 
 router.post("/host", async (req, res) => {
 	console.log("Attempting to host");
-	hostCustomGame(req, res);
+	await hostCustomGame(req, res);
 });
 
 router.get("/info/:id", async (req, res) => {
-	getInfo(req, res);
+	await getInfo(req, res);
 });
 
 router.post("/start/:id", async (req, res) => {
 	console.log(`Starting game ${req.params.id}`);
-	startGame(req, res);
+	await startGame(req, res);
 });
 
 router.post("/answer/:id", async (req, res) => {
 	console.log(`Answering game ${req.params.id}`);
-	submitAnswer(req, res);
+	await submitAnswer(req, res);
 });
 
 router.get("/duel/:type", async (req, res) => {
 	console.log(`Joining a duel with type ${req.params.type}`);
-	joinDuel(req, res);
+	await joinDuel(req, res);
 });
 
 module.exports = router;
