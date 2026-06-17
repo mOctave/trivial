@@ -60,8 +60,7 @@ router.get("/user/:target", async (req, res) => {
 });
 
 router.get("/deck/:target", async (req, res) => {
-	showpage("pages/deck", req, res);
-	console.log("[SHOWPAGE COMPLETE]");
+	showpage("pages/deck", req, res).then(console.log("[SHOWPAGE COMPLETE]"));
 });
 
 router.get("/card/:target", async (req, res) => {
