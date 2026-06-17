@@ -132,8 +132,8 @@ async function batchDestroy(req, res) {
 			return res.status(200).send();
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -168,8 +168,8 @@ async function create(req, res) {
 		console.log(`User ${user.name} created card ${card._id}.`);
 		return res.status(200).redirect(`/card/${card._id}`);
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 

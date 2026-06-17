@@ -37,13 +37,13 @@ async function showpage(page, req, res) {
 	} catch (e) {
 		if (e instanceof PageResolutionError) {
 			res.status(404);
-			return res.render("errors/404");
 			console.log("[SHOWPAGE 404]");
+			return res.render("errors/404");
 		} else {
 			res.status(500);
-			return res.render("errors/500");
 			console.log("[SHOWPAGE 500]");
 			console.log(e);
+			return res.render("errors/500");
 		}
 	}
 }

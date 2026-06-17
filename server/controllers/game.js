@@ -357,8 +357,8 @@ async function hostCustomGame(req, res) {
 		console.log(`Created new game with options ${options}`);
 		return res.status(201).redirect(`/play/${game._id}`);
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -442,8 +442,8 @@ async function displayGame(req, res) {
 		// User is a player, the game is waiting to start
 		return res.status(200).render("pages/game-wait", {game: game, activeUser: user, loggedIn: true});
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -498,8 +498,8 @@ async function getInfo(req, res) {
 			}
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -536,8 +536,8 @@ async function startGame(req, res) {
 			return res.status(403).send();
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -609,8 +609,8 @@ async function submitAnswer(req, res) {
 		// User is not a player, can't submit answers
 		return res.status(403).send();
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -658,8 +658,8 @@ async function joinDuel(req, res) {
 		// Pass on the link to the game
 		return res.status(200).json({id: game._id});
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 

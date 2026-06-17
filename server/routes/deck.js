@@ -92,7 +92,9 @@ router.post("/delete/:id", async (req, res) => {
 });
 
 router.get("/modifiable", async (req, res) => {
+	console.log("[MODCHECK ATTEMPT]");
 	checkModifiable(req, res);
+	console.log("[MODCHECK COMPLETE]");
 });
 
 router.post("/addcards", async (req, res) => {

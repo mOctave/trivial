@@ -44,8 +44,8 @@ async function star(req, res) {
 			return res.status(200).send();
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -72,8 +72,8 @@ async function unstar(req, res) {
 			return res.status(400).send();
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -105,8 +105,8 @@ async function edit(req, res) {
 			return res.status(403).render("errors/403");
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -143,8 +143,8 @@ async function destroy(req, res) {
 			return res.status(403).render("errors/403");
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -168,8 +168,8 @@ async function checkModifiable(req, res) {
 
 		return res.status(200).json({"modifiableDecks": await Deck.find({"creator": user.name})});
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -204,8 +204,8 @@ async function addCards(req, res) {
 			return res.status(403).render("errors/403");
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -243,8 +243,8 @@ async function removeCards(req, res) {
 			return res.status(403).render("errors/403");
 		}
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -273,8 +273,8 @@ async function create(req, res) {
 		console.log(`User ${user.name} created deck ${deck._id}.`);
 		return res.status(200).redirect(`/deck/${deck._id}`);
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
@@ -322,8 +322,8 @@ async function importJSON(req, res) {
 
 		return res.status(200).redirect(`/deck/${deck._id}`);
 	} catch (e) {
-		res.status(500).send();
 		console.log(e);
+		return res.status(500).send();
 	}
 }
 
