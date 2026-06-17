@@ -37,7 +37,7 @@ async function showpage(page, req, res) {
 			res.status(404);
 			return res.render("errors/404");
 		} else {
-			res.status(500).json({error: e.message});
+			res.status(500);
 			return res.render("errors/500");
 			console.log(e);
 		}
