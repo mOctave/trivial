@@ -1,0 +1,833 @@
+{
+	"name": "Chemical Elements",
+	"image": "/img/elements/elem_74.svg",
+	"description": "Can you name every element on the periodic table given only its symbol and number?",
+	"cards": [
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_1.svg",
+			"answer": "Hydrogen",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_2.svg",
+			"answer": "Helium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_3.svg",
+			"answer": "Lithium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_4.svg",
+			"answer": "Beryllium",
+			"typeins": ["^B[AE]R[IY]L+IUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_5.svg",
+			"answer": "Boron",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_6.svg",
+			"answer": "Carbon",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_7.svg",
+			"answer": "Nitrogen",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_8.svg",
+			"answer": "Oxygen",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_9.svg",
+			"answer": "Fluorine",
+			"typeins": ["^FL[OU]+RINE$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_10.svg",
+			"answer": "Neon",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_11.svg",
+			"answer": "Sodium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_12.svg",
+			"answer": "Magnesium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_13.svg",
+			"answer": "Aluminum",
+			"typeins": ["^ALUMINI?UM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_14.svg",
+			"answer": "Silicon",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_15.svg",
+			"answer": "Phosphorus",
+			"typeins": ["^PHOS(F|PH)OR[OU]+S$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_16.svg",
+			"answer": "Sulfur",
+			"typeins": ["^SUL(F|PH)UR$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_17.svg",
+			"answer": "Chlorine",
+			"typeins": ["^CLORINE$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_18.svg",
+			"answer": "Argon",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_19.svg",
+			"answer": "Potassium",
+			"typeins": ["^POTASIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_20.svg",
+			"answer": "Calcium",
+			"typeins": ["^CALSIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_21.svg",
+			"answer": "Scandium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_22.svg",
+			"answer": "Titanium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_23.svg",
+			"answer": "Vanadium",
+			"typeins": ["^VANA?DIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_24.svg",
+			"answer": "Chromium",
+			"typeins": ["^CROMIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_25.svg",
+			"answer": "Manganese",
+			"typeins": ["^MA(NG|GN)[AI]NESE$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_26.svg",
+			"answer": "Iron",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_27.svg",
+			"answer": "Cobalt",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_28.svg",
+			"answer": "Nickel",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_29.svg",
+			"answer": "Copper",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_30.svg",
+			"answer": "Zinc",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_31.svg",
+			"answer": "Gallium",
+			"typeins": ["^GALIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_32.svg",
+			"answer": "Germanium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_33.svg",
+			"answer": "Arsenic",
+			"typeins": ["^ARS[EI]NICK?$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_34.svg",
+			"answer": "Selenium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_35.svg",
+			"answer": "Bromine",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_36.svg",
+			"answer": "Krypton",
+			"typeins": ["KR[IY]PTON$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_37.svg",
+			"answer": "Rubidium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_38.svg",
+			"answer": "Strontium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_39.svg",
+			"answer": "Yttrium",
+			"typeins": ["^YI?T+RIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_40.svg",
+			"answer": "Zirconium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_41.svg",
+			"answer": "Niobium",
+			"typeins": ["^N[EIO]+BIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_42.svg",
+			"answer": "Molybdenum",
+			"typeins": ["^MOLYB[DEN]+UM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_43.svg",
+			"answer": "Technetium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_44.svg",
+			"answer": "Ruthenium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_45.svg",
+			"answer": "Rhodium",
+			"typeins": ["^RODIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_46.svg",
+			"answer": "Palladium",
+			"typeins": ["^PALADIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_47.svg",
+			"answer": "Silver",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_48.svg",
+			"answer": "Cadmium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_49.svg",
+			"answer": "Indium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_50.svg",
+			"answer": "Tin",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_51.svg",
+			"answer": "Antimony",
+			"typeins": ["^ANT[EI]MONY$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_52.svg",
+			"answer": "Tellurium",
+			"typeins": ["^TELURIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_53.svg",
+			"answer": "Iodine",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_54.svg",
+			"answer": "Xenon",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_55.svg",
+			"answer": "Caesium",
+			"typeins": ["^CESIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_56.svg",
+			"answer": "Barium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_57.svg",
+			"answer": "Lanthanum",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_58.svg",
+			"answer": "Cerium",
+			"typeins": ["^[CS]ERIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_59.svg",
+			"answer": "Praseodymium",
+			"typeins": ["^PRAE?SE?OD[IY]MIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_60.svg",
+			"answer": "Neodymium",
+			"typeins": ["^NEOD[IY]MIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_61.svg",
+			"answer": "Promethium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_62.svg",
+			"answer": "Samarium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_63.svg",
+			"answer": "Europium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_64.svg",
+			"answer": "Gadolinium",
+			"typeins": ["^GADOL+IN+IUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_65.svg",
+			"answer": "Terbium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_66.svg",
+			"answer": "Dysprosium",
+			"typeins": ["^D[IY]SPROSIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_67.svg",
+			"answer": "Holmium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_68.svg",
+			"answer": "Erbium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_69.svg",
+			"answer": "Thulium",
+			"typeins": ["^THUL+IUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_70.svg",
+			"answer": "Ytterbium",
+			"typeins": ["^YI?T+[EI]?RBIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_71.svg",
+			"answer": "Lutetium",
+			"typeins": ["^LUTESIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_72.svg",
+			"answer": "Hafnium",
+			"typeins": ["^HALFNIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_73.svg",
+			"answer": "Tantalum",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_74.svg",
+			"answer": "Tungsten",
+			"typeins": ["^TUNGSTIN$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_75.svg",
+			"answer": "Rhenium",
+			"typeins": ["^RENIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_76.svg",
+			"answer": "Osmium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_77.svg",
+			"answer": "Iridium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_78.svg",
+			"answer": "Platinum",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_79.svg",
+			"answer": "Gold",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_80.svg",
+			"answer": "Mercury",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_81.svg",
+			"answer": "Thallium",
+			"typeins": ["^THAL+IUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_82.svg",
+			"answer": "Lead",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_83.svg",
+			"answer": "Bismuth",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_84.svg",
+			"answer": "Polonium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_85.svg",
+			"answer": "Astatine",
+			"typeins": ["^A[TS]+[AEIU]TINE$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_86.svg",
+			"answer": "Radon",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_87.svg",
+			"answer": "Francium",
+			"typeins": ["^FRANCE?I?UM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_88.svg",
+			"answer": "Radium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_89.svg",
+			"answer": "Actinium",
+			"typeins": ["^ACTINUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_90.svg",
+			"answer": "Thorium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_91.svg",
+			"answer": "Protactinium",
+			"typeins": ["^PROTA.*NI?UM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_92.svg",
+			"answer": "Uranium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_93.svg",
+			"answer": "Neptunium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_94.svg",
+			"answer": "Plutonium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_95.svg",
+			"answer": "Americium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_96.svg",
+			"answer": "Curium",
+			"typeins": [],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_97.svg",
+			"answer": "Berkelium",
+			"typeins": ["^B[EU]RK[EI]LY?I?UM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_98.svg",
+			"answer": "Californium",
+			"typeins": ["^CALIFORNIAM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_99.svg",
+			"answer": "Einsteinium",
+			"typeins": ["^[EI]+NST[EI]+NIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_100.svg",
+			"answer": "Fermium",
+			"typeins": ["^F[EI]RMIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_101.svg",
+			"answer": "Mendelevium",
+			"typeins": ["^MEND[AE]?L[AEI]?VIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_102.svg",
+			"answer": "Nobelium",
+			"typeins": ["^NOBEL+IUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_103.svg",
+			"answer": "Lawrencium",
+			"typeins": ["^LARENCIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_104.svg",
+			"answer": "Rutherfordium",
+			"typeins": [""],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_105.svg",
+			"answer": "Dubnium",
+			"typeins": [""],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_106.svg",
+			"answer": "Seaborgium",
+			"typeins": ["^SEA?BOU?RGIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_107.svg",
+			"answer": "Bohrium",
+			"typeins": ["^BORIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_108.svg",
+			"answer": "Hassium",
+			"typeins": ["^HAS+IUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_109.svg",
+			"answer": "Meitnerium",
+			"typeins": ["^M[AEI]+TN[AEIU]RIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_110.svg",
+			"answer": "Darmstadtium",
+			"typeins": ["^DARMSTA[DT]+IUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_111.svg",
+			"answer": "Roentgenium",
+			"typeins": ["^R[EO]+NTG[EI]NIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_112.svg",
+			"answer": "Copernicium",
+			"typeins": ["^COP+ERN(IC)?IUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_113.svg",
+			"answer": "Nihonium",
+			"typeins": [""],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_114.svg",
+			"answer": "Flerovium",
+			"typeins": [""],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_115.svg",
+			"answer": "Moscovium",
+			"typeins": ["^MOSCOWIUM$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_116.svg",
+			"answer": "Livermorium",
+			"typeins": [""],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_117.svg",
+			"answer": "Tennessine",
+			"typeins": ["^TEN+ES+INE$"],
+			"tags": ["Science and Technology"]
+		},
+		{
+			"question": "Which element is this?",
+			"image": "/img/elements/elem_118.svg",
+			"answer": "Oganesson",
+			"typeins": ["^OGAN+ES+ON$"],
+			"tags": ["Science and Technology"]
+		}
+	]
+}
