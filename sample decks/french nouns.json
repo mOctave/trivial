@@ -1,0 +1,1001 @@
+{
+	"name": "French Nouns",
+	"image": "/img/flags/fr.svg",
+	"description": "Can you translate these common French nouns into English?",
+	"cards": [
+		{
+			"question": "What is the meaning of the french noun \"livre\"?",
+			"image": "",
+			"answer": "Book",
+			"typeins": ["^TOME$", "^VOLUME$", "^POUND$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"maison\"?",
+			"image": "",
+			"answer": "House",
+			"typeins": ["^HOME$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"ami\"?",
+			"image": "",
+			"answer": "Friend",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"femme\"?",
+			"image": "",
+			"answer": "Woman",
+			"typeins": ["^LADY$", "^FEMALE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"homme\"?",
+			"image": "",
+			"answer": "Man",
+			"typeins": ["^MALE$", "^HUMANITY$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"enfant\"?",
+			"image": "",
+			"answer": "Child",
+			"typeins": ["^BABY$", "^INFANT$", "^NATIVE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"voiture\"?",
+			"image": "",
+			"answer": "Car",
+			"typeins": ["^AUTOMOBILE$", "^CARRIAGE$", "^COACH$", "^CARLOARD$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"professeur\"?",
+			"image": "",
+			"answer": "Teacher",
+			"typeins": ["^PROFESSOR$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"ville\"?",
+			"image": "",
+			"answer": "City",
+			"typeins": ["^TOWN$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"frère\"?",
+			"image": "",
+			"answer": "Brother",
+			"typeins": ["^COMRADE$", "^MONK$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"sœur\"?",
+			"image": "",
+			"answer": "Sister",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"jardin\"?",
+			"image": "",
+			"answer": "Garden",
+			"typeins": ["^YARD$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"travail\"?",
+			"image": "",
+			"answer": "Work",
+			"typeins": ["^JOB$", "^TASK$", "^PROFESSION$", "^TRADE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"semaine\"?",
+			"image": "",
+			"answer": "Week",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"argent\"?",
+			"image": "",
+			"answer": "Money",
+			"typeins": ["^SILVER$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"histoire\"?",
+			"image": "",
+			"answer": "Story",
+			"typeins": ["^TALE$", "^HISTORY$", "^LIE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"lit\"?",
+			"image": "",
+			"answer": "Bed",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"rue\"?",
+			"image": "",
+			"answer": "Street",
+			"typeins": ["^ROAD$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"temps\"?",
+			"image": "",
+			"answer": "Time",
+			"typeins": ["^PERIOD$", "^WEATHER$", "^TENSE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"année\"?",
+			"image": "",
+			"answer": "Year",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"monde\"?",
+			"image": "",
+			"answer": "World",
+			"typeins": ["^PLANET$", "^EARTH$", "^CROWD$", "^EVERYBODY$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"livre\"?",
+			"image": "",
+			"answer": "Book",
+			"typeins": ["^WORK$", "^TOME$", "^VOLUME$", "^POUND$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"main\"?",
+			"image": "",
+			"answer": "Hand",
+			"typeins": ["^TURN$", "^HANDBALL$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"eau\"?",
+			"image": "",
+			"answer": "Water",
+			"typeins": ["^SEA$", "^OCEAN$", "^LAKE$", "^RAIN$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"chemin\"?",
+			"image": "",
+			"answer": "Path",
+			"typeins": ["^PATHWAY$", "^TRACK$", "^LANE$", "^WAY$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"lumière\"?",
+			"image": "",
+			"answer": "Light",
+			"typeins": ["^(SUN|DAY)?LIGHT$", "^LIGHTING$", "^UNDERSTANDING$", "^KNOWLEDGE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"visage\"?",
+			"image": "",
+			"answer": "Face",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"tête\"?",
+			"image": "",
+			"answer": "Head",
+			"typeins": ["^EXPRESSION$", "^LOOK$", "^TOP$", "^TIP$", "^FRONT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"livre\"?",
+			"image": "",
+			"answer": "Book",
+			"typeins": ["^WORK$", "^TOME$", "^VOLUME$", "^POUND$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"fenêtre\"?",
+			"image": "",
+			"answer": "Window",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"arbre\"?",
+			"image": "",
+			"answer": "Tree",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"livre\"?",
+			"image": "",
+			"answer": "Book",
+			"typeins": ["^WORK$", "^TOME$", "^VOLUME$", "^POUND$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"night\"?",
+			"image": "",
+			"answer": "Night",
+			"typeins": ["^NIGHTTIME$", "^DARK$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"idée\"?",
+			"image": "",
+			"answer": "Idea",
+			"typeins": ["^THOUGHTS?$", "^CONCEPT$", "^VIEW$", "^NOTION$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"problème\"?",
+			"image": "",
+			"answer": "Problem",
+			"typeins": ["^DIFFICULTY$", "^ISSUE$", "^TROUBLE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"vélo\"?",
+			"image": "",
+			"answer": "Bicycle",
+			"typeins": ["^BIKE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"fille\"?",
+			"image": "",
+			"answer": "Girl",
+			"typeins": ["^DAUGHTER$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"garçon\"?",
+			"image": "",
+			"answer": "Boy",
+			"typeins": ["^YOUNG\\s*MAN$", "^APPRENTICE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"ciel\"?",
+			"image": "",
+			"answer": "Sky",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"mer\"?",
+			"image": "",
+			"answer": "Sea",
+			"typeins": ["^SEASIDE$", "^COAST$", "^OCEAN$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"cœeur\"?",
+			"image": "",
+			"answer": "Heart",
+			"typeins": ["^CENT(ER|RE)$", "^CORE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"pain\"?",
+			"image": "",
+			"answer": "Bread",
+			"typeins": ["^LOAF$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"chaise\"?",
+			"image": "",
+			"answer": "Chair",
+			"typeins": ["^SEAT$", "^SUPPORT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"mot\"?",
+			"image": "",
+			"answer": "Word",
+			"typeins": ["^REMARK$", "^MESSAGE$", "^NOTE$", "^EXPRESSION$", "^SAYING$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"marche\"?",
+			"image": "",
+			"answer": "Step",
+			"typeins": ["^WALK(ING)?$", "^HIKE$", "^HIKING$", "^MARCH$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"marché\"?",
+			"image": "",
+			"answer": "Market",
+			"typeins": ["^MARKETPLACE$", "^DEAL$", "^BARGAIN$", "^CONTRACT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"forêt\"?",
+			"image": "",
+			"answer": "Forest",
+			"typeins": ["^WOOD(LAND)?S?$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"avion\"?",
+			"image": "",
+			"answer": "Airplane",
+			"typeins": ["^(AERO|AIR)?PLANE$", "^AIRCRAFT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"montagne\"?",
+			"image": "",
+			"answer": "Mountain",
+			"typeins": ["^STACK$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"plage\"?",
+			"image": "",
+			"answer": "Beach",
+			"typeins": ["^TRACK$", "^RANGE$", "^SPAN$", "^SHIFT$", "^PERIOD$", "^(TIME)?\\s*SLOT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"bibliothèque\"?",
+			"image": "",
+			"answer": "Library",
+			"typeins": ["^BOOK(CASE|SHELF)$", "^SERIES$", "^COLLECTION$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"médicin\"?",
+			"image": "",
+			"answer": "Doctor",
+			"typeins": ["^PHYSICIAN$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"papier\"?",
+			"image": "",
+			"answer": "Paper",
+			"typeins": ["^ARTICLE$", "^PIECE$", "^(PIECE|SHEET)\\s*OF\\s*PAPER$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"salle\"?",
+			"image": "",
+			"answer": "Hall",
+			"typeins": ["^GALLERY$", "^ROOM$", "^AUDIENCE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"pluie\"?",
+			"image": "",
+			"answer": "Rain",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"vent\"?",
+			"image": "",
+			"answer": "Wind",
+			"typeins": ["^BREEZE$", "^GAS$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"guerre\"?",
+			"image": "",
+			"answer": "War",
+			"typeins": ["^WAR(FARE)?$", "^CONFLICT$", "^BATTLE$", "^FIGHT$", "^STRUGGLE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"paix\"?",
+			"image": "",
+			"answer": "Peace",
+			"typeins": ["^HARMONY$", "^QUIET(NESS)?$", "^PEACEFULNESS$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"esprit\"?",
+			"image": "",
+			"answer": "Mind",
+			"typeins": ["^PSYCHE$", "^INTELLECT$", "^SENSE$", "^WIT$", "^SPIRIT$", "^GHOST$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"corps\"?",
+			"image": "",
+			"answer": "Body",
+			"typeins": ["^CORPSE?$", "^COMMUNITY$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"vérité\"?",
+			"image": "",
+			"answer": "Truth",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"escalier\"?",
+			"image": "",
+			"answer": "Staircase",
+			"typeins": ["^STAIRS$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"hôtel\"?",
+			"image": "",
+			"answer": "Hotel",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"tableau\"?",
+			"image": "",
+			"answer": "Board",
+			"typeins": ["^TABLE$", "^CHART$", "^RACK$", "^PAINTING$", "^PICTURE$", "^GROUP$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"gâteau\"?",
+			"image": "",
+			"answer": "Cake",
+			"typeins": ["^BISCUIT$", "^COOKIE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"jeu\"?",
+			"image": "",
+			"answer": "Game",
+			"typeins": ["^PLAY(ING)?$", "^ACTING$", "^SLACK$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"cuisine\"?",
+			"image": "",
+			"answer": "Food",
+			"typeins": ["^CUISINE$", "^KITCHEN$", "^COOKING$", "^POUND$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"musée\"?",
+			"image": "",
+			"answer": "Museum",
+			"typeins": ["^(ART)?\\s*GALLERY$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"chambre\"?",
+			"image": "",
+			"answer": "Bedroom",
+			"typeins": ["^ROOM$", "^(BED)?CHAMBER$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"ordinateur\"?",
+			"image": "",
+			"answer": "Computer",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"robe\"?",
+			"image": "",
+			"answer": "Dress",
+			"typeins": ["^FROCK$", "^GOWN$", "^COAT$", "^COLOU?R$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"manteau\"?",
+			"image": "",
+			"answer": "Coat",
+			"typeins": ["^MANT(LE|EL)$", "^BLANKET$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"sac\"?",
+			"image": "",
+			"answer": "Bag",
+			"typeins": ["^SACK$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"chaussure\"?",
+			"image": "",
+			"answer": "Shoe",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"clé\"?",
+			"image": "",
+			"answer": "Key",
+			"typeins": ["^SPANNER$", "^WRENCH$", "^ANSWER$", "^SOLUTION$", "^CODE$", "^CLEF$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"vin\"?",
+			"image": "",
+			"answer": "Wine",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"bière\"?",
+			"image": "",
+			"answer": "Beer",
+			"typeins": ["^ALE$", "^LAGER$", "^COFFIN$", "^CASKET$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"riz\"?",
+			"image": "",
+			"answer": "Rice",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"salade\"?",
+			"image": "",
+			"answer": "Salad",
+			"typeins": ["^LETTUCE$", "^NONSENSE$", "^LIES$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"viande\"?",
+			"image": "",
+			"answer": "Meat",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"sucre\"?",
+			"image": "",
+			"answer": "Sugar",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"pomme\"?",
+			"image": "",
+			"answer": "Apple",
+			"typeins": ["^KNOB$", "^TOP$", "^FACE$", "^SHOWERHEAD$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"fromage\"?",
+			"image": "",
+			"answer": "Cheese",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"glace\"?",
+			"image": "",
+			"answer": "Ice",
+			"typeins": ["^ICE\\s*CREAM$", "^MIRROR$", "^(GLASS\\s*)?PANE(\\s*OF\\s*GLASS)?$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"banane\"?",
+			"image": "",
+			"answer": "Banana",
+			"typeins": ["^BUMBAG$", "^FANNY\\s*PACK$", "^QUIFF$", "^IDIOT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"tomate\"?",
+			"image": "",
+			"answer": "Tomato",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"œuf\"?",
+			"image": "",
+			"answer": "Egg",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"lait\"?",
+			"image": "",
+			"answer": "Milk",
+			"typeins": ["^LOTION$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"rivière\"?",
+			"image": "",
+			"answer": "River",
+			"typeins": ["^TRIBUTARY$","^TRAIL$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"lac\"?",
+			"image": "",
+			"answer": "Lake",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"courrier\"?",
+			"image": "",
+			"answer": "Mail",
+			"typeins": ["^POST$","^LETTERS$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"voix\"?",
+			"image": "",
+			"answer": "Voice",
+			"typeins": ["^VOTE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"cadeau\"?",
+			"image": "",
+			"answer": "Gift",
+			"typeins": ["^PRESENT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"santé\"?",
+			"image": "",
+			"answer": "Health",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"futur\"?",
+			"image": "",
+			"answer": "Future",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"conseil\"?",
+			"image": "",
+			"answer": "Advice",
+			"typeins": ["^SUGGESTION$", "^RECOMMENDATION$", "^COUNCIL$", "^COMMITTEE$", "^BOARD$", "^COUNSEL$", "^GUIDANCE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"réponse\"?",
+			"image": "",
+			"answer": "Answer",
+			"typeins": ["^REPLY$", "^RESPONSE$", "^SOLUTION$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"colère\"?",
+			"image": "",
+			"answer": "Anger",
+			"typeins": ["^RAGE$", "^WRATH$", "^TANTRUM$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"bonheur\"?",
+			"image": "",
+			"answer": "Joy",
+			"typeins": ["^PLEASURE$", "^DELIGHT$", "^HAPPINESS$", "^GOOD\\s*(LUCK|FORTUNE)$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"manière\"?",
+			"image": "",
+			"answer": "Style",
+			"typeins": ["^WAY$", "^FASHION$", "^MANNER$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"regard\"?",
+			"image": "",
+			"answer": "Expression",
+			"typeins": ["^LOOK$", "^EYES?$", "^GLANCE$", "^GAZE$", "^OPINION$", "^VIEWPOINT$", "^POINT\\s*OF\\s*VIEW$", "^PERSPECTIVE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"réflexion\"?",
+			"image": "",
+			"answer": "Reflection",
+			"typeins": ["^THOUGHT$", "^CONSIDERATION$", "^CRITICISM$", "^REMARK$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"plaisir\"?",
+			"image": "",
+			"answer": "Pleasure",
+			"typeins": ["^ENJOYMENT$", "^DELIGHT$", "^HAPPINESS$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"sens\"?",
+			"image": "",
+			"answer": "Sense",
+			"typeins": ["^WAY$", "^DIRECTION$", "^MEANING$", "^FEELING$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"lien\"?",
+			"image": "",
+			"answer": "Link",
+			"typeins": ["^LINK$", "^CONNECTION$", "^RELATIONSHIP$", "^BOND$", "^TIE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"utilisation\"?",
+			"image": "",
+			"answer": "Use",
+			"typeins": ["^USAGE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"choix\"?",
+			"image": "",
+			"answer": "Choice",
+			"typeins": ["^DECISION$", "^SELECTION$", "^OPTION$", "^RANGE$", "^ALTERNATIVE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"contenu\"?",
+			"image": "",
+			"answer": "Contents",
+			"typeins": ["^CONTENT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"fonction\"?",
+			"image": "",
+			"answer": "Function",
+			"typeins": ["^DUTY$", "^JOB$", "^PROFESSION$", "^EMPLOYMENT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"valeur\"?",
+			"image": "",
+			"answer": "Value",
+			"typeins": ["^WORTH$", "^MERIT$", "^AUTHORITY$", "^BASIS$", "^USEFULNESS$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"partie\"?",
+			"image": "",
+			"answer": "Part",
+			"typeins": ["^SECTION$", "^NUMBER$", "^GAME$", "^MATCH$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"but\"?",
+			"image": "",
+			"answer": "Goal",
+			"typeins": ["^AIM$", "^OBJECTIVE$", "^PURPOSE$", "^INTENTION$", "^TARGET$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"manque\"?",
+			"image": "",
+			"answer": "Lack",
+			"typeins": ["^SHORTAGE$", "^DEFICIENCY$", "^ABSENCE$", "^FLAW$", "^ERROR$", "^FAULT$", "^GAP$", "^HOLE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"droit\"?",
+			"image": "",
+			"answer": "Right",
+			"typeins": ["^LAW$", "^ENTITLEMENT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"réflexion\"?",
+			"image": "",
+			"answer": "Reflection",
+			"typeins": ["^THOUGHT$", "^CONSIDERATION$", "^CRITICISM$", "^REMARK$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"saison\"?",
+			"image": "",
+			"answer": "Season",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"besoin\"?",
+			"image": "",
+			"answer": "Need",
+			"typeins": ["^REQUIREMENT$", "^NECESSITY$", "^URGE$", "^EXTREMITY$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"champ\"?",
+			"image": "",
+			"answer": "Field",
+			"typeins": ["^DOMAIN$", "^CHAMPAGNE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"liberté\"?",
+			"image": "",
+			"answer": "Freedom",
+			"typeins": ["^LIBERTY$", "^EMANCIPATION$", "^LEEWAY$", "^(CREATIVE|ARTISTIC)?\\s*LICEN[SC]E$", "^FREE\\s*TIME$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"revenu\"?",
+			"image": "",
+			"answer": "Income",
+			"typeins": ["^EARNINGS$", "^REVENUE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"fleur\"?",
+			"image": "",
+			"answer": "Flower",
+			"typeins": ["^BLOSSOM$", "^BLOOM$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"soleil\"?",
+			"image": "",
+			"answer": "Sun",
+			"typeins": ["^SUNLIGHT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"lune\"?",
+			"image": "",
+			"answer": "Moon",
+			"typeins": ["^MOONLIGHT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"réflexion\"?",
+			"image": "",
+			"answer": "Reflection",
+			"typeins": ["^THOUGHT$", "^CONSIDERATION$", "^CRITICISM$", "^REMARK$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"amour\"?",
+			"image": "",
+			"answer": "Love",
+			"typeins": ["^DEVOTION$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"espoir\"?",
+			"image": "",
+			"answer": "Hope",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"cheval\"?",
+			"image": "",
+			"answer": "Horse",
+			"typeins": ["^HORSE(MEAT|POWER)$", "^EQUESTRIAN$", "^HORSE(BACK)?\\s*RIDING$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"journal\"?",
+			"image": "",
+			"answer": "Newspaper",
+			"typeins": ["^PAPER$", "^MAGAZINE$", "^DIARY$", "^JOURNAL$", "^LOG$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"feu\"?",
+			"image": "",
+			"answer": "Fire",
+			"typeins": ["^RING$", "^BURNER$", "^((SET\\s*OF)?TRAFFIC)?\\s*LIGHTS?$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"matin\"?",
+			"image": "",
+			"answer": "Morning",
+			"typeins": ["^MORN$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"soir\"?",
+			"image": "",
+			"answer": "Evening",
+			"typeins": ["^NIGHT$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"verre\"?",
+			"image": "",
+			"answer": "Glass",
+			"typeins": ["^GLASSFUL$", "^DRINK$", "^LENS$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"chemise\"?",
+			"image": "",
+			"answer": "Shirt",
+			"typeins": ["^FOLDER$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"œil\"?",
+			"image": "",
+			"answer": "Eye",
+			"typeins": ["^PERSPECTIVE$", "^POINT\\s*OF\\s*VIEW$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"peinture\"?",
+			"image": "",
+			"answer": "Paint",
+			"typeins": ["^PAINTING$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"bouche\"?",
+			"image": "",
+			"answer": "Mouth",
+			"typeins": ["^LIPS$", "^ENTRANCE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"tristesse\"?",
+			"image": "",
+			"answer": "Sadness",
+			"typeins": ["^SORROW$", "^WRETCHEDNESS$", "^DESPONDENCY$", "^POIGNANCY$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"maladie\"?",
+			"image": "",
+			"answer": "Disease",
+			"typeins": ["^SICKNESS$", "^ILLNESS$", "^MALADY$", "^MANIA$", "^OBSESSION$", "^ADDICTION$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"réussite\"?",
+			"image": "",
+			"answer": "Success",
+			"typeins": ["^ACHIVEMENT$", "^ACCOMPLISHMENT$", "^PATIENCE$", "^SOLITAIRE$"],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"poisson\"?",
+			"image": "",
+			"answer": "Fish",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"légume\"?",
+			"image": "",
+			"answer": "Vegetable",
+			"typeins": [],
+			"tags": ["Language"]
+		},
+		{
+			"question": "What is the meaning of the french noun \"étang\"?",
+			"image": "",
+			"answer": "Pond",
+			"typeins": ["^POOL$", "^TARN$"],
+			"tags": ["Language"]
+		}
+	]
+}
