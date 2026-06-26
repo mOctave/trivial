@@ -1,0 +1,350 @@
+{
+	"name": "Olympics Hosts",
+	"image": "/img/unsplash/olympics.jpg",
+	"description": "Can you guess the host city for each of these Olympic Games?",
+	"cards": [
+		{
+			"question": "Which city hosted the 1896 summer Olympics (the first modern Olympic games)?",
+			"image": "",
+			"answer": "Athens",
+			"typeins": [],
+			"tags": ["Sports and Recreation", "General Knowledge"]
+		},{
+			"question": "Which city hosted the 1900 summer Olympics?",
+			"image": "",
+			"answer": "Paris",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1904 summer Olympics?",
+			"image": "",
+			"answer": "St. Louis",
+			"typeins": ["^(ST|SAINT)\\.?\\s*L[OU]+IS$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1908 summer Olympics?",
+			"image": "",
+			"answer": "London",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1912 summer Olympics?",
+			"image": "",
+			"answer": "Stockholm",
+			"typeins": ["^STO[CK]+H?OLM$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1908 summer Olympics?",
+			"image": "",
+			"answer": "London",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1920 summer Olympics?",
+			"image": "",
+			"answer": "Antwerp",
+			"typeins": ["^AN(TW|V)ER[PS]$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1924 winter Olympics?",
+			"image": "",
+			"answer": "Chamonix",
+			"typeins": ["^CHAM[AEIO]N[AI]+X$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1924 summer Olympics?",
+			"image": "",
+			"answer": "Paris",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1928 winter Olympics?",
+			"image": "",
+			"answer": "St. Moritz",
+			"typeins": ["^(ST|ST\\.|SAINT|SAKNT)\\s*MOR+ITZ$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1928 summer Olympics?",
+			"image": "",
+			"answer": "Amsterdam",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1932 winter Olympics?",
+			"image": "",
+			"answer": "Lake Placid",
+			"typeins": ["^LAKE\\s*PLACID$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1932 summer Olympics?",
+			"image": "",
+			"answer": "Los Angeles",
+			"typeins": ["^L[AO]SANG[AEIOU]L[AEIOU]S$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1936 winter Olympics?",
+			"image": "",
+			"answer": "Garmisch-Partenkirchen",
+			"typeins": ["^GARMI[SC]+H", "^PART[EI]NKIRCHEN"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1936 summer Olympics?",
+			"image": "",
+			"answer": "Berlin",
+			"typeins": [],
+			"tags": ["Sports and Recreation", "History"]
+		},{
+			"question": "Which city hosted the 1948 winter Olympics?",
+			"image": "",
+			"answer": "St. Moritz",
+			"typeins": ["^(ST|ST\\.|SAINT|SAKNT)\\s*MOR+ITZ$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1948 summer Olympics?",
+			"image": "",
+			"answer": "London",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1952 winter Olympics?",
+			"image": "",
+			"answer": "Oslo",
+			"typeins": ["^(ST|ST\\.|SAINT|SAKNT)\\s*MOR+ITZ$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1952 summer Olympics?",
+			"image": "",
+			"answer": "Helsinki",
+			"typeins": ["^HELSINGFORS$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1956 winter Olympics?",
+			"image": "",
+			"answer": "Cortina d'Ampezzo",
+			"typeins": ["^CORTINA(\\s*D'?AMP[EI][SZ]+O)?$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted most of the events for the 1956 summer Olympics?",
+			"image": "",
+			"answer": "Melbourne",
+			"typeins": ["^MEL+B[EOU]+RNE$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the equestrian events for the 1956 summer Olympics?",
+			"image": "",
+			"answer": "Stockholm",
+			"typeins": ["^STO[CK]+H?OLM$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1960 winter Olympics?",
+			"image": "",
+			"answer": "Squaw Valley",
+			"typeins": ["^(SQUAW|OLYMPIC)\\s*VALLEY$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1960 summer Olympics?",
+			"image": "",
+			"answer": "Rome",
+			"typeins": ["^ROMA$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1964 winter Olympics?",
+			"image": "",
+			"answer": "Innsbruck",
+			"typeins": ["^IN+SBR[EOU]+C?K$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1964 summer Olympics?",
+			"image": "",
+			"answer": "Tokyo",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1968 winter Olympics?",
+			"image": "",
+			"answer": "Grenoble",
+			"typeins": ["^GR[AE]NOBLE$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1968 summer Olympics?",
+			"image": "",
+			"answer": "Mexico City",
+			"typeins": ["^(C[IU]+DAD\\s*DE)?\\s*MEXICO\\s*(CITY)?$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1972 winter Olympics?",
+			"image": "",
+			"answer": "Sapporo",
+			"typeins": ["^SAP+OR+O$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1972 summer Olympics?",
+			"image": "",
+			"answer": "Munich",
+			"typeins": ["^MUNCHEN$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1976 winter Olympics?",
+			"image": "",
+			"answer": "Innsbruck",
+			"typeins": ["^IN+SBR[EOU]+C?K$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1976 summer Olympics?",
+			"image": "",
+			"answer": "Montreal",
+			"typeins": ["^MONTREAL$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1980 winter Olympics?",
+			"image": "",
+			"answer": "Lake Placid",
+			"typeins": ["^LAKE\\s*PLACID$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1980 summer Olympics?",
+			"image": "",
+			"answer": "Moscow",
+			"typeins": ["^MOSKVA$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1984 winter Olympics?",
+			"image": "",
+			"answer": "Sarajevo",
+			"typeins": ["^SAR[AE]J[AE]VO$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1984 summer Olympics?",
+			"image": "",
+			"answer": "Los Angeles",
+			"typeins": ["^L[AO]SANG[AEIOU]L[AEIOU]S$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1988 winter Olympics?",
+			"image": "",
+			"answer": "Calgary",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1988 summer Olympics?",
+			"image": "",
+			"answer": "Seoul",
+			"typeins": ["^SE[OU]+L$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1992 winter Olympics?",
+			"image": "",
+			"answer": "Albertville",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1992 summer Olympics?",
+			"image": "",
+			"answer": "Barcelona",
+			"typeins": ["^BARC[AEIO]LONA$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1994 winter Olympics?",
+			"image": "",
+			"answer": "Lillehammer",
+			"typeins": ["^LIL+[EIY]+HAMMER$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1996 summer Olympics?",
+			"image": "",
+			"answer": "Atlanta",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 1998 winter Olympics?",
+			"image": "",
+			"answer": "Nagano",
+			"typeins": ["^N[AO]G[AO]NO$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2000 summer Olympics?",
+			"image": "",
+			"answer": "Sydney",
+			"typeins": ["^S[IY][ND]+E?Y$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2002 winter Olympics?",
+			"image": "",
+			"answer": "Salt Lake City",
+			"typeins": ["^SALT\\s*LAKE\\s*CITY$", "^SLC$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2004 summer Olympics?",
+			"image": "",
+			"answer": "Athens",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2006 winter Olympics?",
+			"image": "",
+			"answer": "Turin",
+			"typeins": ["^TORINO$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2008 summer Olympics?",
+			"image": "",
+			"answer": "Beijing",
+			"typeins": ["^B[EI]+JING$", "^PEKING$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2010 winter Olympics?",
+			"image": "",
+			"answer": "Vancouver",
+			"typeins": ["^VANC[OU]+VER$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2012 summer Olympics?",
+			"image": "",
+			"answer": "London",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2014 winter Olympics?",
+			"image": "",
+			"answer": "Sochi",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2016 summer Olympics?",
+			"image": "",
+			"answer": "Rio de Janeiro",
+			"typeins": ["^RIO(\\s*DE\\s*JAN[EI]+RO)?$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2018 winter Olympics?",
+			"image": "",
+			"answer": "Pyeongchang",
+			"typeins": ["^P[YEO]+CHANG$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the \"2020\" summer Olympics?",
+			"image": "",
+			"answer": "Tokyo",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2022 winter Olympics?",
+			"image": "",
+			"answer": "Beijing",
+			"typeins": ["^B[EI]+JING$", "^PEKING$"],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Which city hosted the 2024 summer Olympics?",
+			"image": "",
+			"answer": "Paris",
+			"typeins": [],
+			"tags": ["Sports and Recreation"]
+		},{
+			"question": "Name one city which hosted the 2026 winter Olympics?",
+			"image": "",
+			"answer": "Milan / Cortina d'Ampezzo",
+			"typeins": ["^MILANO?\\s*(CORTINA)?$", "^CORTINA(\\s*D'?AMP[EI][SZ]+O)?$"],
+			"tags": ["Sports and Recreation"]
+		}
+	]
+}
