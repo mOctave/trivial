@@ -23,8 +23,8 @@ const authorize = require("../services/authorize");
 const router = express.Router();
 
 router.post("/register",
-	body("name").trim().escape(),
-	body("password").escape(),
+	body("name").trim(),
+	body("password"),
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {
@@ -36,8 +36,8 @@ router.post("/register",
 
 
 router.post("/login",
-	body("name").trim().escape(),
-	body("password").escape(),
+	body("name").trim(),
+	body("password"),
 	async (req, res) => {
 		const errors = validationResult(req);
 		if (!errors.isEmpty()) {

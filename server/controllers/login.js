@@ -21,6 +21,9 @@ const { hash, compare } = require("../services/hash");
 const { generateToken } = require("../services/jwt");
 const registerAction = require("../services/registeraction");
 
+const usernameErrorChars = /^[\u0020-\u002e\u0030-\u003b\u003f-\u005b\u005d-\u007e\u00a1-\u0397\u039a-\uffff]+$/;
+
+const errorExoticUsername = "The username you've entered contains invalid characters. Please note that the charcters &lt;&gt;=/\\ and some exotic charcaters are disallowed.";
 const errorUserAlreadyExists = "The username you selected is already in use. Please choose a different name.";
 const errorBlankUsername = "Please choose a username that isn't just whitespace.";
 const errorLongUsername = "Sorry, the maximum username length is 32 characters. Please use a shorter name.";
@@ -41,6 +44,12 @@ async function register(req, res) {
 		if (req.body.name.length > 32) {
 			res.status(400);
 			req.session.errorRegisterUsername = errorLongUsername;
+			return res.redirect("/login");
+		}
+
+		if (!usernameErrorChars.test(req.body.name.length)) {
+			res.status(400);
+			req.session.errorRegisterUsername = errorExoticUsername;
 			return res.redirect("/login");
 		}
 
@@ -97,6 +106,12 @@ async function login(req, res) {
 		if (req.body.name.length > 32) {
 			res.status(400);
 			req.session.errorLoginUsername = errorLongUsername;
+			return res.redirect("/login");
+		}
+
+		if (!usernameErrorChars.test(req.body.name.length)) {
+			res.status(400);
+			req.session.errorLoginUsername = errorExoticUsername;
 			return res.redirect("/login");
 		}
 
