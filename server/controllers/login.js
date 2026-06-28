@@ -23,7 +23,9 @@ const registerAction = require("../services/registeraction");
 
 const errorUserAlreadyExists = "The username you selected is already in use. Please choose a different name.";
 const errorBlankUsername = "Please choose a username that isn't just whitespace.";
+const errorLongUsername = "Sorry, the maximum username length is 32 characters. Please use a shorter name.";
 const errorShortPassword = "Your password is too short. Please use a password with at least 8 characters.";
+const errorLongPassword = "Sorry, the maximum password length is 256 characters. Please use a shorter password.";
 const errorInvalidUsernameOrPassword = "The username or password you entered is invalid.";
 const errorInternal = `An unforseen error occured. If this problem persists, please report it <a href="https://github.com/moctave/trivial/issues">on GitHub</a> to help us debug it.`;
 
@@ -36,9 +38,21 @@ async function register(req, res) {
 			return res.redirect("/login");
 		}
 
+		if (req.body.name.length > 32) {
+			res.status(400);
+			req.session.errorRegisterUsername = errorLongUsername;
+			return res.redirect("/login");
+		}
+
 		if (req.body.password.length < 8) {
 			res.status(400);
 			req.session.errorRegisterPassword = errorShortPassword;
+			return res.redirect("/login");
+		}
+
+		if (req.body.password.length > 256) {
+			res.status(400);
+			req.session.errorRegisterUsername = errorLongPassword;
 			return res.redirect("/login");
 		}
 

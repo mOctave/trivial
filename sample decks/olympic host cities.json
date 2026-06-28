@@ -340,7 +340,7 @@
 			"typeins": [],
 			"tags": ["Sports and Recreation"]
 		},{
-			"question": "Name one city which hosted the 2026 winter Olympics?",
+			"question": "Name one of the two host cities of the 2026 winter Olympics.",
 			"image": "",
 			"answer": "Milan / Cortina d'Ampezzo",
 			"typeins": ["^MILANO?\\s*(CORTINA)?$", "^CORTINA(\\s*D'?AMP[EI][SZ]+O)?$"],

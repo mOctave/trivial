@@ -7,7 +7,7 @@
 			"question": "What is the meaning of the french noun \"livre\"?",
 			"image": "",
 			"answer": "Book",
-			"typeins": ["^TOME$", "^VOLUME$", "^POUND$"],
+			"typeins": ["^WORK$", "^TOME$", "^VOLUME$", "^POUND$"],
 			"tags": ["Language"]
 		},
 		{
@@ -151,13 +151,6 @@
 			"tags": ["Language"]
 		},
 		{
-			"question": "What is the meaning of the french noun \"livre\"?",
-			"image": "",
-			"answer": "Book",
-			"typeins": ["^WORK$", "^TOME$", "^VOLUME$", "^POUND$"],
-			"tags": ["Language"]
-		},
-		{
 			"question": "What is the meaning of the french noun \"main\"?",
 			"image": "",
 			"answer": "Hand",
@@ -200,13 +193,6 @@
 			"tags": ["Language"]
 		},
 		{
-			"question": "What is the meaning of the french noun \"livre\"?",
-			"image": "",
-			"answer": "Book",
-			"typeins": ["^WORK$", "^TOME$", "^VOLUME$", "^POUND$"],
-			"tags": ["Language"]
-		},
-		{
 			"question": "What is the meaning of the french noun \"fenêtre\"?",
 			"image": "",
 			"answer": "Window",
@@ -221,14 +207,7 @@
 			"tags": ["Language"]
 		},
 		{
-			"question": "What is the meaning of the french noun \"livre\"?",
-			"image": "",
-			"answer": "Book",
-			"typeins": ["^WORK$", "^TOME$", "^VOLUME$", "^POUND$"],
-			"tags": ["Language"]
-		},
-		{
-			"question": "What is the meaning of the french noun \"night\"?",
+			"question": "What is the meaning of the french noun \"nuit\"?",
 			"image": "",
 			"answer": "Night",
 			"typeins": ["^NIGHTTIME$", "^DARK$"],
