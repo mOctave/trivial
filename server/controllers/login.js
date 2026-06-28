@@ -52,7 +52,7 @@ async function register(req, res) {
 
 		if (req.body.password.length > 256) {
 			res.status(400);
-			req.session.errorRegisterUsername = errorLongPassword;
+			req.session.errorRegisterPassword = errorLongPassword;
 			return res.redirect("/login");
 		}
 
@@ -91,6 +91,24 @@ async function login(req, res) {
 		if (req.body.name === "") {
 			res.status(400);
 			req.session.errorLoginUsername = errorBlankUsername;
+			return res.redirect("/login");
+		}
+
+		if (req.body.name.length > 32) {
+			res.status(400);
+			req.session.errorLoginUsername = errorLongUsername;
+			return res.redirect("/login");
+		}
+
+		if (req.body.password.length < 8) {
+			res.status(400);
+			req.session.errorLoginPassword = errorShortPassword;
+			return res.redirect("/login");
+		}
+
+		if (req.body.password.length > 256) {
+			res.status(400);
+			req.session.errorLoginPassword = errorLongPassword;
 			return res.redirect("/login");
 		}
 
